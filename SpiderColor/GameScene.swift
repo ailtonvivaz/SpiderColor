@@ -10,14 +10,16 @@ import GameplayKit
 import SpriteKit
 
 class GameScene: SKScene {
+    // MARK: - Variables
+    let colors = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.blue.mix(with: .red, percent: 0.2).mix(with: .white, percent: 0.2)].generateGradient(of: 7)
+    
+    // MARK: - Lifecycle
     override func sceneDidLoad() {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
-        let deck = Deck(card: Card(color: .red))
-            .with(card: Card(color: .blue))
-            .with(card: Card(color: .yellow))
+        let deck = Deck(cards: colors.map { Card(color: $0) })
 
-        let node = DeckNode(deck: deck, width: 100)
+        let node = DeckNode(deck: deck, width: 70)
 
         addChild(node)
     }

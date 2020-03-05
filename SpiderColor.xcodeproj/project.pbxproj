@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E171E2524116BE600BA5289 /* UIColor+Extension.swift */; };
 		5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10724101867001A7D82 /* AppDelegate.swift */; };
 		5E44B10E24101867001A7D82 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10D24101867001A7D82 /* GameScene.swift */; };
 		5E44B11024101867001A7D82 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10F24101867001A7D82 /* GameViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E171E2524116BE600BA5289 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5E44B10424101867001A7D82 /* SpiderColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpiderColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E44B10724101867001A7D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E44B10D24101867001A7D82 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		5E44B10624101867001A7D82 /* SpiderColor */ = {
 			isa = PBXGroup;
 			children = (
+				5E44B12924102F75001A7D82 /* Extension */,
 				5E44B12224102522001A7D82 /* Model */,
 				5E44B11F24101D64001A7D82 /* Node */,
 				5E44B10724101867001A7D82 /* AppDelegate.swift */,
@@ -93,6 +96,14 @@
 				5E44B1272410256C001A7D82 /* Deck.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5E44B12924102F75001A7D82 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5E171E2524116BE600BA5289 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 				5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */,
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,
 				5E44B12124101DB3001A7D82 /* CardNode.swift in Sources */,
+				5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

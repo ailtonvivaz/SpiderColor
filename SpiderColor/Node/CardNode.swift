@@ -15,9 +15,10 @@ class CardNode: SKShapeNode {
         let height = 1.8 * width
         let node = SKShapeNode(rect: CGRect(x: -width / 2, y: -height / 2, width: width, height: height), cornerRadius: 0.2 * width)
         node.fillColor = card.color
-        addChild(node)
         
-        print("teste")
+//        node.strokeColor = .lightGray
+        node.lineWidth = 0//0.01 * width
+        addChild(node)
     }
     
     required init?(coder aDecoder: NSCoder) {

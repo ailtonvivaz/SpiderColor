@@ -24,8 +24,6 @@ class DeckNode: SKShapeNode {
             deckNode.position = CGPoint(x: 0, y: -(0.5 * width))
             addChild(deckNode)
         }
-        
-        print("teste")
     }
     
     required init?(coder aDecoder: NSCoder) {

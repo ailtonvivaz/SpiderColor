@@ -46,6 +46,14 @@ class Deck {
         self.card = card
     }
 
+    init(cards: [Card]) {
+        self.card = cards[0]
+        var deck = self
+        for i in 1..<cards.count {
+            deck = deck.with(card: cards[i])
+        }
+    }
+
     func with(card: Card) -> Deck {
         with(deck: Deck(card: card))
     }
