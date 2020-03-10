@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class DeckNode: SKShapeNode {
+class DeckNode: SKNode {
     private var originalPosition: CGPoint!
     
     init(deck: Deck, width: CGFloat) {
@@ -20,6 +20,7 @@ class DeckNode: SKShapeNode {
         
         if let childDeck = deck.childDeck {
             let deckNode = DeckNode(deck: childDeck, width: width)
+            deckNode.zPosition = cardNode.zPosition + 1
             
             deckNode.position = CGPoint(x: 0, y: -(0.5 * width))
             addChild(deckNode)

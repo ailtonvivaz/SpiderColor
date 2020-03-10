@@ -8,21 +8,16 @@
 
 import SpriteKit
 
-class CardNode: SKShapeNode {
+class CardNode: SKSpriteNode {
     init(card: Card, width: CGFloat) {
-        super.init()
-        
-        let height = 1.8 * width
-        let node = SKShapeNode(rect: CGRect(x: -width / 2, y: -height / 2, width: width, height: height), cornerRadius: 0.2 * width)
-        node.fillColor = card.color
-        
-//        node.strokeColor = .lightGray
-        node.lineWidth = 0//0.01 * width
-        addChild(node)
+        let height: CGFloat = width / 0.72
+
+        super.init(texture: SKTexture(image: UIImage(named: "PaperCard")!), color: card.color, size: CGSize(width: width, height: height))
+        colorBlendFactor = 1
+        anchorPoint = CGPoint(x: 0, y: 1)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

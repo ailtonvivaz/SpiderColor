@@ -11,16 +11,32 @@ import SpriteKit
 
 class GameScene: SKScene {
     // MARK: - Variables
-    let colors = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.blue.mix(with: .red, percent: 0.2).mix(with: .white, percent: 0.2)].generateGradient(of: 7)
-    
+
+    var colors = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.blue.mix(with: .red, percent: 0.2).mix(with: .white, percent: 0.2)].generateGradient(of: 8)
+
     // MARK: - Lifecycle
+
     override func sceneDidLoad() {
-        anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        anchorPoint = CGPoint(x: 0, y: 1)
+        backgroundColor = .clear
+        
+//        colors.shuffle()
+    }
 
-        let deck = Deck(cards: colors.map { Card(color: $0) })
+    override func didMove(to view: SKView) {
+        print("didMove")
 
-        let node = DeckNode(deck: deck, width: 70)
+        let width = view.frame.width
+        let slotCount = 3
+        let slotWidth = 0.2 * width
+        
+        let spacing = (width - (slotWidth * CGFloat(slotCount))) / CGFloat(slotCount + 1)
 
-        addChild(node)
+        for i in 0..<slotCount {
+            let deck = Deck(cards: colors.map { Card(color: $0) })
+            let node = DeckNode(deck: deck, width: 0.2 * width)
+            node.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + spacing, y: -30)
+            addChild(node)
+        }
     }
 }
