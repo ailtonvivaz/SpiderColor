@@ -18,6 +18,7 @@
 		5E44B12424102533001A7D82 /* DeckNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B12324102533001A7D82 /* DeckNode.swift */; };
 		5E44B12624102549001A7D82 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B12524102549001A7D82 /* Card.swift */; };
 		5E44B1282410256C001A7D82 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B1272410256C001A7D82 /* Deck.swift */; };
+		5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B960E24181F0E008F2D57 /* SlotNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		5E44B12324102533001A7D82 /* DeckNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckNode.swift; sourceTree = "<group>"; };
 		5E44B12524102549001A7D82 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5E44B1272410256C001A7D82 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		5E6B960E24181F0E008F2D57 /* SlotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				5E44B12024101DB3001A7D82 /* CardNode.swift */,
 				5E44B12324102533001A7D82 /* DeckNode.swift */,
+				5E6B960E24181F0E008F2D57 /* SlotNode.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,
 				5E44B12124101DB3001A7D82 /* CardNode.swift in Sources */,
 				5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */,
+				5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

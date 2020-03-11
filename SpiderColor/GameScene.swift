@@ -35,7 +35,7 @@ class GameScene: SKScene {
         for i in 0..<slotCount {
             let deck = Deck(cards: colors.map { Card(color: $0) })
             let node = DeckNode(deck: deck, width: 0.2 * width)
-            node.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + spacing, y: -30)
+            node.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + spacing, y: -90)
             addChild(node)
         }
     }

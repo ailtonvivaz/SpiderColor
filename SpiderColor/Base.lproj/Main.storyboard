@@ -21,17 +21,46 @@
                             <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5E0-3K-zHp">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </skView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UndoButton" translatesAutoresizingMaskIntoConstraints="NO" id="kXz-a5-U9p">
+                                <rect key="frame" x="40" y="782" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kXz-a5-U9p" secondAttribute="height" multiplier="1:1" id="gcx-QV-mwA"/>
+                                    <constraint firstAttribute="width" constant="60" id="hNB-7O-b6c"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HintButton" translatesAutoresizingMaskIntoConstraints="NO" id="8fJ-m7-ws5">
+                                <rect key="frame" x="314" y="782" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8fJ-m7-ws5" secondAttribute="height" multiplier="1:1" id="h0D-SZ-pLx"/>
+                                    <constraint firstAttribute="width" constant="60" id="irh-XY-4bm"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ExitButton" translatesAutoresizingMaskIntoConstraints="NO" id="QnA-f6-Sa8">
+                                <rect key="frame" x="40" y="64" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="IJh-tj-CIK"/>
+                                    <constraint firstAttribute="width" secondItem="QnA-f6-Sa8" secondAttribute="height" multiplier="1:1" id="jRy-EC-iiG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="zOr-iB-IHG" secondAttribute="bottom" id="107-Eu-TW5"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="8fJ-m7-ws5" secondAttribute="trailing" constant="40" id="8Zt-Ss-lhJ"/>
                             <constraint firstItem="5E0-3K-zHp" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="DfO-au-khE"/>
+                            <constraint firstItem="QnA-f6-Sa8" firstAttribute="width" secondItem="QnA-f6-Sa8" secondAttribute="height" multiplier="1:1" id="FdL-ls-VDw"/>
+                            <constraint firstItem="QnA-f6-Sa8" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="40" id="Gc0-6m-Oiw"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="5E0-3K-zHp" secondAttribute="trailing" id="Hfl-hm-E0k"/>
                             <constraint firstItem="zOr-iB-IHG" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="IdJ-dJ-P1t"/>
                             <constraint firstItem="zOr-iB-IHG" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="Ktm-33-7xN"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="kXz-a5-U9p" secondAttribute="bottom" constant="20" id="LB5-Xu-ovC"/>
                             <constraint firstItem="zOr-iB-IHG" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="OtN-JQ-iIJ"/>
+                            <constraint firstItem="8fJ-m7-ws5" firstAttribute="width" secondItem="8fJ-m7-ws5" secondAttribute="height" multiplier="1:1" id="S7g-pY-JWL"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="8fJ-m7-ws5" secondAttribute="bottom" constant="20" id="SfZ-uB-ceP"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="5E0-3K-zHp" secondAttribute="bottom" id="Vzr-mO-kbV"/>
                             <constraint firstItem="5E0-3K-zHp" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="kYz-Qe-1or"/>
+                            <constraint firstItem="QnA-f6-Sa8" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="20" id="riZ-Ib-aHn"/>
+                            <constraint firstItem="kXz-a5-U9p" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="40" id="uyZ-Oq-l9J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
@@ -46,5 +75,8 @@
     </scenes>
     <resources>
         <image name="Background" width="1500" height="2668"/>
+        <image name="ExitButton" width="48" height="48"/>
+        <image name="HintButton" width="48" height="48"/>
+        <image name="UndoButton" width="48" height="48"/>
     </resources>
 </document>
