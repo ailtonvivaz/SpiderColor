@@ -32,14 +32,14 @@ class SlotNode: SKSpriteNode {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            deckNode?.deckDraggable?.drag(to: touch.location(in: self))
+        if let touch = touches.first, let node = deckNode?.deckDraggable {
+            node.drag(to: touch.location(in: node.parentNode!))
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            deckNode?.deckDraggable?.move(to: touch.location(in: self))
+        if let touch = touches.first, let node = deckNode?.deckDraggable {
+            node.move(to: touch.location(in: node.parentNode!))
         }
     }
     
@@ -48,7 +48,7 @@ class SlotNode: SKSpriteNode {
             let pos = touches.first!.location(in: parent!)
             if let slotDragged = delegate?.getSlot(for: pos), slotDragged != self {
 //                print("end in \(pos) \n \(slotDragged)")
-                deckDragged.drop()
+//                deckDragged.drop()
                 move(deckDragged, to: slotDragged)
 //                slotDragged.add(deckNode: deckDragged)
             } else {

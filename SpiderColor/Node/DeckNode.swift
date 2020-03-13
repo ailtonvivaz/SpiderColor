@@ -9,7 +9,7 @@
 import SpriteKit
 
 class DeckNode: SKNode {
-    private var originalPosition: CGPoint!
+    private var offsettedPosition: CGPoint { CGPoint(x: 0, y: -(0.25 * self.width)) }
     
     private var width: CGFloat
     var deck: Deck
@@ -49,7 +49,6 @@ class DeckNode: SKNode {
     func drag(to point: CGPoint) {
         self.originalZPosition = zPosition
         self.zPosition = 10000
-        self.originalPosition = position
         run(.group([
             .scale(to: 1.2, duration: 0.1),
             .move(to: self.normalPosition(for: point), duration: 0.1),
@@ -63,7 +62,7 @@ class DeckNode: SKNode {
     func drop() {
         run(.group([
             .scale(to: 1, duration: 0.1),
-            .move(to: self.originalPosition, duration: 0.1),
+            .move(to: self.offsettedPosition, duration: 0.1),
         ])) {
             self.zPosition = self.originalZPosition
         }
@@ -73,8 +72,10 @@ class DeckNode: SKNode {
         deckNode.parentNode = self
         self.childNode = deckNode
         deckNode.zPosition = zPosition + 1
-        deckNode.position = CGPoint(x: 0, y: -(0.25 * self.width))
+        deckNode.position = self.offsettedPosition
         addChild(deckNode)
+        
+        print(zPosition)
     }
     
     func move(to other: DeckNode) {
@@ -86,43 +87,10 @@ class DeckNode: SKNode {
             other.childNode = self
             zPosition = other.zPosition + 1
             self.deck.move(to: other.deck)
-            position = CGPoint(x: 0, y: -(0.25 * self.width))
             self.move(toParent: other)
+            
+            zPosition = 1
+            self.drop()
         }
-//                if let child = deckChild {
-//                    child.add(deckNode: deckNode)
-//                } else {
-//                    self.deckChild = deckNode
-//                    deckNode.zPosition = zPosition + 1
-//
-//                    deckNode.deck.change(to: self.deck)
-//
-//                    deckNode.position = CGPoint(x: 0, y: -(0.25 * self.width))
-//                    deckNode.move(toParent: self)
-//
-//        //            addChild(deckNode)
-//                }
     }
-    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.originalPosition = position
-//        run(.scale(to: 1.2, duration: 0.1))
-//
-//        if let touch = touches.first {
-//            run(.move(to: self.normalPosition(for: touch.location(in: self.parent!)), duration: 0.1))
-//        }
-//    }
-//
-//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let touch = touches.first {
-//            self.position = self.normalPosition(for: touch.location(in: self.parent!))
-//        }
-//    }
-//
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        run(.group([
-//            .scale(to: 1, duration: 0.1),
-//            .move(to: self.originalPosition, duration: 0.1),
-//        ]))
-//    }
 }

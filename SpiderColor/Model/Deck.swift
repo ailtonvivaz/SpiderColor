@@ -38,10 +38,11 @@ class Deck {
     }
 
     var isDraggable: Bool {
+        if isEmpty { return false }
         if let deck = childDeck {
             return (card.isNext(of: deck.card)) && deck.isDraggable
         }
-        return !isEmpty
+        return true
     }
 
     init(card: Card) {
