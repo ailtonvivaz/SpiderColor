@@ -83,12 +83,12 @@ class DeckNode: SKNode {
             self.parentNode?.childNode = nil
             self.parentNode = other
             other.childNode = self
-            zPosition = other.zPosition + 1
             self.deck.move(to: other.deck)
             self.move(toParent: other)
             
             zPosition = 1
             self.drop()
+            zPosition = other.zPosition + 1
         }
     }
 }

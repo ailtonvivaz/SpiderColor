@@ -20,6 +20,7 @@
 		5E44B1282410256C001A7D82 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B1272410256C001A7D82 /* Deck.swift */; };
 		5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B960E24181F0E008F2D57 /* SlotNode.swift */; };
 		5EB118E0241B35CA00112FCD /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118DF241B35CA00112FCD /* GradientNode.swift */; };
+		5EB118E2241B3D6800112FCD /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118E1241B3D6800112FCD /* Movement.swift */; };
 		5EF196E524195D32003CD4DB /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		5E44B1272410256C001A7D82 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		5E6B960E24181F0E008F2D57 /* SlotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotNode.swift; sourceTree = "<group>"; };
 		5EB118DF241B35CA00112FCD /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
+		5EB118E1241B3D6800112FCD /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
 		5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 			children = (
 				5E44B12524102549001A7D82 /* Card.swift */,
 				5E44B1272410256C001A7D82 /* Deck.swift */,
+				5EB118E1241B3D6800112FCD /* Movement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,
 				5E44B12124101DB3001A7D82 /* CardNode.swift in Sources */,
 				5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */,
+				5EB118E2241B3D6800112FCD /* Movement.swift in Sources */,
 				5EF196E524195D32003CD4DB /* CGPoint+Extension.swift in Sources */,
 				5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */,
 				5EB118E0241B35CA00112FCD /* GradientNode.swift in Sources */,

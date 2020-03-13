@@ -21,12 +21,16 @@
                             <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5E0-3K-zHp">
                                 <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                             </skView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UndoButton" translatesAutoresizingMaskIntoConstraints="NO" id="kXz-a5-U9p">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UndoButton" translatesAutoresizingMaskIntoConstraints="NO" id="kXz-a5-U9p">
                                 <rect key="frame" x="20" y="782" width="60" height="60"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kXz-a5-U9p" secondAttribute="height" multiplier="1:1" id="gcx-QV-mwA"/>
                                     <constraint firstAttribute="width" constant="60" id="hNB-7O-b6c"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5u5-Eg-lIu" appends="YES" id="Yn8-v0-5mT"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HintButton" translatesAutoresizingMaskIntoConstraints="NO" id="8fJ-m7-ws5">
                                 <rect key="frame" x="334" y="782" width="60" height="60"/>
@@ -69,6 +73,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5u5-Eg-lIu">
+                    <connections>
+                        <action selector="onTapUndo:" destination="BV1-FR-VrT" id="d1w-kU-mvL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>

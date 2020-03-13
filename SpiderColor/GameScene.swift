@@ -17,6 +17,7 @@ class GameScene: SKScene, SlotNodeDelegate {
 
     var gradientNode: GradientNode!
     var slotNodes: [SlotNode] = []
+    var lastMovement: Movement?
 
     // MARK: - Lifecycle
 
@@ -29,7 +30,7 @@ class GameScene: SKScene, SlotNodeDelegate {
         addChild(gradientNode)
         gradientNode.position = CGPoint(x: 20, y: -30)
 
-            let cards = colors.enumerated().map { Card(value: $0, color: $1) }.shuffled()
+        let cards = colors.enumerated().map { Card(value: $0, color: $1) }.shuffled()
         let slots = [Array(cards[0..<3]), Array(cards[3..<6]), Array(cards[6..<9])]
 
         let horizontalMargin: CGFloat = 20
@@ -51,5 +52,15 @@ class GameScene: SKScene, SlotNodeDelegate {
 
     func getSlot(for point: CGPoint) -> SlotNode? {
         slotNodes.first(where: { $0.frame.contains(point) })
+    }
+
+    func update(movement: Movement) {
+        lastMovement = movement
+    }
+
+    func undoMovement() {
+        if let movement = lastMovement {
+            movement.slotDestination.move(movement.deckNode, to: movement.slotSource)
+        }
     }
 }

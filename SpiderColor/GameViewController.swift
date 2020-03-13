@@ -13,10 +13,12 @@ import UIKit
 class GameViewController: UIViewController {
     @IBOutlet var sceneView: SKView!
 
+    var scene: GameScene!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let scene = GameScene(size: view.frame.size)
+        scene = GameScene(size: view.frame.size)
 
 //        let sceneNode = scene.rootNode
 
@@ -47,5 +49,9 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+
+    @IBAction func onTapUndo(_ sender: Any) {
+        scene.undoMovement()
     }
 }

@@ -10,6 +10,7 @@ import SpriteKit
 
 protocol SlotNodeDelegate {
     func getSlot(for point: CGPoint) -> SlotNode?
+    func update(movement: Movement)
 }
 
 class SlotNode: SKSpriteNode {
@@ -58,7 +59,7 @@ class SlotNode: SKSpriteNode {
         }
     }
     
-    private func move(_ deckNode: DeckNode, to slotNode: SlotNode) -> Bool {
+    func move(_ deckNode: DeckNode, to slotNode: SlotNode) -> Bool {
         if let node = slotNode.deckNode {
             deckNode.move(to: node)
             if deckNode == self.deckNode {
@@ -67,6 +68,7 @@ class SlotNode: SKSpriteNode {
         } else {
             slotNode.add(deckNode: deckNode)
         }
+        delegate?.update(movement: Movement(slotSource: self, slotDestination: slotNode, deckNode: deckNode))
         return true
     }
     
