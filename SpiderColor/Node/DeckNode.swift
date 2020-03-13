@@ -74,8 +74,6 @@ class DeckNode: SKNode {
         deckNode.zPosition = zPosition + 1
         deckNode.position = self.offsettedPosition
         addChild(deckNode)
-        
-        print(zPosition)
     }
     
     func move(to other: DeckNode) {
