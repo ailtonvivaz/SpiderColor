@@ -33,6 +33,8 @@ class GameViewController: UIViewController {
 
         sceneView.showsFPS = true
         sceneView.showsNodeCount = true
+        sceneView.showsFields = true
+        sceneView.clipsToBounds = false
     }
 
     override var shouldAutorotate: Bool {

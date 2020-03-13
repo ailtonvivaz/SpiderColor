@@ -43,7 +43,7 @@ class DeckNode: SKNode {
     }
     
     private func normalPosition(for point: CGPoint) -> CGPoint {
-        point - CGPoint(x: calculateAccumulatedFrame().width / 2, y: 0)
+        point - CGPoint(x: calculateAccumulatedFrame().width / 2, y: -calculateAccumulatedFrame().height)
     }
     
     func drag(to point: CGPoint) {

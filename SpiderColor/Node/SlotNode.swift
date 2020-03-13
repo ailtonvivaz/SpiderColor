@@ -35,6 +35,8 @@ class SlotNode: SKSpriteNode {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, let node = deckNode?.deckDraggable {
             node.drag(to: touch.location(in: node.parentNode!))
+            let generator = UISelectionFeedbackGenerator()
+            generator.selectionChanged()
         }
     }
     

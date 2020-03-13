@@ -49,6 +49,15 @@ class GameScene: SKScene, SlotNodeDelegate {
             slotNodes.append(slotNode)
         }
     }
+    
+    override func didMove(to view: SKView) {
+        let backgroundSound = SKAudioNode(fileNamed: "background.wav")
+        addChild(backgroundSound)
+        backgroundSound.run(.group([
+            .changeVolume(to: 0.05, duration: 0),
+            .play()
+        ]))
+    }
 
     func getSlot(for point: CGPoint) -> SlotNode? {
         slotNodes.first(where: { $0.frame.contains(point) })
