@@ -9,34 +9,49 @@
 import GameplayKit
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SlotNodeDelegate {
     // MARK: - Variables
 
-    var colors = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.blue.mix(with: .red, percent: 0.2).mix(with: .white, percent: 0.2)].generateGradient(of: 8)
+//    var colors = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.blue.mix(with: .red, percent: 0.2).mix(with: .white, percent: 0.2)].generateGradient(of: 9)
+    var colors = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.red.mix(with: UIColor.white, percent: 0.9)].generateGradient(of: 9)
+
+    var slotNodes: [SlotNode] = []
 
     // MARK: - Lifecycle
 
     override func sceneDidLoad() {
         anchorPoint = CGPoint(x: 0, y: 1)
         backgroundColor = .clear
-        
+
 //        colors.shuffle()
-    }
+//print(size.width)
+//    }
+//
+//    override func didMove(to view: SKView) {
+//        print("didMove")
 
-    override func didMove(to view: SKView) {
-        print("didMove")
+        let cards = colors.enumerated().map { Card(value: $0, color: $1) }.shuffled()
+        let slots = [Array(cards[0..<3]), Array(cards[3..<6]), Array(cards[6..<9])]
 
-        let width = view.frame.width
-        let slotCount = 3
+        let width = size.width
+        let horizontalMargin: CGFloat = 20
+        let slotCount = slots.count
         let slotWidth = 0.2 * width
         
-        let spacing = (width - (slotWidth * CGFloat(slotCount))) / CGFloat(slotCount + 1)
+
+        let spacing = (width - 2 * horizontalMargin - (slotWidth * CGFloat(slotCount))) / CGFloat(slotCount + 1)
 
         for i in 0..<slotCount {
-            let deck = Deck(cards: colors.map { Card(color: $0) })
-            let node = DeckNode(deck: deck, width: 0.2 * width)
-            node.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + spacing, y: -90)
-            addChild(node)
+            let deck = Deck(cards: slots[i])
+            let slotNode = SlotNode(size: CGSize(width: slotWidth, height: 3000), deck: Deck.empty.add(deck: deck))
+            slotNode.delegate = self
+            slotNode.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + horizontalMargin + spacing, y: -90)
+            addChild(slotNode)
+            slotNodes.append(slotNode)
         }
+    }
+
+    func getSlot(for point: CGPoint) -> SlotNode? {
+        slotNodes.first(where: { $0.frame.contains(point) })
     }
 }

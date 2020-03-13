@@ -13,7 +13,9 @@ class Deck {
     private(set) var childDeck: Deck?
     private(set) var parentDeck: Deck?
 
-    static var empty = Deck(card: .empty)
+    static var empty: Deck { Deck(card: Card(value: -1, color: .clear)) }
+
+    var isEmpty: Bool { card.value == -1 }
 
     var lastCard: Card {
         if let deck = childDeck {
@@ -37,9 +39,9 @@ class Deck {
 
     var isDraggable: Bool {
         if let deck = childDeck {
-            return (card > deck.card) && deck.isDraggable
+            return (card.isNext(of: deck.card)) && deck.isDraggable
         }
-        return true && card != .empty
+        return !isEmpty
     }
 
     init(card: Card) {
@@ -50,17 +52,17 @@ class Deck {
         self.card = cards[0]
         var deck = self
         for i in 1..<cards.count {
-            deck = deck.with(card: cards[i])
+            deck = deck.add(card: cards[i])
         }
     }
 
-    func with(card: Card) -> Deck {
-        with(deck: Deck(card: card))
+    func add(card: Card) -> Deck {
+        add(deck: Deck(card: card))
     }
 
-    func with(deck: Deck) -> Deck {
+    func add(deck: Deck) -> Deck {
         if childDeck != nil {
-            _ = childDeck?.with(deck: deck)
+            _ = childDeck?.add(deck: deck)
         } else {
             childDeck = deck
             childDeck?.parentDeck = self
@@ -68,10 +70,11 @@ class Deck {
         return self
     }
 
-    func change(to deck: Deck) {
+    func move(to deck: Deck) {
         if let parentDeck = parentDeck {
             parentDeck.childDeck = nil
-            _ = deck.with(deck: self)
+            self.parentDeck = nil
+            _ = deck.add(deck: self)
         }
     }
 }

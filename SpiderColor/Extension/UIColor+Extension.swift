@@ -48,8 +48,6 @@ extension Array where Element == UIColor {
     func generateGradient(of quantity: Int) -> [UIColor] {
 //        let middles = quantity - 2
         let factor = 1.0 / CGFloat(quantity - 1)
-        
-        print(factor)
 
         let color = self[0]
         var colors: [UIColor] = []
@@ -60,8 +58,6 @@ extension Array where Element == UIColor {
                 let percent = CGFloat(i) * factor
                 let interColor = color.mix(with: nextColor, percent: percent)
                 colors.append(interColor)
-                
-                print(i, percent)
             }
 
 //            colors.append(nextColor)

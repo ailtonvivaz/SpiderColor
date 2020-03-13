@@ -10,17 +10,20 @@ import Foundation
 import UIKit
 
 struct Card {
-    static var empty = Card(color: .clear)
-
+    var value: Int
     var color: UIColor
+    
+    func isNext(of other: Card) -> Bool {
+        value + 1 == other.value
+    }
 }
 
 extension Card: Comparable {
     static func == (lhs: Card, rhs: Card) -> Bool {
-        return lhs.color == rhs.color
+        return lhs.value == rhs.value
     }
 
     static func < (lhs: Card, rhs: Card) -> Bool {
-        return lhs.color == rhs.color
+        return lhs.value < rhs.value
     }
 }
