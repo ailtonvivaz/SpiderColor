@@ -23,29 +23,22 @@ class GameScene: SKScene, SlotNodeDelegate {
         anchorPoint = CGPoint(x: 0, y: 1)
         backgroundColor = .clear
 
-//        colors.shuffle()
-//print(size.width)
-//    }
-//
-//    override func didMove(to view: SKView) {
-//        print("didMove")
-
         let cards = colors.enumerated().map { Card(value: $0, color: $1) }.shuffled()
         let slots = [Array(cards[0..<3]), Array(cards[3..<6]), Array(cards[6..<9])]
 
         let width = size.width
         let horizontalMargin: CGFloat = 20
         let slotCount = slots.count
-        let slotWidth = 0.2 * width
         
-
-        let spacing = (width - 2 * horizontalMargin - (slotWidth * CGFloat(slotCount))) / CGFloat(slotCount + 1)
+        let spacing = horizontalMargin
+        let slotWidth = (width - 2 * horizontalMargin - CGFloat(slotCount - 1) * spacing) / CGFloat(slotCount)
 
         for i in 0..<slotCount {
             let deck = Deck(cards: slots[i])
             let slotNode = SlotNode(size: CGSize(width: slotWidth, height: 3000), deck: Deck.empty.add(deck: deck))
             slotNode.delegate = self
             slotNode.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + horizontalMargin + spacing, y: -90)
+            slotNode.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + horizontalMargin, y: 0)
             addChild(slotNode)
             slotNodes.append(slotNode)
         }

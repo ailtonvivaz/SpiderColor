@@ -46,11 +46,12 @@ class SlotNode: SKSpriteNode {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let deckDragged = deckNode?.deckDraggable {
             let pos = touches.first!.location(in: parent!)
-            if let slotDragged = delegate?.getSlot(for: pos), slotDragged != self {
-//                print("end in \(pos) \n \(slotDragged)")
-//                deckDragged.drop()
-                move(deckDragged, to: slotDragged)
-//                slotDragged.add(deckNode: deckDragged)
+            if let slotDragged = delegate?.getSlot(for: pos),
+                slotDragged != self,
+                move(deckDragged, to: slotDragged) {
+                let generator = UIImpactFeedbackGenerator(style: .heavy)
+                generator.impactOccurred()
+                
             } else {
                 deckDragged.drop()
             }
@@ -58,27 +59,14 @@ class SlotNode: SKSpriteNode {
     }
     
     private func move(_ deckNode: DeckNode, to slotNode: SlotNode) -> Bool {
-        if deckNode == self.deckNode {
-            self.deckNode = nil
-        }
-        
         if let node = slotNode.deckNode {
             deckNode.move(to: node)
+            if deckNode == self.deckNode {
+                self.deckNode = nil
+            }
         } else {
             slotNode.add(deckNode: deckNode)
         }
-        
-//        if let node = self.deckNode {
-//            if deckNode == node {
-//                self.deckNode = nil
-//            }
-//            deckNode.move(to: node)
-//        } else {
-//            deckNode.position = .zero
-//            deckNode.zPosition = 0
-//            deckNode.move(toParent: self)
-//            self.deckNode = deckNode
-//        }
         return true
     }
     
