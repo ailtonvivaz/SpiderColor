@@ -34,7 +34,7 @@ class SlotNode: SKSpriteNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, let node = deckNode?.deckDraggable {
-            node.drag(to: touch.location(in: node.parentNode!))
+            node.drag(to: touch.location(in: node.parentNode ?? self))
             let generator = UISelectionFeedbackGenerator()
             generator.selectionChanged()
         }
@@ -42,7 +42,7 @@ class SlotNode: SKSpriteNode {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, let node = deckNode?.deckDraggable {
-            node.move(to: touch.location(in: node.parentNode!))
+            node.move(to: touch.location(in: node.parentNode ?? self))
         }
     }
     
@@ -54,7 +54,6 @@ class SlotNode: SKSpriteNode {
                 move(deckDragged, to: slotDragged) {
                 let generator = UIImpactFeedbackGenerator(style: .heavy)
                 generator.impactOccurred()
-                
             } else {
                 deckDragged.drop()
             }
@@ -62,13 +61,21 @@ class SlotNode: SKSpriteNode {
     }
     
     func move(_ deckNode: DeckNode, to slotNode: SlotNode) -> Bool {
+        if deckNode == self.deckNode {
+            self.deckNode = nil
+        }
         if let node = slotNode.deckNode {
             deckNode.move(to: node)
-            if deckNode == self.deckNode {
-                self.deckNode = nil
-            }
         } else {
-            slotNode.add(deckNode: deckNode)
+            deckNode.parentNode?.childNode = nil
+            deckNode.parentNode = nil
+            
+            deckNode.deck.detach()
+            
+//            slotNode.add(deckNode: deckNode)
+            deckNode.move(toParent: slotNode)
+            slotNode.deckNode = deckNode
+            deckNode.drop()
         }
         delegate?.update(movement: Movement(slotSource: self, slotDestination: slotNode, deckNode: deckNode))
         return true
@@ -76,8 +83,15 @@ class SlotNode: SKSpriteNode {
     
     private func add(deckNode: DeckNode) {
         deckNode.position = .zero
-        deckNode.zPosition = 0
+        deckNode.zPosition = 1
         deckNode.move(toParent: self)
         self.deckNode = deckNode
+    }
+    
+    func toString() -> String {
+        """
+        \(name!)
+        \(deckNode?.toString() ?? "empty")
+        """
     }
 }

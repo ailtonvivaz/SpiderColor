@@ -19,16 +19,30 @@ class GameScene: SKScene, SlotNodeDelegate {
     var slotNodes: [SlotNode] = []
     var lastMovement: Movement?
 
+    var safeTopMargin: CGFloat
+
     // MARK: - Lifecycle
+
+    init(size: CGSize, safeTopMargin: CGFloat) {
+        self.safeTopMargin = safeTopMargin
+        super.init(size: size)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func sceneDidLoad() {
         anchorPoint = CGPoint(x: 0, y: 1)
         backgroundColor = .clear
         let width = size.width
 
-        gradientNode = GradientNode(colors: colors, size: CGSize(width: width - 40, height: 40))
+        var topMargin = safeTopMargin + 30
+        let gradientHeight: CGFloat = 40
+        gradientNode = GradientNode(colors: colors, size: CGSize(width: width - 40, height: gradientHeight))
         addChild(gradientNode)
-        gradientNode.position = CGPoint(x: 20, y: -30)
+        gradientNode.position = CGPoint(x: 20, y: -topMargin)
+        topMargin += gradientHeight
 
         let cards = colors.enumerated().map { Card(value: $0, color: $1) }.shuffled()
         let slots = [Array(cards[0..<3]), Array(cards[3..<6]), Array(cards[6..<9])]
@@ -41,22 +55,22 @@ class GameScene: SKScene, SlotNodeDelegate {
 
         for i in 0..<slotCount {
             let deck = Deck(cards: slots[i])
-            let slotNode = SlotNode(size: CGSize(width: slotWidth, height: 3000), deck: Deck.empty.add(deck: deck))
+            let slotNode = SlotNode(size: CGSize(width: slotWidth, height: 600), deck: deck)
             slotNode.delegate = self
             slotNode.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + horizontalMargin + spacing, y: -90)
-            slotNode.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + horizontalMargin, y: -40)
+            slotNode.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + horizontalMargin, y: -topMargin)
             addChild(slotNode)
             slotNodes.append(slotNode)
         }
     }
-    
+
     override func didMove(to view: SKView) {
-        let backgroundSound = SKAudioNode(fileNamed: "background.wav")
-        addChild(backgroundSound)
-        backgroundSound.run(.group([
-            .changeVolume(to: 0.05, duration: 0),
-            .play()
-        ]))
+//        let backgroundSound = SKAudioNode(fileNamed: "background.wav")
+//        addChild(backgroundSound)
+//        backgroundSound.run(.group([
+//            .changeVolume(to: 0.05, duration: 0),
+//            .play()
+//        ]))
     }
 
     func getSlot(for point: CGPoint) -> SlotNode? {
@@ -65,6 +79,12 @@ class GameScene: SKScene, SlotNodeDelegate {
 
     func update(movement: Movement) {
         lastMovement = movement
+        
+        print("-------------------------")
+        slotNodes.forEach{
+            print($0.toString())
+        }        
+        print("-------------------------")
     }
 
     func undoMovement() {

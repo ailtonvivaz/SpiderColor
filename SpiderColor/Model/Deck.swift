@@ -17,26 +17,6 @@ class Deck {
 
     var isEmpty: Bool { card.value == -1 }
 
-    var lastCard: Card {
-        if let deck = childDeck {
-            return deck.lastCard
-        }
-        return card
-    }
-
-    var firstParent: Deck {
-        if let deck = parentDeck {
-            return deck.firstParent
-        }
-        return self
-    }
-
-    var size: Int {
-        if let deck = childDeck {
-            return 1 + deck.size
-        } else { return 1 }
-    }
-
     var isDraggable: Bool {
         if isEmpty { return false }
         if let deck = childDeck {
@@ -72,10 +52,12 @@ class Deck {
     }
 
     func move(to deck: Deck) {
-        if let parentDeck = parentDeck {
-            parentDeck.childDeck = nil
-            self.parentDeck = nil
-            _ = deck.add(deck: self)
-        }
+        detach()
+        _ = deck.add(deck: self)
+    }
+
+    func detach() {
+        parentDeck?.childDeck = nil
+        parentDeck = nil
     }
 }

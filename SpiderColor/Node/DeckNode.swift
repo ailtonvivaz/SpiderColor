@@ -25,7 +25,6 @@ class DeckNode: SKNode {
         self.deck = deck
         self.width = width
         super.init()
-//        self.isUserInteractionEnabled = true
         
         if !deck.isEmpty {
             let cardNode = CardNode(card: deck.card, width: width)
@@ -43,7 +42,7 @@ class DeckNode: SKNode {
     }
     
     private func normalPosition(for point: CGPoint) -> CGPoint {
-        point - CGPoint(x: calculateAccumulatedFrame().width / 2, y: -calculateAccumulatedFrame().height)
+        point - CGPoint(x: calculateAccumulatedFrame().width / 2, y: -calculateAccumulatedFrame().height / 2)
     }
     
     func drag(to point: CGPoint) {
@@ -51,7 +50,7 @@ class DeckNode: SKNode {
         self.zPosition = 10000
         run(.group([
             .scale(to: 1.2, duration: 0.1),
-            .move(to: self.normalPosition(for: point), duration: 0.1),
+            .move(to: self.normalPosition(for: point), duration: 0.2),
         ]))
     }
     
@@ -62,7 +61,7 @@ class DeckNode: SKNode {
     func drop() {
         run(.group([
             .scale(to: 1, duration: 0.1),
-            .move(to: self.offsettedPosition, duration: 0.1),
+            .move(to: parentNode != nil ? self.offsettedPosition : .zero, duration: 0.1),
         ])) {
             self.zPosition = self.originalZPosition
         }
@@ -90,5 +89,9 @@ class DeckNode: SKNode {
             self.drop()
             zPosition = other.zPosition + 1
         }
+    }
+    
+    func toString() -> String {
+        "\(deck.card.value) | \(childNode?.toString() ?? "end")"
     }
 }
