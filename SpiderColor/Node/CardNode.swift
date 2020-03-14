@@ -12,7 +12,7 @@ class CardNode: SKSpriteNode {
     init(card: Card, width: CGFloat) {
         let height: CGFloat = width / 0.72
 
-        super.init(texture: SKTexture(image: UIImage(named: "PaperCard")!), color: card.color, size: CGSize(width: width, height: height))
+        super.init(texture: SKTexture(image: UIImage(named: "Card")!), color: card.color, size: CGSize(width: width, height: height))
         colorBlendFactor = 1
         anchorPoint = CGPoint(x: 0, y: 1)
     }

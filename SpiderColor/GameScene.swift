@@ -18,13 +18,15 @@ class GameScene: SKScene, SlotNodeDelegate {
     var gradientNode: GradientNode!
     var slotNodes: [SlotNode] = []
     var lastMovement: Movement?
-
-    var safeTopMargin: CGFloat
+    
+    var topMargin: CGFloat
+    var bottomMargin: CGFloat
 
     // MARK: - Lifecycle
 
-    init(size: CGSize, safeTopMargin: CGFloat) {
-        self.safeTopMargin = safeTopMargin
+    init(size: CGSize, top: CGFloat, bottom: CGFloat) {
+        self.topMargin = top
+        self.bottomMargin = bottom
         super.init(size: size)
     }
 
@@ -37,7 +39,7 @@ class GameScene: SKScene, SlotNodeDelegate {
         backgroundColor = .clear
         let width = size.width
 
-        var topMargin = safeTopMargin + 30
+        var topMargin = self.topMargin + 30
         let gradientHeight: CGFloat = 40
         gradientNode = GradientNode(colors: colors, size: CGSize(width: width - 40, height: gradientHeight))
         addChild(gradientNode)
@@ -52,10 +54,11 @@ class GameScene: SKScene, SlotNodeDelegate {
 
         let spacing = horizontalMargin
         let slotWidth = (width - 2 * horizontalMargin - CGFloat(slotCount - 1) * spacing) / CGFloat(slotCount)
+        let slotHeight = size.height - topMargin - bottomMargin
 
         for i in 0..<slotCount {
             let deck = Deck(cards: slots[i])
-            let slotNode = SlotNode(size: CGSize(width: slotWidth, height: 600), deck: deck)
+            let slotNode = SlotNode(size: CGSize(width: slotWidth, height: slotHeight), deck: deck)
             slotNode.delegate = self
             slotNode.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + horizontalMargin + spacing, y: -90)
             slotNode.position = CGPoint(x: CGFloat(i) * (spacing + slotWidth) + horizontalMargin, y: -topMargin)

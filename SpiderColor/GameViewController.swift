@@ -12,14 +12,15 @@ import UIKit
 
 class GameViewController: UIViewController {
     @IBOutlet var sceneView: SKView!
-    @IBOutlet weak var topView: UIView!
-    
+    @IBOutlet var topView: UIView!
+    @IBOutlet var bottomView: UIView!
+
     var scene: GameScene!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scene = GameScene(size: view.frame.size, safeTopMargin: topView.frame.maxY)
+        scene = GameScene(size: view.frame.size, top: topView.frame.maxY, bottom: view.frame.height - bottomView.frame.minY)
 
 //        let sceneNode = scene.rootNode
 
