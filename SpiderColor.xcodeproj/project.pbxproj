@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		5E171E2524116BE600BA5289 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		5E44B10424101867001A7D82 /* Spider Color.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spider Color.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E44B10424101867001A7D82 /* hue card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hue card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E44B10724101867001A7D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E44B10D24101867001A7D82 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		5E44B10F24101867001A7D82 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		5E44B10524101867001A7D82 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E44B10424101867001A7D82 /* Spider Color.app */,
+				5E44B10424101867001A7D82 /* hue card.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			);
 			name = SpiderColor;
 			productName = SpiderColor;
-			productReference = 5E44B10424101867001A7D82 /* Spider Color.app */;
+			productReference = 5E44B10424101867001A7D82 /* hue card.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -364,8 +364,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.veevaz.SpiderColor;
-				PRODUCT_NAME = "Spider Color";
+				MARKETING_VERSION = 0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veevaz.HueCard;
+				PRODUCT_NAME = "hue card";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -383,8 +384,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.veevaz.SpiderColor;
-				PRODUCT_NAME = "Spider Color";
+				MARKETING_VERSION = 0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veevaz.HueCard;
+				PRODUCT_NAME = "hue card";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

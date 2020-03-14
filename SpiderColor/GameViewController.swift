@@ -21,22 +21,17 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         scene = GameScene(size: view.frame.size, top: topView.frame.maxY, bottom: view.frame.height - bottomView.frame.minY)
-
-//        let sceneNode = scene.rootNode
-
-        // Set the scale mode to scale to fit the window
         scene.scaleMode = .resizeFill
 
         // Present the scene
         sceneView.presentScene(scene)
         sceneView.allowsTransparency = true
 
-        sceneView.ignoresSiblingOrder = true
-
-        sceneView.showsFPS = true
-        sceneView.showsNodeCount = true
-        sceneView.showsFields = true
-        sceneView.clipsToBounds = false
+//        sceneView.ignoresSiblingOrder = true
+//
+//        sceneView.showsFPS = true
+//        sceneView.showsNodeCount = true
+//        sceneView.showsFields = true
     }
 
     override var shouldAutorotate: Bool {
