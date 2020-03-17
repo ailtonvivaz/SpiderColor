@@ -22,6 +22,14 @@
 		5EB118E0241B35CA00112FCD /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118DF241B35CA00112FCD /* GradientNode.swift */; };
 		5EB118E2241B3D6800112FCD /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118E1241B3D6800112FCD /* Movement.swift */; };
 		5EB118E5241B427700112FCD /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EB118E4241B427700112FCD /* background.wav */; };
+		5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */; };
+		5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */; };
+		5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EF2420325B0097D550 /* UIView+Extension.swift */; };
+		5EE913F3242034120097D550 /* DesignableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913F2242034120097D550 /* DesignableViews.swift */; };
+		5EE913F72420534F0097D550 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913F62420534F0097D550 /* GradientView.swift */; };
+		5EE913FC242053FC0097D550 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913FB242053FC0097D550 /* LevelViewController.swift */; };
+		5EE913FE2420544D0097D550 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913FD2420544D0097D550 /* UICollectionView+Extension.swift */; };
+		5EE91401242061B90097D550 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91400242061B90097D550 /* HomeViewController.swift */; };
 		5EF196E524195D32003CD4DB /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +51,14 @@
 		5EB118DF241B35CA00112FCD /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
 		5EB118E1241B3D6800112FCD /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
 		5EB118E4241B427700112FCD /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
+		5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		5EE913EF2420325B0097D550 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		5EE913F2242034120097D550 /* DesignableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableViews.swift; sourceTree = "<group>"; };
+		5EE913F62420534F0097D550 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		5EE913FB242053FC0097D550 /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
+		5EE913FD2420544D0097D550 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		5EE91400242061B90097D550 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,13 +92,12 @@
 		5E44B10624101867001A7D82 /* SpiderColor */ = {
 			isa = PBXGroup;
 			children = (
+				5E44B12224102522001A7D82 /* Model */,
+				5EE913F8242053DE0097D550 /* Controller */,
+				5EE913F1242034000097D550 /* View */,
 				5EB118E3241B410100112FCD /* Assets */,
 				5E44B12924102F75001A7D82 /* Extension */,
-				5E44B12224102522001A7D82 /* Model */,
-				5E44B11F24101D64001A7D82 /* Node */,
 				5E44B10724101867001A7D82 /* AppDelegate.swift */,
-				5E44B10D24101867001A7D82 /* GameScene.swift */,
-				5E44B10F24101867001A7D82 /* GameViewController.swift */,
 				5E44B11124101867001A7D82 /* Main.storyboard */,
 				5E44B11424101868001A7D82 /* Assets.xcassets */,
 				5E44B11624101868001A7D82 /* LaunchScreen.storyboard */,
@@ -117,6 +132,8 @@
 			children = (
 				5E171E2524116BE600BA5289 /* UIColor+Extension.swift */,
 				5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */,
+				5EE913EF2420325B0097D550 /* UIView+Extension.swift */,
+				5EE913FD2420544D0097D550 /* UICollectionView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -127,6 +144,61 @@
 				5EB118E4241B427700112FCD /* background.wav */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		5EE913EA242031810097D550 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */,
+				5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5EE913F1242034000097D550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5EE913F2242034120097D550 /* DesignableViews.swift */,
+				5EE913F62420534F0097D550 /* GradientView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5EE913F8242053DE0097D550 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5EE913FF242055DB0097D550 /* Game */,
+				5EE913FA242053ED0097D550 /* Level */,
+				5EE913F9242053E60097D550 /* Home */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5EE913F9242053E60097D550 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5EE91400242061B90097D550 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5EE913FA242053ED0097D550 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				5EE913EA242031810097D550 /* Cell */,
+				5EE913FB242053FC0097D550 /* LevelViewController.swift */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		5EE913FF242055DB0097D550 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				5E44B11F24101D64001A7D82 /* Node */,
+				5E44B10D24101867001A7D82 /* GameScene.swift */,
+				5E44B10F24101867001A7D82 /* GameViewController.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +261,7 @@
 			files = (
 				5E44B11324101867001A7D82 /* Main.storyboard in Resources */,
 				5E44B11524101868001A7D82 /* Assets.xcassets in Resources */,
+				5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */,
 				5EB118E5241B427700112FCD /* background.wav in Resources */,
 				5E44B11824101868001A7D82 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -201,13 +274,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE913FE2420544D0097D550 /* UICollectionView+Extension.swift in Sources */,
 				5E44B1282410256C001A7D82 /* Deck.swift in Sources */,
+				5EE91401242061B90097D550 /* HomeViewController.swift in Sources */,
+				5EE913FC242053FC0097D550 /* LevelViewController.swift in Sources */,
 				5E44B10E24101867001A7D82 /* GameScene.swift in Sources */,
 				5E44B12624102549001A7D82 /* Card.swift in Sources */,
+				5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */,
 				5E44B11024101867001A7D82 /* GameViewController.swift in Sources */,
+				5EE913F3242034120097D550 /* DesignableViews.swift in Sources */,
+				5EE913F72420534F0097D550 /* GradientView.swift in Sources */,
 				5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */,
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,
 				5E44B12124101DB3001A7D82 /* CardNode.swift in Sources */,
+				5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */,
 				5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */,
 				5EB118E2241B3D6800112FCD /* Movement.swift in Sources */,
 				5EF196E524195D32003CD4DB /* CGPoint+Extension.swift in Sources */,
@@ -356,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6B563564C5;
 				INFOPLIST_FILE = SpiderColor/Info.plist;
@@ -365,8 +446,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.veevaz.HueCard;
+				PRODUCT_BUNDLE_IDENTIFIER = games.ajay.HueCard;
 				PRODUCT_NAME = "hue card";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -376,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6B563564C5;
 				INFOPLIST_FILE = SpiderColor/Info.plist;
@@ -385,8 +468,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.veevaz.HueCard;
+				PRODUCT_BUNDLE_IDENTIFIER = games.ajay.HueCard;
 				PRODUCT_NAME = "hue card";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -56,6 +56,8 @@ class SlotNode: SKSpriteNode {
                 generator.impactOccurred()
             } else {
                 deckDragged.drop()
+                let generator = UISelectionFeedbackGenerator()
+                generator.selectionChanged()
             }
         }
     }

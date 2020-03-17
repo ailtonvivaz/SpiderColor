@@ -82,17 +82,11 @@ class GameScene: SKScene, SlotNodeDelegate {
 
     func update(movement: Movement) {
         lastMovement = movement
-        
-        print("-------------------------")
-        slotNodes.forEach{
-            print($0.toString())
-        }        
-        print("-------------------------")
     }
 
     func undoMovement() {
         if let movement = lastMovement {
-            movement.slotDestination.move(movement.deckNode, to: movement.slotSource)
+            _ = movement.slotDestination.move(movement.deckNode, to: movement.slotSource)
         }
     }
 }
