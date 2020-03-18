@@ -17,6 +17,9 @@ class SlotNode: SKSpriteNode {
     var deckNode: DeckNode?
     var delegate: SlotNodeDelegate?
     
+    var cards: [Card] { deckNode?.deck.cards ?? [] }
+    var deckSize: Int { deckNode?.deck.size ?? 0 }
+    
     init(size: CGSize, deck: Deck) {
         let deckNode = DeckNode(deck: deck, width: size.width)
         super.init(texture: SKTexture(image: UIImage(named: "Clear")!), color: .clear, size: size)

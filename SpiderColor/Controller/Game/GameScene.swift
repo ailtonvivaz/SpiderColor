@@ -9,14 +9,18 @@
 import GameplayKit
 import SpriteKit
 
+protocol GameDelegate {
+    func complete(level: Level)
+}
+
 class GameScene: SKScene, SlotNodeDelegate {
     // MARK: - Variables
 
     var level: Level
-    var colors: [UIColor] { level.colors.generateGradient(of: 9) }
+    var gameDelegate: GameDelegate?
 
-//        = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.blue.mix(with: .red, percent: 0.2).mix(with: .white, percent: 0.2)].generateGradient(of: 9)
-//    var colors = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.red.mix(with: UIColor.white, percent: 0.9)].generateGradient(of: 9)
+    var colors: [UIColor] { level.colors.generateGradient(of: level.qtyCards) }
+    lazy var cards = colors.enumerated().map { Card(value: $0, color: $1) }
 
     var gradientNode: GradientNode!
     var slotNodes: [SlotNode] = []
@@ -50,8 +54,8 @@ class GameScene: SKScene, SlotNodeDelegate {
         gradientNode.position = CGPoint(x: 20, y: -topMargin)
         topMargin += gradientHeight
 
-        let cards = colors.enumerated().map { Card(value: $0, color: $1) }.shuffled()
-        let slots = [Array(cards[0..<3]), Array(cards[3..<6]), Array(cards[6..<9])]
+        let shuffledCards = cards.shuffled()
+        let slots = [Array(shuffledCards[0..<3]), Array(shuffledCards[3..<6]), Array(shuffledCards[6..<9])]
 
         let horizontalMargin: CGFloat = 20
         let slotCount = slots.count
@@ -84,8 +88,18 @@ class GameScene: SKScene, SlotNodeDelegate {
         slotNodes.first(where: { $0.frame.contains(point) })
     }
 
+    func checkGame() {
+        if let slot = slotNodes.first(where: { $0.deckSize == level.qtyCards }) {
+            if slot.cards == cards {
+                print("finalizado")
+                gameDelegate?.complete(level: level)
+            }
+        }
+    }
+
     func update(movement: Movement) {
         lastMovement = movement
+        checkGame()
     }
 
     func undoMovement() {

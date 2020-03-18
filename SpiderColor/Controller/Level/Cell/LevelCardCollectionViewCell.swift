@@ -34,8 +34,13 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
         backCardView.isHidden = false
         gradientView.isHidden = true
-        
-        reveal()
+    }
+    
+    func complete() {
+        self.level.completed = true
+        UIView.animate(withDuration: 0.1) {
+            self.levelCompletedImageView.isHidden = !self.level.completed
+        }
     }
 
     func reveal() {
@@ -48,6 +53,7 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
             }, completion: { _ in
                 self.revealed = true
+                self.level.isAvailable = true
             })
         }
     }

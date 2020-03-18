@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     @IBOutlet var bottomView: UIView!
 
     var level: Level!
+    var gameDelegate: GameDelegate!
 
     private var scene: GameScene!
 
@@ -24,6 +25,7 @@ class GameViewController: UIViewController {
 
         scene = GameScene(level: level, size: view.frame.size, top: topView.frame.maxY, bottom: view.frame.height - bottomView.frame.minY)
         scene.scaleMode = .resizeFill
+        scene.gameDelegate = self
 
         // Present the scene
         sceneView.presentScene(scene)
@@ -31,9 +33,8 @@ class GameViewController: UIViewController {
 
 //        sceneView.ignoresSiblingOrder = true
 //
-//        sceneView.showsFPS = true
-//        sceneView.showsNodeCount = true
-//        sceneView.showsFields = true
+        sceneView.showsFPS = true
+        sceneView.showsNodeCount = true
     }
 
     override var prefersStatusBarHidden: Bool { true }
@@ -41,8 +42,18 @@ class GameViewController: UIViewController {
     @IBAction func onTapUndo(_ sender: Any) {
         scene.undoMovement()
     }
-    
+
     @IBAction func onTapPause(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK: - GameDelegate
+
+extension GameViewController: GameDelegate {
+    func complete(level: Level) {
+        dismiss(animated: true) {
+            self.gameDelegate.complete(level: level)
+        }
     }
 }

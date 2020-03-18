@@ -11,7 +11,7 @@ import UIKit
 class Model {
     static let shared = Model()
 
-    let levels: [Level] = [
+    var levels: [Level] = [
         .init(value: 1, colors: [
             UIColor(displayP3Red: 0.95, green: 0.51, blue: 0.51, alpha: 1.0),
             UIColor(displayP3Red: 0.99, green: 0.89, blue: 0.54, alpha: 1.0)

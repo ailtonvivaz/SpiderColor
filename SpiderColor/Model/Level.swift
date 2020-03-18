@@ -11,6 +11,7 @@ import UIKit
 struct Level {
     let value: Int
     let colors: [UIColor]
+    let qtyCards: Int = 9
     var completed: Bool = false
     var isAvailable: Bool = false
 }

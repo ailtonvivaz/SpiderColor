@@ -21,7 +21,7 @@ class LevelViewController: UIViewController {
     private let gridCols: CGFloat = 3
     private let gridRows: CGFloat = 3
     private let spacing: CGFloat = 30
-    private let levels = Model.shared.levels
+    private var levels: [Level] { Model.shared.levels }
 
     private var numberOfItems: Int { collectionView.numberOfItems(inSection: 0) }
     private var itemsPerPage: CGFloat { gridCols * gridRows }
@@ -88,6 +88,7 @@ class LevelViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? GameViewController, let level = sender as? Level {
             vc.level = level
+            vc.gameDelegate = self
         }
     }
 
@@ -106,6 +107,25 @@ class LevelViewController: UIViewController {
     @IBAction func onTapNext(_ sender: Any) {
         if page < numberOfPages - 1 {
             goTo(page: page + 1)
+        }
+    }
+}
+
+//MARK: - GameDelegate
+
+extension LevelViewController: GameDelegate {
+    func complete(level: Level) {
+        if let index = levels.firstIndex(where: { level.value == $0.value }) {
+            Model.shared.levels[index].completed = true
+            let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! LevelCardCollectionViewCell
+            cell.complete()
+
+            if index < levels.count - 1 {
+                Model.shared.levels[index + 1].isAvailable = true
+                let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
+                nextCell.reveal()
+            }
+//            collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
         }
     }
 }
