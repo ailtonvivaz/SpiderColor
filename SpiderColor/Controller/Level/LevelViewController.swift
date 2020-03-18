@@ -9,33 +9,39 @@
 import UIKit
 
 class LevelViewController: UIViewController {
-    private var indexOfCellBeforeDragging = 0
-    private var page = 0
+    //MARK: - Outlets
 
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var pageLabel: UILabel!
 
+    //MARK: - Variables
+
+    private var page = 0
+    private var indexOfCellBeforeDragging = 0
+    private let gridCols: CGFloat = 3
+    private let gridRows: CGFloat = 3
     private let spacing: CGFloat = 30
+    private let levels = Model.shared.levels
+
+    private var numberOfItems: Int { collectionView.numberOfItems(inSection: 0) }
+    private var itemsPerPage: CGFloat { gridCols * gridRows }
+    private var numberOfPages: Int { Int(ceil(CGFloat(numberOfItems) / itemsPerPage)) }
+
+    //MARK: - Collection View variables
 
     private let horizontalMargin: CGFloat = 30
     private var collectionWidth: CGFloat { collectionView.frame.width }
-    private let gridCols: CGFloat = 3
     private var cardWidth: CGFloat { (collectionWidth - 2 * horizontalMargin - (gridCols - 1) * spacing) / gridCols }
 
-//    private let verticalMargin: CGFloat = 40
     private var collectionHeight: CGFloat { collectionView.frame.height }
-    private let gridRows: CGFloat = 3
-    //    private var cardHeight: CGFloat { (collectionHeight - 2 * verticalMargin - (gridRows - 1) * spacing) / gridRows }
     private var cardHeight: CGFloat { cardWidth * 1.3 }
     private var verticalMargin: CGFloat { (collectionHeight - (gridRows * cardHeight) - (gridRows - 1) * spacing) / 2 }
-
-    var numberOfItems: Int { collectionView.numberOfItems(inSection: 0) }
-    var itemsPerPage: CGFloat { gridCols * gridRows }
-    var numberOfPages: Int { Int(ceil(CGFloat(numberOfItems) / itemsPerPage)) }
 
     private var collectionViewFlowLayout: UICollectionViewFlowLayout {
         return collectionView.collectionViewLayout as! UICollectionViewFlowLayout
     }
+
+    //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +85,12 @@ class LevelViewController: UIViewController {
         pageLabel.text = "Page \(self.page + 1)"
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? GameViewController, let level = sender as? Level {
+            vc.level = level
+        }
+    }
+
     //MARK: - Actions
 
     @IBAction func onTapHome(_ sender: Any) {
@@ -102,8 +114,9 @@ class LevelViewController: UIViewController {
 
 extension LevelViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? LevelCardCollectionViewCell {
-            cell.reveal()
+        let level = levels[indexPath.row]
+        if level.isAvailable {
+            performSegue(withIdentifier: "startGame", sender: level)
         }
     }
 
@@ -123,12 +136,12 @@ extension LevelViewController: UICollectionViewDelegate {
 
 extension LevelViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        13
+        levels.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellFromNib(LevelCardCollectionViewCell.self, for: indexPath) {
-            cell.level = Level(value: indexPath.row + 1, colors: [.random, .random], completed: Bool.random())
+            cell.level = levels[indexPath.row]
             return cell
         }
 

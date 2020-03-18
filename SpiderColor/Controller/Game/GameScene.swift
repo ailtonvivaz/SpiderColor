@@ -12,19 +12,23 @@ import SpriteKit
 class GameScene: SKScene, SlotNodeDelegate {
     // MARK: - Variables
 
-    var colors = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.blue.mix(with: .red, percent: 0.2).mix(with: .white, percent: 0.2)].generateGradient(of: 9)
+    var level: Level
+    var colors: [UIColor] { level.colors.generateGradient(of: 9) }
+
+//        = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.blue.mix(with: .red, percent: 0.2).mix(with: .white, percent: 0.2)].generateGradient(of: 9)
 //    var colors = [UIColor.red.mix(with: UIColor.white, percent: 0.2), UIColor.red.mix(with: UIColor.white, percent: 0.9)].generateGradient(of: 9)
 
     var gradientNode: GradientNode!
     var slotNodes: [SlotNode] = []
     var lastMovement: Movement?
-    
+
     var topMargin: CGFloat
     var bottomMargin: CGFloat
 
     // MARK: - Lifecycle
 
-    init(size: CGSize, top: CGFloat, bottom: CGFloat) {
+    init(level: Level, size: CGSize, top: CGFloat, bottom: CGFloat) {
+        self.level = level
         self.topMargin = top
         self.bottomMargin = bottom
         super.init(size: size)

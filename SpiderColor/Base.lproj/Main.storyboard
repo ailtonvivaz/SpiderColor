@@ -87,7 +87,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="fPT-aC-MYc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cTf-JL-SPd">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cTf-JL-SPd">
                                 <rect key="frame" x="0.0" y="124" width="414" height="650"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B1r-oS-h9e">
@@ -228,12 +228,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-9e-WuY">
                                 <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pauseGame" translatesAutoresizingMaskIntoConstraints="NO" id="QnA-f6-Sa8">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pauseGame" translatesAutoresizingMaskIntoConstraints="NO" id="QnA-f6-Sa8">
                                         <rect key="frame" x="20" y="20" width="60" height="60"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="IJh-tj-CIK"/>
                                             <constraint firstAttribute="width" secondItem="QnA-f6-Sa8" secondAttribute="height" multiplier="1:1" id="jRy-EC-iiG"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="phW-1r-LNj" appends="YES" id="UBV-XQ-0e1"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -258,7 +262,7 @@
                                             <outletCollection property="gestureRecognizers" destination="5u5-Eg-lIu" appends="YES" id="Yn8-v0-5mT"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hint" translatesAutoresizingMaskIntoConstraints="NO" id="8fJ-m7-ws5">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hint" translatesAutoresizingMaskIntoConstraints="NO" id="8fJ-m7-ws5">
                                         <rect key="frame" x="334" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="5xK-kG-mRm"/>
@@ -307,6 +311,11 @@
                 <tapGestureRecognizer id="5u5-Eg-lIu">
                     <connections>
                         <action selector="onTapUndo:" destination="BV1-FR-VrT" id="d1w-kU-mvL"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="phW-1r-LNj">
+                    <connections>
+                        <action selector="onTapPause:" destination="BV1-FR-VrT" id="sDt-M8-2Hw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

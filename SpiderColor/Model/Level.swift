@@ -12,5 +12,5 @@ struct Level {
     let value: Int
     let colors: [UIColor]
     var completed: Bool = false
-    var available: Bool = false
+    var isAvailable: Bool = false
 }

@@ -15,12 +15,14 @@ class GameViewController: UIViewController {
     @IBOutlet var topView: UIView!
     @IBOutlet var bottomView: UIView!
 
-    var scene: GameScene!
+    var level: Level!
+
+    private var scene: GameScene!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scene = GameScene(size: view.frame.size, top: topView.frame.maxY, bottom: view.frame.height - bottomView.frame.minY)
+        scene = GameScene(level: level, size: view.frame.size, top: topView.frame.maxY, bottom: view.frame.height - bottomView.frame.minY)
         scene.scaleMode = .resizeFill
 
         // Present the scene
@@ -38,5 +40,9 @@ class GameViewController: UIViewController {
 
     @IBAction func onTapUndo(_ sender: Any) {
         scene.undoMovement()
+    }
+    
+    @IBAction func onTapPause(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }

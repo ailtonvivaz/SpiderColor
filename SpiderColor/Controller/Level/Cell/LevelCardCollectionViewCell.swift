@@ -21,8 +21,8 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
             gradientView.colors = level.colors
             levelCompletedImageView.isHidden = !level.completed
 
-            backCardView.isHidden = level.available
-            gradientView.isHidden = !level.available
+            backCardView.isHidden = level.isAvailable
+            gradientView.isHidden = !level.isAvailable
         }
     }
 
@@ -34,6 +34,8 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
         backCardView.isHidden = false
         gradientView.isHidden = true
+        
+        reveal()
     }
 
     func reveal() {
