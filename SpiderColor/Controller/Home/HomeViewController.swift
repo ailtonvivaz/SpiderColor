@@ -13,7 +13,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    override var prefersStatusBarHidden: Bool { true }
+
     //MARK: - Actions
+
     @IBAction func onTapStart(_ sender: Any) {
         performSegue(withIdentifier: "showLevel", sender: nil)
     }

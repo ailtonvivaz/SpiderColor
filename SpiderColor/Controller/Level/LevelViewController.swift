@@ -13,6 +13,7 @@ class LevelViewController: UIViewController {
     private var page = 0
 
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var pageLabel: UILabel!
 
     private let spacing: CGFloat = 20
 
@@ -21,10 +22,12 @@ class LevelViewController: UIViewController {
     private let gridCols: CGFloat = 3
     private var cardWidth: CGFloat { (collectionWidth - 2 * horizontalMargin - (gridCols - 1) * spacing) / gridCols }
 
-    private let verticalMargin: CGFloat = 40
+//    private let verticalMargin: CGFloat = 40
     private var collectionHeight: CGFloat { collectionView.frame.height }
     private let gridRows: CGFloat = 3
-    private var cardHeight: CGFloat { (collectionHeight - 2 * verticalMargin - (gridRows - 1) * spacing) / gridRows }
+    //    private var cardHeight: CGFloat { (collectionHeight - 2 * verticalMargin - (gridRows - 1) * spacing) / gridRows }
+    private var cardHeight: CGFloat { cardWidth * 1.4 }
+    private var verticalMargin: CGFloat { (collectionHeight - (gridRows * cardHeight) - (gridRows - 1) * spacing) / 2 }
 
     var numberOfItems: Int { collectionView.numberOfItems(inSection: 0) }
     var itemsPerPage: CGFloat { gridCols * gridRows }
@@ -40,7 +43,11 @@ class LevelViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerFromNib(LevelCardCollectionViewCell.self)
+
+        goTo(page: 0)
     }
+
+    override var prefersStatusBarHidden: Bool { true }
 
     private func indexOfMajorCell() -> Int {
         var proportionalOffset = collectionView!.contentOffset.x / collectionWidth
@@ -69,6 +76,8 @@ class LevelViewController: UIViewController {
         print(indexPath)
         collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         self.page = page
+
+        pageLabel.text = "Page \(self.page + 1)"
     }
 
     @IBAction func onTapPrevious(_ sender: Any) {
@@ -78,14 +87,20 @@ class LevelViewController: UIViewController {
     }
 
     @IBAction func onTapNext(_ sender: Any) {
-        goTo(page: page + 1)
+        if page < numberOfPages - 1 {
+            goTo(page: page + 1)
+        }
     }
 }
 
 // MARK: - UICollectionViewDelegate
 
 extension LevelViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? LevelCardCollectionViewCell {
+            cell.reveal()
+        }
+    }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         indexOfCellBeforeDragging = indexOfMajorCell()
@@ -107,7 +122,11 @@ extension LevelViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.dequeueReusableCellFromNib(LevelCardCollectionViewCell.self, for: indexPath) ?? UICollectionViewCell()
+        if let cell = collectionView.dequeueReusableCellFromNib(LevelCardCollectionViewCell.self, for: indexPath) {
+            return cell
+        }
+
+        return UICollectionViewCell()
     }
 }
 

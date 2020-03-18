@@ -34,21 +34,7 @@ class GameViewController: UIViewController {
 //        sceneView.showsFields = true
     }
 
-    override var shouldAutorotate: Bool {
-        return true
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+    override var prefersStatusBarHidden: Bool { true }
 
     @IBAction func onTapUndo(_ sender: Any) {
         scene.undoMovement()

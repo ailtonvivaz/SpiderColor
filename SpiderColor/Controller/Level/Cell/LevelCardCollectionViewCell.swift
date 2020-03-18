@@ -9,10 +9,32 @@
 import UIKit
 
 class LevelCardCollectionViewCell: UICollectionViewCell {
+    @IBOutlet var gradientView: GradientView!
+    @IBOutlet var backCardView: UIView!
+
+    @IBOutlet var levelLabel: UILabel!
+    @IBOutlet var levelCompletedImageView: UIImageView!
+
+    private var revealed: Bool = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        backCardView.isHidden = false
+        gradientView.isHidden = true
     }
 
+    func reveal() {
+        if !revealed {
+            let transitionOptions = UIView.AnimationOptions.transitionFlipFromLeft
+
+            UIView.transition(with: contentView, duration: 0.5, options: transitionOptions, animations: {
+                self.backCardView.isHidden = true
+                self.gradientView.isHidden = false
+
+            }, completion: { _ in
+                self.revealed = true
+            })
+        }
+    }
 }
