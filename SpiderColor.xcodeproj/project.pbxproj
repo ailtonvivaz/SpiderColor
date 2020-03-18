@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E171E2524116BE600BA5289 /* UIColor+Extension.swift */; };
+		5E25917D2421AC6600F5965C /* DIN Alternate Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */; };
+		5E25917F2421AD6200F5965C /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E25917E2421AD6200F5965C /* Level.swift */; };
+		5E2591812421ADE800F5965C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2591802421ADE800F5965C /* Model.swift */; };
 		5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10724101867001A7D82 /* AppDelegate.swift */; };
 		5E44B10E24101867001A7D82 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10D24101867001A7D82 /* GameScene.swift */; };
 		5E44B11024101867001A7D82 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10F24101867001A7D82 /* GameViewController.swift */; };
@@ -35,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		5E171E2524116BE600BA5289 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Alternate Regular.otf"; sourceTree = "<group>"; };
+		5E25917E2421AD6200F5965C /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		5E2591802421ADE800F5965C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5E44B10424101867001A7D82 /* hue card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hue card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E44B10724101867001A7D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E44B10D24101867001A7D82 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -123,6 +129,8 @@
 				5E44B12524102549001A7D82 /* Card.swift */,
 				5E44B1272410256C001A7D82 /* Deck.swift */,
 				5EB118E1241B3D6800112FCD /* Movement.swift */,
+				5E25917E2421AD6200F5965C /* Level.swift */,
+				5E2591802421ADE800F5965C /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				5EB118E4241B427700112FCD /* background.wav */,
+				5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -260,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E44B11324101867001A7D82 /* Main.storyboard in Resources */,
+				5E25917D2421AC6600F5965C /* DIN Alternate Regular.otf in Resources */,
 				5E44B11524101868001A7D82 /* Assets.xcassets in Resources */,
 				5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */,
 				5EB118E5241B427700112FCD /* background.wav in Resources */,
@@ -274,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E2591812421ADE800F5965C /* Model.swift in Sources */,
 				5EE913FE2420544D0097D550 /* UICollectionView+Extension.swift in Sources */,
 				5E44B1282410256C001A7D82 /* Deck.swift in Sources */,
 				5EE91401242061B90097D550 /* HomeViewController.swift in Sources */,
@@ -283,6 +294,7 @@
 				5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */,
 				5E44B11024101867001A7D82 /* GameViewController.swift in Sources */,
 				5EE913F3242034120097D550 /* DesignableViews.swift in Sources */,
+				5E25917F2421AD6200F5965C /* Level.swift in Sources */,
 				5EE913F72420534F0097D550 /* GradientView.swift in Sources */,
 				5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */,
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,

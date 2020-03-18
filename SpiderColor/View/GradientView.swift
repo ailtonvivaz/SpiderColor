@@ -8,13 +8,12 @@
 
 import UIKit
 
-//@IBDesignable
 class GradientView: UIView {
-    @IBInspectable
-    var startColor: UIColor = .white
-
-    @IBInspectable
-    var endColor: UIColor = .black
+    var colors: [UIColor] = [] {
+        didSet {
+            update()
+        }
+    }
 
     open override class var layerClass: AnyClass {
         return CAGradientLayer.classForCoder()
@@ -25,14 +24,8 @@ class GradientView: UIView {
         update()
     }
 
-    override func layoutSubviews() {
-        update()
-        startColor = .random
-        endColor = .random
-    }
-
     private func update() {
         let gradientLayer = layer as! CAGradientLayer
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.colors = colors.map { $0.cgColor }
     }
 }

@@ -15,9 +15,9 @@ class LevelViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var pageLabel: UILabel!
 
-    private let spacing: CGFloat = 20
+    private let spacing: CGFloat = 30
 
-    private let horizontalMargin: CGFloat = 20
+    private let horizontalMargin: CGFloat = 30
     private var collectionWidth: CGFloat { collectionView.frame.width }
     private let gridCols: CGFloat = 3
     private var cardWidth: CGFloat { (collectionWidth - 2 * horizontalMargin - (gridCols - 1) * spacing) / gridCols }
@@ -26,7 +26,7 @@ class LevelViewController: UIViewController {
     private var collectionHeight: CGFloat { collectionView.frame.height }
     private let gridRows: CGFloat = 3
     //    private var cardHeight: CGFloat { (collectionHeight - 2 * verticalMargin - (gridRows - 1) * spacing) / gridRows }
-    private var cardHeight: CGFloat { cardWidth * 1.4 }
+    private var cardHeight: CGFloat { cardWidth * 1.3 }
     private var verticalMargin: CGFloat { (collectionHeight - (gridRows * cardHeight) - (gridRows - 1) * spacing) / 2 }
 
     var numberOfItems: Int { collectionView.numberOfItems(inSection: 0) }
@@ -76,8 +76,13 @@ class LevelViewController: UIViewController {
         print(indexPath)
         collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         self.page = page
-
         pageLabel.text = "Page \(self.page + 1)"
+    }
+
+    //MARK: - Actions
+
+    @IBAction func onTapHome(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func onTapPrevious(_ sender: Any) {
@@ -118,11 +123,12 @@ extension LevelViewController: UICollectionViewDelegate {
 
 extension LevelViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        54
+        13
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellFromNib(LevelCardCollectionViewCell.self, for: indexPath) {
+            cell.level = Level(value: indexPath.row + 1, colors: [.random, .random], completed: Bool.random())
             return cell
         }
 

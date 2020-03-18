@@ -15,6 +15,18 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet var levelLabel: UILabel!
     @IBOutlet var levelCompletedImageView: UIImageView!
 
+    var level: Level! {
+        didSet {
+            levelLabel.text = String(format: "%02d", level.value)
+            gradientView.colors = level.colors
+            levelCompletedImageView.isHidden = !level.completed
+
+            backCardView.isHidden = level.available
+            gradientView.isHidden = !level.available
+        }
+    }
+
+    var enabled: Bool = false
     private var revealed: Bool = false
 
     override func awakeFromNib() {
