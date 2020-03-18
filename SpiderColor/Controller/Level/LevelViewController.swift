@@ -82,7 +82,7 @@ class LevelViewController: UIViewController {
         print(indexPath)
         collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         self.page = page
-        pageLabel.text = "Page \(self.page + 1)"
+        pageLabel.text = "page \(self.page + 1)"
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

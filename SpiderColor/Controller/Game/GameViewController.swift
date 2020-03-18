@@ -13,7 +13,6 @@ import UIKit
 class GameViewController: UIViewController {
     @IBOutlet var sceneView: SKView!
     @IBOutlet var topView: UIView!
-    @IBOutlet var bottomView: UIView!
 
     var level: Level!
     var gameDelegate: GameDelegate!
@@ -23,7 +22,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scene = GameScene(level: level, size: view.frame.size, top: topView.frame.maxY, bottom: view.frame.height - bottomView.frame.minY)
+        scene = GameScene(level: level, size: view.frame.size, top: topView.frame.maxY, bottom: view.safeAreaInsets.bottom)
         scene.scaleMode = .resizeFill
         scene.gameDelegate = self
 
