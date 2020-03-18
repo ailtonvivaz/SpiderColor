@@ -16,13 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="2gL-H0-hRG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="2gL-H0-hRG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLE-tq-b61">
                                 <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsButton" translatesAutoresizingMaskIntoConstraints="NO" id="5uv-1N-FKS">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="5uv-1N-FKS">
                                         <rect key="frame" x="20" y="20" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="eEh-Wd-iU9"/>
@@ -37,7 +37,7 @@
                                     <constraint firstAttribute="bottom" secondItem="5uv-1N-FKS" secondAttribute="bottom" id="jhr-Q7-vtT"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card" translatesAutoresizingMaskIntoConstraints="NO" id="cii-2o-Tpy">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeHueCard" translatesAutoresizingMaskIntoConstraints="NO" id="cii-2o-Tpy">
                                 <rect key="frame" x="103.5" y="344.5" width="207" height="207"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -84,7 +84,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="fPT-aC-MYc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="fPT-aC-MYc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cTf-JL-SPd">
@@ -101,7 +101,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGa-Vs-rlz">
                                 <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeButton" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-Se-bel">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-Se-bel">
                                         <rect key="frame" x="20" y="20" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9Aw-Se-bel" secondAttribute="height" multiplier="1:1" id="2DB-pw-erK"/>
@@ -119,7 +119,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pw-Kq-1h0">
                                 <rect key="frame" x="0.0" y="782" width="414" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Previous" translatesAutoresizingMaskIntoConstraints="NO" id="SJc-gn-TBW">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageLeft" translatesAutoresizingMaskIntoConstraints="NO" id="SJc-gn-TBW">
                                         <rect key="frame" x="20" y="0.0" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -131,7 +131,7 @@
                                             <outletCollection property="gestureRecognizers" destination="bGQ-Yo-A3L" appends="YES" id="xxX-Ot-VmI"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Next" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-Pi-x7B">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageRight" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-Pi-x7B">
                                         <rect key="frame" x="334" y="0.0" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -184,6 +184,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="cTf-JL-SPd" id="YaF-yN-1tm"/>
+                        <outlet property="pageLabel" destination="rgX-Hm-Nqe" id="lgG-FP-cGc"/>
                         <segue destination="BV1-FR-VrT" kind="presentation" identifier="startGame" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="h8l-4H-Mfl"/>
                     </connections>
                 </viewController>
@@ -209,7 +210,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="zOr-iB-IHG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="zOr-iB-IHG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5E0-3K-zHp">
@@ -218,7 +219,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-9e-WuY">
                                 <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ExitButton" translatesAutoresizingMaskIntoConstraints="NO" id="QnA-f6-Sa8">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pauseGame" translatesAutoresizingMaskIntoConstraints="NO" id="QnA-f6-Sa8">
                                         <rect key="frame" x="20" y="20" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="IJh-tj-CIK"/>
@@ -236,7 +237,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s80-Ps-AOo">
                                 <rect key="frame" x="0.0" y="782" width="414" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UndoButton" translatesAutoresizingMaskIntoConstraints="NO" id="kXz-a5-U9p">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moveBack" translatesAutoresizingMaskIntoConstraints="NO" id="kXz-a5-U9p">
                                         <rect key="frame" x="20" y="0.0" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -248,7 +249,7 @@
                                             <outletCollection property="gestureRecognizers" destination="5u5-Eg-lIu" appends="YES" id="Yn8-v0-5mT"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HintButton" translatesAutoresizingMaskIntoConstraints="NO" id="8fJ-m7-ws5">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hint" translatesAutoresizingMaskIntoConstraints="NO" id="8fJ-m7-ws5">
                                         <rect key="frame" x="334" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="5xK-kG-mRm"/>
@@ -304,14 +305,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1500" height="2668"/>
-        <image name="Card" width="360" height="500"/>
-        <image name="ExitButton" width="48" height="48"/>
-        <image name="HintButton" width="48" height="48"/>
-        <image name="HomeButton" width="48" height="48"/>
-        <image name="Next" width="45" height="45"/>
-        <image name="Previous" width="45" height="45"/>
-        <image name="SettingsButton" width="48" height="48"/>
-        <image name="UndoButton" width="48" height="48"/>
+        <image name="background" width="1024" height="1366"/>
+        <image name="hint" width="44" height="44"/>
+        <image name="home" width="44" height="44"/>
+        <image name="homeHueCard" width="292" height="293"/>
+        <image name="moveBack" width="44" height="44"/>
+        <image name="pageLeft" width="44" height="44"/>
+        <image name="pageRight" width="44" height="44"/>
+        <image name="pauseGame" width="44" height="44"/>
+        <image name="settings" width="46" height="46"/>
     </resources>
 </document>
