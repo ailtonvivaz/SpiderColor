@@ -244,11 +244,19 @@
                                     <constraint firstItem="QnA-f6-Sa8" firstAttribute="top" secondItem="F6e-9e-WuY" secondAttribute="top" constant="20" id="vXO-8X-gF3"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-SK-ALv" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="s2C-9b-aTE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="zOr-iB-IHG" secondAttribute="bottom" id="107-Eu-TW5"/>
                             <constraint firstItem="F6e-9e-WuY" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="6BW-Xc-fhe"/>
+                            <constraint firstItem="qYA-SK-ALv" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="A0G-HF-NJl"/>
                             <constraint firstItem="5E0-3K-zHp" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="DfO-au-khE"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="5E0-3K-zHp" secondAttribute="trailing" id="Hfl-hm-E0k"/>
                             <constraint firstItem="zOr-iB-IHG" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="IdJ-dJ-P1t"/>
@@ -258,10 +266,13 @@
                             <constraint firstAttribute="bottom" secondItem="5E0-3K-zHp" secondAttribute="bottom" id="Vzr-mO-kbV"/>
                             <constraint firstItem="5E0-3K-zHp" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="fHd-Ky-b3e"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="F6e-9e-WuY" secondAttribute="trailing" id="vSI-7D-ZUT"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="qYA-SK-ALv" secondAttribute="bottom" id="wwm-Z3-aDI"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="qYA-SK-ALv" secondAttribute="trailing" id="xDI-3y-l1r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="qYA-SK-ALv" id="fV1-n0-iPo"/>
                         <outlet property="sceneView" destination="5E0-3K-zHp" id="Uao-Rk-rQb"/>
                         <outlet property="topView" destination="F6e-9e-WuY" id="Le2-bw-FX2"/>
                     </connections>

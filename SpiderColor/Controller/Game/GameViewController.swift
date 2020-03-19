@@ -7,12 +7,14 @@
 //
 
 import GameplayKit
+import GoogleMobileAds
 import SpriteKit
 import UIKit
 
 class GameViewController: UIViewController {
     @IBOutlet var sceneView: SKView!
     @IBOutlet var topView: UIView!
+    @IBOutlet var bannerView: GADBannerView!
 
     var level: Level!
     var gameDelegate: GameDelegate!
@@ -39,6 +41,11 @@ class GameViewController: UIViewController {
         // add notification observers
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+
+        // Game banner
+        bannerView.adUnitID = Ads.gameBanner
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
 
     @objc func didBecomeActive() {
