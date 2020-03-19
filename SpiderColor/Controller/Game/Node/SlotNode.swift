@@ -27,6 +27,9 @@ class SlotNode: SKSpriteNode {
         isUserInteractionEnabled = true
         anchorPoint = CGPoint(x: 0, y: 1)
         
+        let emptyNode = CardNode(card: Card(value: 0, color: UIColor.black.withAlphaComponent(0.25)), width: size.width)
+        addChild(emptyNode)
+        
         name = "Name\(Int.random(in: 0...1000))"
         add(deckNode: deckNode)
     }

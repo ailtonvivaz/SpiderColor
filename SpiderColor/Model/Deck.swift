@@ -13,14 +13,10 @@ class Deck {
     private(set) var childDeck: Deck?
     private(set) var parentDeck: Deck?
 
-    static var empty: Deck { Deck(card: Card(value: -1, color: .clear)) }
-
-    var isEmpty: Bool { card.value == -1 }
     var size: Int { 1 + (childDeck?.size ?? 0) }
     var cards: [Card] { [card] + (childDeck?.cards ?? []) }
 
     var isDraggable: Bool {
-        if isEmpty { return false }
         if let deck = childDeck {
             return (card.isNext(of: deck.card)) && deck.isDraggable
         }

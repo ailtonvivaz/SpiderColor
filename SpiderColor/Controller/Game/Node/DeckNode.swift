@@ -26,10 +26,8 @@ class DeckNode: SKNode {
         self.width = width
         super.init()
         
-        if !deck.isEmpty {
-            let cardNode = CardNode(card: deck.card, width: width)
-            addChild(cardNode)
-        }
+        let cardNode = CardNode(card: deck.card, width: width)
+        addChild(cardNode)
         
         if let child = deck.childDeck {
             let deckNode = DeckNode(deck: child, width: width)
@@ -61,7 +59,7 @@ class DeckNode: SKNode {
     func drop() {
         run(.group([
             .scale(to: 1, duration: 0.1),
-            .move(to: parentNode != nil ? self.offsettedPosition : .zero, duration: 0.1),
+            .move(to: self.parentNode != nil ? self.offsettedPosition : .zero, duration: 0.1),
         ])) {
             self.zPosition = self.originalZPosition
         }
@@ -92,6 +90,6 @@ class DeckNode: SKNode {
     }
     
     func toString() -> String {
-        "\(deck.card.value) | \(childNode?.toString() ?? "end")"
+        "\(self.deck.card.value) | \(self.childNode?.toString() ?? "end")"
     }
 }
