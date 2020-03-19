@@ -8,5 +8,6 @@ target 'SpiderColor' do
   # Pods for SpiderColor
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
+  pod 'Google-Mobile-Ads-SDK'
 
 end
