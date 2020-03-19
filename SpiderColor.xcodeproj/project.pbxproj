@@ -270,6 +270,7 @@
 				5E44B10124101867001A7D82 /* Frameworks */,
 				5E44B10224101867001A7D82 /* Resources */,
 				39A8DF89F056583D8855D4C1 /* [CP] Embed Pods Frameworks */,
+				5E66CEDC2423278D00CA11E6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -348,6 +349,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpiderColor/Pods-SpiderColor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5E66CEDC2423278D00CA11E6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		7FCC2D59EEE4B73DF8AF3440 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

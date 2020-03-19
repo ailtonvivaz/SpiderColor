@@ -7,5 +7,6 @@ target 'SpiderColor' do
 
   # Pods for SpiderColor
   pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
 
 end
