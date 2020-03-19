@@ -95,17 +95,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="fPT-aC-MYc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cTf-JL-SPd">
-                                <rect key="frame" x="0.0" y="109" width="414" height="665"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B1r-oS-h9e">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KG6-HZ-Q2S">
+                                <rect key="frame" x="0.0" y="109" width="414" height="673"/>
+                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGa-Vs-rlz">
                                 <rect key="frame" x="0.0" y="44" width="414" height="65"/>
                                 <subviews>
@@ -173,27 +165,28 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="cTf-JL-SPd" firstAttribute="leading" secondItem="r0d-i6-npX" secondAttribute="leading" id="0CB-U7-wCn"/>
                             <constraint firstItem="4pw-Kq-1h0" firstAttribute="leading" secondItem="r0d-i6-npX" secondAttribute="leading" id="3FS-Uj-wTR"/>
                             <constraint firstItem="fPT-aC-MYc" firstAttribute="leading" secondItem="dkM-gy-dw8" secondAttribute="leading" id="9WK-6A-Pzb"/>
                             <constraint firstItem="r0d-i6-npX" firstAttribute="bottom" secondItem="4pw-Kq-1h0" secondAttribute="bottom" id="Hpu-P5-7vv"/>
-                            <constraint firstItem="r0d-i6-npX" firstAttribute="trailing" secondItem="cTf-JL-SPd" secondAttribute="trailing" id="UxM-2d-MRl"/>
+                            <constraint firstItem="KG6-HZ-Q2S" firstAttribute="top" secondItem="JGa-Vs-rlz" secondAttribute="bottom" id="Uzl-J8-15H"/>
                             <constraint firstItem="JGa-Vs-rlz" firstAttribute="leading" secondItem="dkM-gy-dw8" secondAttribute="leading" id="W6Y-in-JKa"/>
+                            <constraint firstItem="r0d-i6-npX" firstAttribute="trailing" secondItem="KG6-HZ-Q2S" secondAttribute="trailing" id="WHM-3c-Nvf"/>
+                            <constraint firstItem="4pw-Kq-1h0" firstAttribute="top" secondItem="KG6-HZ-Q2S" secondAttribute="bottom" id="Yeg-Tt-EJg"/>
                             <constraint firstItem="JGa-Vs-rlz" firstAttribute="top" secondItem="r0d-i6-npX" secondAttribute="top" id="c8k-5C-Axi"/>
                             <constraint firstItem="4pw-Kq-1h0" firstAttribute="trailing" secondItem="r0d-i6-npX" secondAttribute="trailing" id="fIu-0T-00b"/>
                             <constraint firstItem="fPT-aC-MYc" firstAttribute="top" secondItem="dkM-gy-dw8" secondAttribute="top" id="fVJ-xV-e4H"/>
-                            <constraint firstItem="4pw-Kq-1h0" firstAttribute="top" secondItem="cTf-JL-SPd" secondAttribute="bottom" constant="8" symbolic="YES" id="jEO-SH-hY3"/>
+                            <constraint firstItem="KG6-HZ-Q2S" firstAttribute="leading" secondItem="r0d-i6-npX" secondAttribute="leading" id="iuz-sV-aVS"/>
                             <constraint firstAttribute="bottom" secondItem="fPT-aC-MYc" secondAttribute="bottom" id="lcb-0C-vdY"/>
                             <constraint firstAttribute="trailing" secondItem="fPT-aC-MYc" secondAttribute="trailing" id="mfY-BQ-4CZ"/>
                             <constraint firstItem="r0d-i6-npX" firstAttribute="trailing" secondItem="JGa-Vs-rlz" secondAttribute="trailing" id="rYf-rp-AvH"/>
-                            <constraint firstItem="cTf-JL-SPd" firstAttribute="top" secondItem="JGa-Vs-rlz" secondAttribute="bottom" id="u2n-Ca-FeJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r0d-i6-npX"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="cTf-JL-SPd" id="YaF-yN-1tm"/>
+                        <outlet property="containerPageView" destination="KG6-HZ-Q2S" id="G0S-tR-RnH"/>
+                        <outlet property="nextPageButton" destination="zdB-Pi-x7B" id="f6K-dQ-b0d"/>
                         <outlet property="pageLabel" destination="rgX-Hm-Nqe" id="lgG-FP-cGc"/>
-                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="startGame" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="h8l-4H-Mfl"/>
+                        <outlet property="previousPageButton" destination="SJc-gn-TBW" id="6Xj-Hx-tLP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJq-21-s51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -218,7 +211,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="hue_card" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameVC" id="BV1-FR-VrT" customClass="GameViewController" customModule="hue_card" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
