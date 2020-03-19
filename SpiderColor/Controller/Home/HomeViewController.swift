@@ -16,8 +16,9 @@ class HomeViewController: UIViewController {
     override var prefersStatusBarHidden: Bool { true }
 
     //MARK: - Actions
-
+ 
     @IBAction func onTapStart(_ sender: Any) {
+        AnalyticsUtils.tapButton("start")
         performSegue(withIdentifier: "showLevel", sender: nil)
     }
 }

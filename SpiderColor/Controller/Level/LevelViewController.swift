@@ -79,12 +79,14 @@ class LevelViewController: UIViewController {
     }
 
     @IBAction func onTapPrevious(_ sender: Any) {
+        AnalyticsUtils.tapButton("previous_level")
         if indexPage > 0 {
             goTo(indexPage: indexPage - 1)
         }
     }
 
     @IBAction func onTapNext(_ sender: Any) {
+        AnalyticsUtils.tapButton("next_level")
         if indexPage < numberOfPages - 1 {
             goTo(indexPage: indexPage + 1)
         }

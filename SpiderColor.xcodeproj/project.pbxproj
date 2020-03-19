@@ -28,6 +28,8 @@
 		5E66CECE2423125E00CA11E6 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */; };
 		5E66CED024231AAB00CA11E6 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CECF24231AAB00CA11E6 /* CodableColor.swift */; };
 		5E66CED6242320F200CA11E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */; };
+		5E66CED82423216100CA11E6 /* AnalyticsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CED72423216100CA11E6 /* AnalyticsUtils.swift */; };
+		5E66CEDA2423257000CA11E6 /* DispatchTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CED92423257000CA11E6 /* DispatchTime+Extension.swift */; };
 		5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B960E24181F0E008F2D57 /* SlotNode.swift */; };
 		5EB118E0241B35CA00112FCD /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118DF241B35CA00112FCD /* GradientNode.swift */; };
 		5EB118E2241B3D6800112FCD /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118E1241B3D6800112FCD /* Movement.swift */; };
@@ -67,6 +69,8 @@
 		5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5E66CECF24231AAB00CA11E6 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
 		5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5E66CED72423216100CA11E6 /* AnalyticsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsUtils.swift; sourceTree = "<group>"; };
+		5E66CED92423257000CA11E6 /* DispatchTime+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extension.swift"; sourceTree = "<group>"; };
 		5E6B960E24181F0E008F2D57 /* SlotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotNode.swift; sourceTree = "<group>"; };
 		5EB118DF241B35CA00112FCD /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
 		5EB118E1241B3D6800112FCD /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				5E25917E2421AD6200F5965C /* Level.swift */,
 				5E2591802421ADE800F5965C /* Game.swift */,
 				5E66CECF24231AAB00CA11E6 /* CodableColor.swift */,
+				5E66CED72423216100CA11E6 /* AnalyticsUtils.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				5EE913EF2420325B0097D550 /* UIView+Extension.swift */,
 				5EE913FD2420544D0097D550 /* UICollectionView+Extension.swift */,
 				5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */,
+				5E66CED92423257000CA11E6 /* DispatchTime+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 				5EE913F3242034120097D550 /* DesignableViews.swift in Sources */,
 				5E25917F2421AD6200F5965C /* Level.swift in Sources */,
 				5E66CECE2423125E00CA11E6 /* UIViewController+Extension.swift in Sources */,
+				5E66CEDA2423257000CA11E6 /* DispatchTime+Extension.swift in Sources */,
 				5EE913F72420534F0097D550 /* GradientView.swift in Sources */,
 				5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */,
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,
@@ -396,6 +403,7 @@
 				5EF196E524195D32003CD4DB /* CGPoint+Extension.swift in Sources */,
 				5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */,
 				5E66CECB2423122800CA11E6 /* LevelSoonViewController.swift in Sources */,
+				5E66CED82423216100CA11E6 /* AnalyticsUtils.swift in Sources */,
 				5EB118E0241B35CA00112FCD /* GradientNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
