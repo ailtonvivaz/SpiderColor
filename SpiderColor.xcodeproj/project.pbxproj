@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CBCCEA0AEA979BFC5598718 /* Pods_SpiderColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DF8BBB53AE62A09C2FF8A /* Pods_SpiderColor.framework */; };
 		5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E171E2524116BE600BA5289 /* UIColor+Extension.swift */; };
 		5E25917D2421AC6600F5965C /* DIN Alternate Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */; };
 		5E25917F2421AD6200F5965C /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E25917E2421AD6200F5965C /* Level.swift */; };
@@ -26,6 +27,7 @@
 		5E66CECC2423122800CA11E6 /* LevelSoonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E66CECA2423122800CA11E6 /* LevelSoonViewController.xib */; };
 		5E66CECE2423125E00CA11E6 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */; };
 		5E66CED024231AAB00CA11E6 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CECF24231AAB00CA11E6 /* CodableColor.swift */; };
+		5E66CED6242320F200CA11E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */; };
 		5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B960E24181F0E008F2D57 /* SlotNode.swift */; };
 		5EB118E0241B35CA00112FCD /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118DF241B35CA00112FCD /* GradientNode.swift */; };
 		5EB118E2241B3D6800112FCD /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118E1241B3D6800112FCD /* Movement.swift */; };
@@ -42,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FA610305E070817218DD903 /* Pods-SpiderColor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpiderColor.release.xcconfig"; path = "Target Support Files/Pods-SpiderColor/Pods-SpiderColor.release.xcconfig"; sourceTree = "<group>"; };
 		5E171E2524116BE600BA5289 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Alternate Regular.otf"; sourceTree = "<group>"; };
 		5E25917E2421AD6200F5965C /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		5E66CECA2423122800CA11E6 /* LevelSoonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelSoonViewController.xib; sourceTree = "<group>"; };
 		5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5E66CECF24231AAB00CA11E6 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
+		5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E6B960E24181F0E008F2D57 /* SlotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotNode.swift; sourceTree = "<group>"; };
 		5EB118DF241B35CA00112FCD /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
 		5EB118E1241B3D6800112FCD /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		5EE913FD2420544D0097D550 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		5EE91400242061B90097D550 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
+		6E1DF8BBB53AE62A09C2FF8A /* Pods_SpiderColor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpiderColor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC2B0217D957D9487A467D03 /* Pods-SpiderColor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpiderColor.debug.xcconfig"; path = "Target Support Files/Pods-SpiderColor/Pods-SpiderColor.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,17 +89,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBCCEA0AEA979BFC5598718 /* Pods_SpiderColor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3900DC067BF16ADC6DA44C68 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC2B0217D957D9487A467D03 /* Pods-SpiderColor.debug.xcconfig */,
+				2FA610305E070817218DD903 /* Pods-SpiderColor.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5E44B0FB24101867001A7D82 = {
 			isa = PBXGroup;
 			children = (
 				5E44B10624101867001A7D82 /* SpiderColor */,
 				5E44B10524101867001A7D82 /* Products */,
+				3900DC067BF16ADC6DA44C68 /* Pods */,
+				932898C0118C6DA053015777 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +136,7 @@
 				5E44B11424101868001A7D82 /* Assets.xcassets */,
 				5E44B11624101868001A7D82 /* LaunchScreen.storyboard */,
 				5E44B11924101868001A7D82 /* Info.plist */,
+				5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */,
 			);
 			path = SpiderColor;
 			sourceTree = "<group>";
@@ -225,6 +244,14 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		932898C0118C6DA053015777 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E1DF8BBB53AE62A09C2FF8A /* Pods_SpiderColor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,9 +259,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E44B11C24101868001A7D82 /* Build configuration list for PBXNativeTarget "SpiderColor" */;
 			buildPhases = (
+				7FCC2D59EEE4B73DF8AF3440 /* [CP] Check Pods Manifest.lock */,
 				5E44B10024101867001A7D82 /* Sources */,
 				5E44B10124101867001A7D82 /* Frameworks */,
 				5E44B10224101867001A7D82 /* Resources */,
+				39A8DF89F056583D8855D4C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E44B11324101867001A7D82 /* Main.storyboard in Resources */,
+				5E66CED6242320F200CA11E6 /* GoogleService-Info.plist in Resources */,
 				5E66CECC2423122800CA11E6 /* LevelSoonViewController.xib in Resources */,
 				5E25917D2421AC6600F5965C /* DIN Alternate Regular.otf in Resources */,
 				5E44B11524101868001A7D82 /* Assets.xcassets in Resources */,
@@ -294,6 +324,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39A8DF89F056583D8855D4C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpiderColor/Pods-SpiderColor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpiderColor/Pods-SpiderColor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpiderColor/Pods-SpiderColor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FCC2D59EEE4B73DF8AF3440 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpiderColor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E44B10024101867001A7D82 /* Sources */ = {
@@ -466,6 +538,7 @@
 		};
 		5E44B11D24101868001A7D82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC2B0217D957D9487A467D03 /* Pods-SpiderColor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -489,6 +562,7 @@
 		};
 		5E44B11E24101868001A7D82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FA610305E070817218DD903 /* Pods-SpiderColor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
