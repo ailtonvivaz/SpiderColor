@@ -56,7 +56,7 @@ class LevelViewController: UIViewController {
         if let page = page(from: indexPage) {
             pageViewController.setViewControllers([page], direction: indexPage > self.indexPage ? .forward : .reverse, animated: true, completion: nil)
             self.indexPage = indexPage
-            pageLabel.text = "page \(indexPage + 1)"
+            pageLabel.text = String(format: NSLocalizedString("page %d", comment: ""), indexPage + 1)
 
             previousPageButton.isHidden = self.indexPage == 0
             nextPageButton.isHidden = self.indexPage == numberOfPages - 1

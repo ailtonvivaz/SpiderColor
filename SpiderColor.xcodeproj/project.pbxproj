@@ -12,6 +12,8 @@
 		5E25917D2421AC6600F5965C /* DIN Alternate Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */; };
 		5E25917F2421AD6200F5965C /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E25917E2421AD6200F5965C /* Level.swift */; };
 		5E2591812421ADE800F5965C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2591802421ADE800F5965C /* Game.swift */; };
+		5E2962E62423D3690066D374 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E2962E82423D3690066D374 /* Localizable.strings */; };
+		5E2962EA2423D4C30066D374 /* LevelSoonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2962EC2423D4C30066D374 /* LevelSoonViewController.xib */; };
 		5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10724101867001A7D82 /* AppDelegate.swift */; };
 		5E44B10E24101867001A7D82 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10D24101867001A7D82 /* GameScene.swift */; };
 		5E44B11024101867001A7D82 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10F24101867001A7D82 /* GameViewController.swift */; };
@@ -24,7 +26,6 @@
 		5E44B1282410256C001A7D82 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B1272410256C001A7D82 /* Deck.swift */; };
 		5E66CEC72423049800CA11E6 /* LevelPageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CEC52423049800CA11E6 /* LevelPageCollectionViewController.swift */; };
 		5E66CECB2423122800CA11E6 /* LevelSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CEC92423122800CA11E6 /* LevelSoonViewController.swift */; };
-		5E66CECC2423122800CA11E6 /* LevelSoonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E66CECA2423122800CA11E6 /* LevelSoonViewController.xib */; };
 		5E66CECE2423125E00CA11E6 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */; };
 		5E66CED024231AAB00CA11E6 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CECF24231AAB00CA11E6 /* CodableColor.swift */; };
 		5E66CED6242320F200CA11E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */; };
@@ -52,6 +53,13 @@
 		5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Alternate Regular.otf"; sourceTree = "<group>"; };
 		5E25917E2421AD6200F5965C /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		5E2591802421ADE800F5965C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		5E2962E02423C6060066D374 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		5E2962E12423C6060066D374 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5E2962E32423C66F0066D374 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5E2962E72423D3690066D374 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5E2962E92423D36B0066D374 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5E2962EB2423D4C30066D374 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LevelSoonViewController.xib; sourceTree = "<group>"; };
+		5E2962EE2423D4C80066D374 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LevelSoonViewController.strings"; sourceTree = "<group>"; };
 		5E44B10424101867001A7D82 /* hue card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hue card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E44B10724101867001A7D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E44B10D24101867001A7D82 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -66,7 +74,6 @@
 		5E44B1272410256C001A7D82 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		5E66CEC52423049800CA11E6 /* LevelPageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPageCollectionViewController.swift; sourceTree = "<group>"; };
 		5E66CEC92423122800CA11E6 /* LevelSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoonViewController.swift; sourceTree = "<group>"; };
-		5E66CECA2423122800CA11E6 /* LevelSoonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelSoonViewController.xib; sourceTree = "<group>"; };
 		5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5E66CECF24231AAB00CA11E6 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
 		5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -111,6 +118,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5E2962E22423C6670066D374 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E44B10724101867001A7D82 /* AppDelegate.swift */,
+				5E44B11124101867001A7D82 /* Main.storyboard */,
+				5E44B11424101868001A7D82 /* Assets.xcassets */,
+				5E44B11624101868001A7D82 /* LaunchScreen.storyboard */,
+				5E44B11924101868001A7D82 /* Info.plist */,
+				5E2962E32423C66F0066D374 /* GoogleService-Info.plist */,
+				5E2962E82423D3690066D374 /* Localizable.strings */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
 		5E44B0FB24101867001A7D82 = {
 			isa = PBXGroup;
 			children = (
@@ -132,16 +153,12 @@
 		5E44B10624101867001A7D82 /* SpiderColor */ = {
 			isa = PBXGroup;
 			children = (
+				5E2962E22423C6670066D374 /* Support Files */,
 				5E44B12224102522001A7D82 /* Model */,
 				5EE913F8242053DE0097D550 /* Controller */,
 				5EE913F1242034000097D550 /* View */,
 				5EB118E3241B410100112FCD /* Assets */,
 				5E44B12924102F75001A7D82 /* Extension */,
-				5E44B10724101867001A7D82 /* AppDelegate.swift */,
-				5E44B11124101867001A7D82 /* Main.storyboard */,
-				5E44B11424101868001A7D82 /* Assets.xcassets */,
-				5E44B11624101868001A7D82 /* LaunchScreen.storyboard */,
-				5E44B11924101868001A7D82 /* Info.plist */,
 				5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */,
 			);
 			path = SpiderColor;
@@ -238,7 +255,7 @@
 				5EE913FB242053FC0097D550 /* LevelViewController.swift */,
 				5E66CEC52423049800CA11E6 /* LevelPageCollectionViewController.swift */,
 				5E66CEC92423122800CA11E6 /* LevelSoonViewController.swift */,
-				5E66CECA2423122800CA11E6 /* LevelSoonViewController.xib */,
+				5E2962EC2423D4C30066D374 /* LevelSoonViewController.xib */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -306,6 +323,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 5E44B0FB24101867001A7D82;
 			productRefGroup = 5E44B10524101867001A7D82 /* Products */;
@@ -324,8 +342,9 @@
 			files = (
 				5E44B11324101867001A7D82 /* Main.storyboard in Resources */,
 				5E66CED6242320F200CA11E6 /* GoogleService-Info.plist in Resources */,
-				5E66CECC2423122800CA11E6 /* LevelSoonViewController.xib in Resources */,
+				5E2962EA2423D4C30066D374 /* LevelSoonViewController.xib in Resources */,
 				5E25917D2421AC6600F5965C /* DIN Alternate Regular.otf in Resources */,
+				5E2962E62423D3690066D374 /* Localizable.strings in Resources */,
 				5E44B11524101868001A7D82 /* Assets.xcassets in Resources */,
 				5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */,
 				5EB118E5241B427700112FCD /* background.wav in Resources */,
@@ -435,10 +454,29 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5E2962E82423D3690066D374 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E2962E72423D3690066D374 /* en */,
+				5E2962E92423D36B0066D374 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5E2962EC2423D4C30066D374 /* LevelSoonViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E2962EB2423D4C30066D374 /* Base */,
+				5E2962EE2423D4C80066D374 /* pt-BR */,
+			);
+			name = LevelSoonViewController.xib;
+			sourceTree = "<group>";
+		};
 		5E44B11124101867001A7D82 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5E44B11224101867001A7D82 /* Base */,
+				5E2962E02423C6060066D374 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -447,6 +485,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5E44B11724101868001A7D82 /* Base */,
+				5E2962E12423C6060066D374 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -458,6 +497,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -518,6 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
