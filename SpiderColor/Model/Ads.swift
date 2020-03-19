@@ -16,4 +16,12 @@ class Ads {
             return "ca-app-pub-8446667675243761/2673418468"
         #endif
     }
+
+    static var interLevel: String {
+        #if DEBUG
+            return "ca-app-pub-3940256099942544/4411468910"
+        #else
+            return "ca-app-pub-8446667675243761/7941771606"
+        #endif
+    }
 }

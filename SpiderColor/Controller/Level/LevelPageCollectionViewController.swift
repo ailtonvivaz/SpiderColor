@@ -6,13 +6,14 @@
 //  Copyright © 2020 Veevaz. All rights reserved.
 //
 
+import GoogleMobileAds
 import UIKit
-
-private let reuseIdentifier = "Cell"
 
 class LevelPageCollectionViewController: UICollectionViewController {
     private let levels: [Level]
     private let parentVC: UIViewController
+
+    var interstitial: GADInterstitial!
 
     //MARK: - Collection View variables
 
@@ -45,6 +46,10 @@ class LevelPageCollectionViewController: UICollectionViewController {
         collectionView!.backgroundColor = .clear
 
         collectionView!.registerFromNib(LevelCardCollectionViewCell.self)
+
+        interstitial = GADInterstitial(adUnitID: Ads.interLevel)
+        let request = GADRequest()
+        interstitial.load(request)
     }
 
     override func viewDidLayoutSubviews() {
@@ -104,6 +109,14 @@ extension LevelPageCollectionViewController: GameDelegate {
                 Game.shared.levels[index + 1].isAvailable = true
                 let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
                 nextCell.reveal()
+
+                if level.value > 5 {
+                    if interstitial.isReady {
+                        interstitial.present(fromRootViewController: self)
+                    } else {
+                        print("Ad wasn't ready")
+                    }
+                }
             }
 
             Game.shared.complete(level: level)

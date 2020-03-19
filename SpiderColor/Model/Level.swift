@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Level: Codable {
+class Level: Codable {
     let value: Int
     private let codableColors: [CodableColor]
     let qtyCards: Int = 9
