@@ -21,7 +21,7 @@ class LevelViewController: UIViewController {
     var pageViewController: UIPageViewController!
 
     private var indexPage = 0
-    private var levels: [Level] { Model.shared.levels }
+    private var levels: [Level] { Game.shared.levels }
 
     private let gridCols: CGFloat = 3
     private let gridRows: CGFloat = 3
@@ -67,7 +67,7 @@ class LevelViewController: UIViewController {
         if index == numberOfPages - 1 {
             return LevelSoonViewController.loadFromNib()
         } else if index >= 0, index < numberOfPages - 1 {
-            return LevelPageCollectionViewController(levels: Model.shared.levels, parent: self)
+            return LevelPageCollectionViewController(levels: Game.shared.levels, parent: self)
         }
         return nil
     }

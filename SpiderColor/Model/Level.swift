@@ -8,10 +8,19 @@
 
 import UIKit
 
-struct Level {
+struct Level: Codable {
     let value: Int
-    let colors: [UIColor]
+    private let codableColors: [CodableColor]
     let qtyCards: Int = 9
     var completed: Bool = false
     var isAvailable: Bool = false
+
+    var colors: [UIColor] { codableColors.map { $0.color } }
+
+    internal init(value: Int, colors: [UIColor], completed: Bool = false, isAvailable: Bool = false) {
+        self.value = value
+        self.codableColors = colors.map { CodableColor(color: $0) }
+        self.completed = completed
+        self.isAvailable = isAvailable
+    }
 }

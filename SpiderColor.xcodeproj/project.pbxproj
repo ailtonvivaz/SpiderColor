@@ -10,7 +10,7 @@
 		5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E171E2524116BE600BA5289 /* UIColor+Extension.swift */; };
 		5E25917D2421AC6600F5965C /* DIN Alternate Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */; };
 		5E25917F2421AD6200F5965C /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E25917E2421AD6200F5965C /* Level.swift */; };
-		5E2591812421ADE800F5965C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2591802421ADE800F5965C /* Model.swift */; };
+		5E2591812421ADE800F5965C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2591802421ADE800F5965C /* Game.swift */; };
 		5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10724101867001A7D82 /* AppDelegate.swift */; };
 		5E44B10E24101867001A7D82 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10D24101867001A7D82 /* GameScene.swift */; };
 		5E44B11024101867001A7D82 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E44B10F24101867001A7D82 /* GameViewController.swift */; };
@@ -25,6 +25,7 @@
 		5E66CECB2423122800CA11E6 /* LevelSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CEC92423122800CA11E6 /* LevelSoonViewController.swift */; };
 		5E66CECC2423122800CA11E6 /* LevelSoonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E66CECA2423122800CA11E6 /* LevelSoonViewController.xib */; };
 		5E66CECE2423125E00CA11E6 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */; };
+		5E66CED024231AAB00CA11E6 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E66CECF24231AAB00CA11E6 /* CodableColor.swift */; };
 		5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B960E24181F0E008F2D57 /* SlotNode.swift */; };
 		5EB118E0241B35CA00112FCD /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118DF241B35CA00112FCD /* GradientNode.swift */; };
 		5EB118E2241B3D6800112FCD /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118E1241B3D6800112FCD /* Movement.swift */; };
@@ -44,7 +45,7 @@
 		5E171E2524116BE600BA5289 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Alternate Regular.otf"; sourceTree = "<group>"; };
 		5E25917E2421AD6200F5965C /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		5E2591802421ADE800F5965C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		5E2591802421ADE800F5965C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		5E44B10424101867001A7D82 /* hue card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hue card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E44B10724101867001A7D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E44B10D24101867001A7D82 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		5E66CEC92423122800CA11E6 /* LevelSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoonViewController.swift; sourceTree = "<group>"; };
 		5E66CECA2423122800CA11E6 /* LevelSoonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelSoonViewController.xib; sourceTree = "<group>"; };
 		5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		5E66CECF24231AAB00CA11E6 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
 		5E6B960E24181F0E008F2D57 /* SlotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotNode.swift; sourceTree = "<group>"; };
 		5EB118DF241B35CA00112FCD /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
 		5EB118E1241B3D6800112FCD /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
@@ -138,7 +140,8 @@
 				5E44B1272410256C001A7D82 /* Deck.swift */,
 				5EB118E1241B3D6800112FCD /* Movement.swift */,
 				5E25917E2421AD6200F5965C /* Level.swift */,
-				5E2591802421ADE800F5965C /* Model.swift */,
+				5E2591802421ADE800F5965C /* Game.swift */,
+				5E66CECF24231AAB00CA11E6 /* CodableColor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,7 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E2591812421ADE800F5965C /* Model.swift in Sources */,
+				5E2591812421ADE800F5965C /* Game.swift in Sources */,
 				5EE913FE2420544D0097D550 /* UICollectionView+Extension.swift in Sources */,
 				5E44B1282410256C001A7D82 /* Deck.swift in Sources */,
 				5EE91401242061B90097D550 /* HomeViewController.swift in Sources */,
@@ -307,6 +310,7 @@
 				5E44B12624102549001A7D82 /* Card.swift in Sources */,
 				5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */,
 				5E44B11024101867001A7D82 /* GameViewController.swift in Sources */,
+				5E66CED024231AAB00CA11E6 /* CodableColor.swift in Sources */,
 				5EE913F3242034120097D550 /* DesignableViews.swift in Sources */,
 				5E25917F2421AD6200F5965C /* Level.swift in Sources */,
 				5E66CECE2423125E00CA11E6 /* UIViewController+Extension.swift in Sources */,

@@ -96,15 +96,17 @@ class LevelPageCollectionViewController: UICollectionViewController {
 extension LevelPageCollectionViewController: GameDelegate {
     func complete(level: Level) {
         if let index = levels.firstIndex(where: { level.value == $0.value }) {
-            Model.shared.levels[index].completed = true
+            Game.shared.levels[index].completed = true
             let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! LevelCardCollectionViewCell
             cell.complete()
 
             if index < levels.count - 1 {
-                Model.shared.levels[index + 1].isAvailable = true
+                Game.shared.levels[index + 1].isAvailable = true
                 let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
                 nextCell.reveal()
             }
+
+            Game.shared.complete(level: level)
         }
     }
 }
