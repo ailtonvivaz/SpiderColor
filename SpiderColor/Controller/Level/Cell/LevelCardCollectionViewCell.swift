@@ -27,7 +27,6 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
     }
 
     var enabled: Bool = false
-    private var revealed: Bool = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,7 +43,7 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
     }
 
     func reveal() {
-        if !revealed {
+        if !level.isAvailable {
             let transitionOptions = UIView.AnimationOptions.transitionFlipFromLeft
 
             UIView.transition(with: contentView, duration: 0.5, options: transitionOptions, animations: {
@@ -52,7 +51,6 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
                 self.gradientView.isHidden = false
 
             }, completion: { _ in
-                self.revealed = true
                 self.level.isAvailable = true
             })
         }

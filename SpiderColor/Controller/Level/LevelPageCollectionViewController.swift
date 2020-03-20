@@ -110,7 +110,7 @@ extension LevelPageCollectionViewController: GameDelegate {
                 let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
                 nextCell.reveal()
 
-                if level.value > 5 {
+                if level.value >= 5 {
                     if interstitial.isReady {
                         interstitial.present(fromRootViewController: self)
                     } else {

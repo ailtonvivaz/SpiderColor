@@ -20,6 +20,8 @@ class SlotNode: SKSpriteNode {
     var cards: [Card] { deckNode?.deck.cards ?? [] }
     var deckSize: Int { deckNode?.deck.size ?? 0 }
     
+    private var deckDragging: DeckNode?
+    
     init(size: CGSize, deck: Deck) {
         let deckNode = DeckNode(deck: deck, width: size.width)
         super.init(texture: SKTexture(image: UIImage(named: "Clear")!), color: .clear, size: size)
@@ -40,6 +42,7 @@ class SlotNode: SKSpriteNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, let node = deckNode?.deckDraggable {
+            deckDragging = node
             node.drag(to: touch.location(in: node.parentNode ?? self))
             let generator = UISelectionFeedbackGenerator()
             generator.selectionChanged()
@@ -47,13 +50,13 @@ class SlotNode: SKSpriteNode {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first, let node = deckNode?.deckDraggable {
+        if let touch = touches.first, let node = deckDragging {
             node.move(to: touch.location(in: node.parentNode ?? self))
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let deckDragged = deckNode?.deckDraggable {
+        if let deckDragged = deckDragging {
             let pos = touches.first!.location(in: parent!)
             if let slotDragged = delegate?.getSlot(for: pos),
                 slotDragged != self,

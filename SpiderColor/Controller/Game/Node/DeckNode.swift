@@ -17,6 +17,9 @@ class DeckNode: SKNode {
     var childNode: DeckNode?
     var originalZPosition: CGFloat = 0
     
+    private var dragOffset: CGPoint = .zero
+    private var isDragging: Bool = false
+    
     var deckDraggable: DeckNode? {
         self.deck.isDraggable ? self : self.childNode?.deckDraggable
     }
@@ -40,16 +43,16 @@ class DeckNode: SKNode {
     }
     
     private func normalPosition(for point: CGPoint) -> CGPoint {
-        point - CGPoint(x: calculateAccumulatedFrame().width / 2, y: -calculateAccumulatedFrame().height / 2)
+        self.offsettedPosition + (point - dragOffset)
     }
     
     func drag(to point: CGPoint) {
+        print("drag", self.isDragging)
+        if self.isDragging { return }
+        self.isDragging = true
         self.originalZPosition = zPosition
         self.zPosition = 10000
-        run(.group([
-            .scale(to: 1.2, duration: 0.1),
-            .move(to: self.normalPosition(for: point), duration: 0.2),
-        ]))
+        self.dragOffset = point
     }
     
     func move(to point: CGPoint) {
@@ -57,11 +60,14 @@ class DeckNode: SKNode {
     }
     
     func drop() {
+        print("drop", self.parentNode != nil, self.offsettedPosition)
         run(.group([
             .scale(to: 1, duration: 0.1),
             .move(to: self.parentNode != nil ? self.offsettedPosition : .zero, duration: 0.1),
         ])) {
             self.zPosition = self.originalZPosition
+            self.isDragging = false
+            print(self.position)
         }
     }
     
