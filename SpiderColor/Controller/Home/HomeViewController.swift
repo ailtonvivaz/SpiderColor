@@ -9,8 +9,14 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    @IBOutlet weak var logoView: UIView!
+    @IBOutlet weak var logoTopView: UIImageView!
+    @IBOutlet weak var logoBottomView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        UIView.ani
     }
 
     override var prefersStatusBarHidden: Bool { true }
@@ -18,6 +24,10 @@ class HomeViewController: UIViewController {
     //MARK: - Actions
  
     @IBAction func onTapStart(_ sender: Any) {
+//        UIView.animate(withDuration: 0.2) {
+//            self.logoTopView.transform = CGAffineTransform(rotationAngle: .pi)
+//        }
+        
         AnalyticsUtils.tapButton("start")
         performSegue(withIdentifier: "showLevel", sender: nil)
     }

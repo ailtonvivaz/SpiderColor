@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16092.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S61-PU-c0m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S61-PU-c0m">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16082.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,40 +20,60 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFE-mb-foh">
-                                <rect key="frame" x="-18.5" y="217" width="451" height="462"/>
+                                <rect key="frame" x="104" y="249.5" width="206.5" height="397"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeHueCard" translatesAutoresizingMaskIntoConstraints="NO" id="cii-2o-Tpy">
-                                        <rect key="frame" x="79" y="94" width="293" height="293"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="cii-2o-Tpy" secondAttribute="height" id="bFR-RI-eTn"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUE CARD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kK7-9N-B8z">
-                                        <rect key="frame" x="0.0" y="0.0" width="451" height="54"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="206.5" height="54"/>
                                         <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="46"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEr-Ty-6RZ">
-                                        <rect key="frame" x="0.0" y="427" width="451" height="35"/>
+                                        <rect key="frame" x="0.0" y="362" width="206.5" height="35"/>
                                         <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Etp-L8-jRi">
+                                        <rect key="frame" x="-21" y="84" width="248" height="248"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="cii-2o-Tpy">
+                                                <rect key="frame" x="31" y="31" width="186" height="186"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="cii-2o-Tpy" secondAttribute="height" id="bFR-RI-eTn"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top" translatesAutoresizingMaskIntoConstraints="NO" id="6eg-xS-RWV">
+                                                <rect key="frame" x="0.0" y="0.0" width="248" height="248"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="6eg-xS-RWV" secondAttribute="height" id="ixg-lz-Gh2"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="cii-2o-Tpy" firstAttribute="centerY" secondItem="6eg-xS-RWV" secondAttribute="centerY" id="4vN-U1-h3R"/>
+                                            <constraint firstItem="6eg-xS-RWV" firstAttribute="top" secondItem="Etp-L8-jRi" secondAttribute="top" id="DQJ-vM-IjM"/>
+                                            <constraint firstItem="6eg-xS-RWV" firstAttribute="leading" secondItem="Etp-L8-jRi" secondAttribute="leading" id="Lya-LF-6Hf"/>
+                                            <constraint firstAttribute="trailing" secondItem="6eg-xS-RWV" secondAttribute="trailing" id="X4t-WR-XUj"/>
+                                            <constraint firstAttribute="bottom" secondItem="6eg-xS-RWV" secondAttribute="bottom" id="hao-7W-8VJ"/>
+                                            <constraint firstItem="cii-2o-Tpy" firstAttribute="width" secondItem="6eg-xS-RWV" secondAttribute="width" multiplier="0.75" id="hp7-x0-FCQ"/>
+                                            <constraint firstItem="cii-2o-Tpy" firstAttribute="centerX" secondItem="6eg-xS-RWV" secondAttribute="centerX" id="qEp-sV-8Vg"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="jEr-Ty-6RZ" firstAttribute="leading" secondItem="DFE-mb-foh" secondAttribute="leading" id="0dY-Pu-3BE"/>
                                     <constraint firstAttribute="bottom" secondItem="jEr-Ty-6RZ" secondAttribute="bottom" id="RAG-gg-cGj"/>
-                                    <constraint firstItem="jEr-Ty-6RZ" firstAttribute="top" secondItem="cii-2o-Tpy" secondAttribute="bottom" constant="40" id="UsO-ne-NBK"/>
-                                    <constraint firstItem="cii-2o-Tpy" firstAttribute="centerX" secondItem="DFE-mb-foh" secondAttribute="centerX" id="Xcz-Gc-P6z"/>
-                                    <constraint firstItem="cii-2o-Tpy" firstAttribute="width" secondItem="DFE-mb-foh" secondAttribute="width" multiplier="0.65" id="Xyj-vR-M6w"/>
                                     <constraint firstAttribute="trailing" secondItem="kK7-9N-B8z" secondAttribute="trailing" id="Zbu-Xv-W4t"/>
+                                    <constraint firstItem="Etp-L8-jRi" firstAttribute="centerX" secondItem="DFE-mb-foh" secondAttribute="centerX" id="dgP-cR-zKU"/>
                                     <constraint firstAttribute="trailing" secondItem="jEr-Ty-6RZ" secondAttribute="trailing" id="gl6-6E-2fv"/>
+                                    <constraint firstItem="Etp-L8-jRi" firstAttribute="top" secondItem="kK7-9N-B8z" secondAttribute="bottom" constant="30" id="hzu-3X-SuF"/>
                                     <constraint firstItem="kK7-9N-B8z" firstAttribute="leading" secondItem="DFE-mb-foh" secondAttribute="leading" id="q3m-4m-kZf"/>
+                                    <constraint firstItem="jEr-Ty-6RZ" firstAttribute="top" secondItem="Etp-L8-jRi" secondAttribute="bottom" constant="30" id="rZG-81-oIU"/>
                                     <constraint firstItem="kK7-9N-B8z" firstAttribute="top" secondItem="DFE-mb-foh" secondAttribute="top" id="uKb-V1-8fz"/>
-                                    <constraint firstItem="cii-2o-Tpy" firstAttribute="top" secondItem="kK7-9N-B8z" secondAttribute="bottom" constant="40" id="v3n-k6-cRK"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ml3-yJ-AAX" appends="YES" id="YOn-Fy-ifF"/>
@@ -62,6 +82,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Etp-L8-jRi" firstAttribute="width" secondItem="d71-hm-GqQ" secondAttribute="width" multiplier="0.6" id="Aab-Xo-U3x"/>
                             <constraint firstAttribute="bottom" secondItem="2gL-H0-hRG" secondAttribute="bottom" id="Gbd-Hb-yVl"/>
                             <constraint firstItem="DFE-mb-foh" firstAttribute="centerX" secondItem="d71-hm-GqQ" secondAttribute="centerX" id="HI9-d1-exu"/>
                             <constraint firstItem="DFE-mb-foh" firstAttribute="centerY" secondItem="d71-hm-GqQ" secondAttribute="centerY" id="J9o-CQ-UTa"/>
@@ -72,6 +93,9 @@
                         <viewLayoutGuide key="safeArea" id="NFi-hQ-YsY"/>
                     </view>
                     <connections>
+                        <outlet property="logoBottomView" destination="cii-2o-Tpy" id="fuV-In-yoA"/>
+                        <outlet property="logoTopView" destination="6eg-xS-RWV" id="iuQ-z5-eTH"/>
+                        <outlet property="logoView" destination="Etp-L8-jRi" id="BKo-w4-Ut6"/>
                         <segue destination="ujb-5f-7kw" kind="presentation" identifier="showLevel" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="0eo-sR-hF2"/>
                     </connections>
                 </viewController>
@@ -294,9 +318,10 @@
     </scenes>
     <resources>
         <image name="background" width="1024" height="1366"/>
+        <image name="bottom" width="190" height="190"/>
         <image name="home" width="44" height="44"/>
-        <image name="homeHueCard" width="292" height="293"/>
         <image name="pageLeft" width="44" height="44"/>
         <image name="pageRight" width="44" height="44"/>
+        <image name="top" width="253" height="253"/>
     </resources>
 </document>

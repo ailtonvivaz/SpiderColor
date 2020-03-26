@@ -9,6 +9,15 @@
 import UIKit
 
 extension UIColor {
+    func withHueOffset(offset: CGFloat) -> UIColor {
+        var h: CGFloat = 0
+        var s: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+        return UIColor(hue: fmod(h + offset, 1), saturation: s, brightness: b, alpha: a)
+    }
+
     static func +(color1: UIColor, color2: UIColor) -> UIColor {
         var (r1, g1, b1, a1) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
         var (r2, g2, b2, a2) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
@@ -37,10 +46,9 @@ extension UIColor {
     static var random: UIColor {
         UIColor(displayP3Red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1.0)
     }
-    
+
     func mix(with color: UIColor, percent: CGFloat = 0.5) -> UIColor {
         return (self * (1.0 - percent)) + (color * percent)
-        
     }
 }
 

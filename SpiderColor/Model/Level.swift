@@ -11,7 +11,7 @@ import UIKit
 class Level: Codable {
     let value: Int
     private let codableColors: [CodableColor]
-    let qtyCards: Int = 9
+    let qtyCards: Int = 14
     var completed: Bool = false
     var isAvailable: Bool = false
 
@@ -22,5 +22,11 @@ class Level: Codable {
         self.codableColors = colors.map { CodableColor(color: $0) }
         self.completed = completed
         self.isAvailable = isAvailable
+    }
+
+    init(value: Int, color: UIColor, angle: Int) {
+        self.value = value
+        self.codableColors = [color, color.withHueOffset(offset: CGFloat(angle) / 360)].map { CodableColor(color: $0) }
+        self.isAvailable = true
     }
 }

@@ -55,7 +55,15 @@ class GameScene: SKScene, SlotNodeDelegate {
         topMargin += gradientHeight + 10
 
         let shuffledCards = cards.shuffled()
-        let slots = [Array(shuffledCards[0..<3]), Array(shuffledCards[3..<6]), Array(shuffledCards[6..<9])]
+
+        let qtyBySlot = shuffledCards.count / 3
+        let qtyMiddleSlot = qtyBySlot + (shuffledCards.count % 3)
+
+        let slots = [
+            Array(shuffledCards[0..<qtyBySlot]),
+            Array(shuffledCards[qtyBySlot..<(qtyBySlot + qtyMiddleSlot)]),
+            Array(shuffledCards[(qtyBySlot + qtyMiddleSlot)..<shuffledCards.count]),
+        ]
 
         let horizontalMargin: CGFloat = 20
         let slotCount = slots.count
