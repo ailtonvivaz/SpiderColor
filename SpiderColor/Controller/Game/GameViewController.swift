@@ -16,6 +16,8 @@ class GameViewController: UIViewController {
     @IBOutlet var topView: UIView!
     @IBOutlet var bannerView: GADBannerView!
 
+    var interstitial: GADInterstitial!
+
     var level: Level!
     var gameDelegate: GameDelegate!
     private var startTime = DispatchTime.nowInSeconds
@@ -46,6 +48,12 @@ class GameViewController: UIViewController {
         bannerView.adUnitID = Ads.gameBanner
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+
+        // Game interstitial
+        interstitial = GADInterstitial(adUnitID: Ads.interLevel)
+        interstitial.delegate = self
+        let request = GADRequest()
+        interstitial.load(request)
     }
 
     @objc func didBecomeActive() {
@@ -67,6 +75,20 @@ class GameViewController: UIViewController {
     @IBAction func onTapPause(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+
+    func dismiss() {
+        dismiss(animated: true) {
+            self.gameDelegate.complete(level: self.level)
+        }
+    }
+
+    func finish() {
+        if level.value >= 5, interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            dismiss()
+        }
+    }
 }
 
 //MARK: - GameDelegate
@@ -75,8 +97,16 @@ extension GameViewController: GameDelegate {
     func complete(level: Level) {
         let time = elapsedTime + (DispatchTime.nowInSeconds - startTime)
         AnalyticsUtils.endLevel(level.value, time: time)
-        dismiss(animated: true) {
-            self.gameDelegate.complete(level: level)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.finish()
         }
+    }
+}
+
+//MARK: GADInterstitialDelegate
+
+extension GameViewController: GADInterstitialDelegate {
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        dismiss()
     }
 }

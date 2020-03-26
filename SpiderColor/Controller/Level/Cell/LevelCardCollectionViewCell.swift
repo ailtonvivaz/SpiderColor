@@ -34,15 +34,15 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
         backCardView.isHidden = false
         gradientView.isHidden = true
     }
-    
+
     func complete() {
-        self.level.completed = true
+        level.completed = true
         UIView.animate(withDuration: 0.1) {
             self.levelCompletedImageView.isHidden = !self.level.completed
         }
     }
 
-    func reveal() {
+    func reveal(completion: @escaping () -> Void = {}) {
         if !level.isAvailable {
             let transitionOptions = UIView.AnimationOptions.transitionFlipFromLeft
 
@@ -52,6 +52,7 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
             }, completion: { _ in
                 self.level.isAvailable = true
+                completion()
             })
         }
     }

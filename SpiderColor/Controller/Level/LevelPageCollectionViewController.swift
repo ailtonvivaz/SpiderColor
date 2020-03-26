@@ -15,8 +15,6 @@ class LevelPageCollectionViewController: UICollectionViewController {
     private let levels: [Level]
     private let parentVC: UIViewController
 
-    var interstitial: GADInterstitial!
-
     //MARK: - Collection View variables
 
     private var flowLayout: UICollectionViewFlowLayout
@@ -49,10 +47,6 @@ class LevelPageCollectionViewController: UICollectionViewController {
         collectionView!.backgroundColor = .clear
 
         collectionView!.registerFromNib(LevelCardCollectionViewCell.self)
-
-        interstitial = GADInterstitial(adUnitID: Ads.interLevel)
-        let request = GADRequest()
-        interstitial.load(request)
     }
 
     override func viewDidLayoutSubviews() {
@@ -109,14 +103,8 @@ extension LevelPageCollectionViewController: GameDelegate {
 
             if index < levels.count - 1 {
                 let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
-                nextCell.reveal()
-
-                if level.value >= 5 {
-                    if interstitial.isReady {
-                        interstitial.present(fromRootViewController: self)
-                    } else {
-                        print("Ad wasn't ready")
-                    }
+                nextCell.reveal {
+                    
                 }
             }
 
