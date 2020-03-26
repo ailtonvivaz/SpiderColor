@@ -9,65 +9,46 @@
 import UIKit
 
 class Game: Codable {
-    static let shared = Game()
+    static let shared = load() ?? Game()
 
-    var levels: [Level]
+    var dataLevels: [LevelData] = []
 
-    private init() {
+    private init() {}
+
+    private func getQtyFor(level: Int) -> Int {
+        var level = level
+        var qty = 5
+
+        var i = 0
+        while true {
+            level -= 3 * (i + 1)
+            print(level)
+            if level <= 0 || qty == 27 { break }
+            i += 1
+            qty += 2
+        }
+        return qty
+    }
+
+//    private func getLevel(of level: Int) -> Level {
+//
+//    }
+
+    func levelsFor(page: Int) -> [Level] {
         var levels = [Level]()
 
-        for i in 0...6 {
+        var valueLevel = 9 * page
+        for i in 0...2 {
             for cor in [UIColor.red, UIColor.blue, UIColor.green] {
-                levels.append(Level(value: 0, color: cor, angle: 240 - i * 45))
+                valueLevel += 1
+                let level = Level(value: valueLevel, color: cor, angle: 240 - i * 45, qtyCards: getQtyFor(level: valueLevel))
+                level.completed = dataLevels.map(\.level).contains(valueLevel)
+                level.isAvailable = (dataLevels.last(where: \.completed)?.level ?? 0) + 1 >= valueLevel
+                levels.append(level)
             }
         }
 
-        self.levels = levels
-//        (0...9).map {
-//            Level(value: $0, color: .red, angle: 240 - $0 * 15)
-//        }
-
-//        levels.append(contentsOf: <#T##Sequence#>)
-//            [
-        ////            Level(value: 0, color: .red, angle: 300),
-//            .init(value: 0, colors: [UIColor(displayP3Red: 0, green: 1, blue: 225/255, alpha: 1), UIColor(displayP3Red: 1, green: 79/255, blue: 0, alpha: 1.0)], isAvailable: true),
-//            .init(value: 1, colors: [
-//                UIColor(displayP3Red: 0.95, green: 0.51, blue: 0.51, alpha: 1.0),
-//                UIColor(displayP3Red: 0.99, green: 0.89, blue: 0.54, alpha: 1.0)
-//            ], isAvailable: true),
-//            .init(value: 2, colors: [
-//                UIColor(displayP3Red: 0.38, green: 0.47, blue: 0.92, alpha: 1.0),
-//                UIColor(displayP3Red: 0.09, green: 0.92, blue: 0.85, alpha: 1.0)
-//            ]),
-//            .init(value: 3, colors: [
-//                UIColor(displayP3Red: 0.38, green: 0.15, blue: 0.45, alpha: 1.0),
-//                UIColor(displayP3Red: 0.77, green: 0.20, blue: 0.39, alpha: 1.0)
-//            ]),
-//            .init(value: 4, colors: [
-//                UIColor(displayP3Red: 0.44, green: 0.09, blue: 0.92, alpha: 1.0),
-//                UIColor(displayP3Red: 0.92, green: 0.38, blue: 0.38, alpha: 1.0)
-//            ]),
-//            .init(value: 5, colors: [
-//                UIColor(displayP3Red: 0.26, green: 0.9, blue: 0.58, alpha: 1.0),
-//                UIColor(displayP3Red: 0.23, green: 0.7, blue: 0.72, alpha: 1.0)
-//            ]),
-//            .init(value: 6, colors: [
-//                UIColor(displayP3Red: 0.4, green: 0.47, blue: 0.61, alpha: 1.0),
-//                UIColor(displayP3Red: 0.37, green: 0.15, blue: 0.39, alpha: 1.0)
-//            ]),
-//            .init(value: 7, colors: [
-//                UIColor(displayP3Red: 0.09, green: 0.31, blue: 0.41, alpha: 1.0),
-//                UIColor(displayP3Red: 0.34, green: 0.79, blue: 0.52, alpha: 1.0)
-//            ]),
-//            .init(value: 8, colors: [
-//                UIColor(displayP3Red: 0.11, green: 0.81, blue: 0.87, alpha: 1.0),
-//                UIColor(displayP3Red: 0.36, green: 0.14, blue: 0.48, alpha: 1.0)
-//            ]),
-//            .init(value: 9, colors: [
-//                UIColor(displayP3Red: 0.96, green: 0.31, blue: 0.64, alpha: 1.0),
-//                UIColor(displayP3Red: 1.0, green: 0.46, blue: 0.46, alpha: 1.0)
-//            ])
-//        ]
+        return levels
     }
 
     private static func load() -> Game? {
@@ -89,14 +70,11 @@ class Game: Codable {
     }
 
     func complete(level: Level) {
-        if let index = levels.firstIndex(where: { level.value == $0.value }) {
-            levels[index].completed = true
-
-            if index < levels.count - 2 {
-                levels[index].isAvailable = true
-            }
-
-            save()
+        if let index = dataLevels.firstIndex(where: {$0.level == level.value}) {
+            dataLevels[index].completed = true
+        } else {
+            dataLevels.append(LevelData(level: level.value, completed: true))
         }
+        save()
     }
 }

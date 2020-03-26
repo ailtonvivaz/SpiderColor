@@ -9,7 +9,7 @@
 import SpriteKit
 
 class DeckNode: SKNode {
-    private var offsettedPosition: CGPoint { CGPoint(x: 0, y: -(0.25 * self.width)) }
+    private var offsettedPosition: CGPoint { CGPoint(x: 0, y: -(0.15 * self.width)) }
     
     private var width: CGFloat
     var deck: Deck

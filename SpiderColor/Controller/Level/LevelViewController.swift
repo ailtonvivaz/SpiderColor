@@ -21,13 +21,11 @@ class LevelViewController: UIViewController {
     var pageViewController: UIPageViewController!
 
     private var indexPage = 0
-    private var levels: [Level] { Game.shared.levels }
 
     private let gridCols: CGFloat = 3
     private let gridRows: CGFloat = 3
-    private var numberOfItems: Int { levels.count }
     private var itemsPerPage: CGFloat { gridCols * gridRows }
-    private var numberOfPages: Int { Int(ceil(CGFloat(numberOfItems) / itemsPerPage)) + 1 }
+    private var numberOfPages: Int { 10 }
 
     private var page: UIViewController { page(from: indexPage)! }
 
@@ -59,17 +57,16 @@ class LevelViewController: UIViewController {
             pageLabel.text = String(format: NSLocalizedString("page %d", comment: ""), indexPage + 1)
 
             previousPageButton.isHidden = self.indexPage == 0
-            nextPageButton.isHidden = self.indexPage == numberOfPages - 1
+
+            let last = self.indexPage == numberOfPages - 1
+            nextPageButton.isUserInteractionEnabled = !last
+            nextPageButton.alpha = last ? 0.5 : 1.0
         }
     }
 
     private func page(from index: Int) -> UIViewController? {
-        if index == numberOfPages - 1 {
-            return LevelSoonViewController.loadFromNib()
-        } else if index >= 0, index < numberOfPages - 1 {
-            return LevelPageCollectionViewController(levels: Game.shared.levels, parent: self)
-        }
-        return nil
+        let levels = Array(Game.shared.levelsFor(page: index))
+        return LevelPageCollectionViewController(levels: levels, parent: self)
     }
 
     //MARK: - Actions
@@ -97,7 +94,7 @@ class LevelViewController: UIViewController {
 
 extension LevelViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        print("compelted")
+        print("completed")
     }
 }
 
