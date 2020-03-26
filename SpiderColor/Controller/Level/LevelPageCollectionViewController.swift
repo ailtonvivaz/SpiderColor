@@ -10,6 +10,8 @@ import GoogleMobileAds
 import UIKit
 
 class LevelPageCollectionViewController: UICollectionViewController {
+    
+    let page: Int
     private let levels: [Level]
     private let parentVC: UIViewController
 
@@ -30,7 +32,8 @@ class LevelPageCollectionViewController: UICollectionViewController {
     private var cardHeight: CGFloat { cardWidth * 1.3 }
     private var verticalMargin: CGFloat { (collectionHeight - (gridRows * cardHeight) - (gridRows - 1) * spacing) / 2 }
 
-    init(levels: [Level], parent: UIViewController) {
+    init(page: Int, levels: [Level], parent: UIViewController) {
+        self.page = page
         self.levels = levels
         self.parentVC = parent
         self.flowLayout = UICollectionViewFlowLayout()
@@ -101,12 +104,10 @@ class LevelPageCollectionViewController: UICollectionViewController {
 extension LevelPageCollectionViewController: GameDelegate {
     func complete(level: Level) {
         if let index = levels.firstIndex(where: { level.value == $0.value }) {
-//            Game.shared.levels[index].completed = true
             let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! LevelCardCollectionViewCell
             cell.complete()
 
             if index < levels.count - 1 {
-//                Game.shared.levels[index + 1].isAvailable = true
                 let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
                 nextCell.reveal()
 
@@ -119,7 +120,7 @@ extension LevelPageCollectionViewController: GameDelegate {
                 }
             }
 
-            Game.shared.complete(level: level)
+            GameManager.shared.complete(level: level)
         }
     }
 }

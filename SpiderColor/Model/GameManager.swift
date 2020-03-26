@@ -1,5 +1,5 @@
 //
-//  Game.swift
+//  GameManager.swift
 //  SpiderColor
 //
 //  Created by Ailton Vieira Pinto Filho on 17/03/20.
@@ -8,10 +8,13 @@
 
 import UIKit
 
-class Game: Codable {
-    static let shared = load() ?? Game()
+class GameManager: Codable {
+    static let shared = load() ?? GameManager()
 
     var dataLevels: [LevelData] = []
+    var lastLevelCompleted: Int { dataLevels.last(where: \.completed)?.level ?? 0 }
+    var lastPageCompleted: Int { lastLevelCompleted / 9 }
+    var pages: Int { lastPageCompleted + 2 }
 
     private init() {}
 
@@ -43,7 +46,7 @@ class Game: Codable {
                 valueLevel += 1
                 let level = Level(value: valueLevel, color: cor, angle: 240 - i * 45, qtyCards: getQtyFor(level: valueLevel))
                 level.completed = dataLevels.map(\.level).contains(valueLevel)
-                level.isAvailable = (dataLevels.last(where: \.completed)?.level ?? 0) + 1 >= valueLevel
+                level.isAvailable = lastLevelCompleted + 1 >= valueLevel
                 levels.append(level)
             }
         }
@@ -51,10 +54,10 @@ class Game: Codable {
         return levels
     }
 
-    private static func load() -> Game? {
+    private static func load() -> GameManager? {
         if let savedGame = UserDefaults.standard.object(forKey: "game") as? Data {
             let decoder = JSONDecoder()
-            if let loadedGame = try? decoder.decode(Game.self, from: savedGame) {
+            if let loadedGame = try? decoder.decode(GameManager.self, from: savedGame) {
                 return loadedGame
             }
         }
@@ -70,7 +73,7 @@ class Game: Codable {
     }
 
     func complete(level: Level) {
-        if let index = dataLevels.firstIndex(where: {$0.level == level.value}) {
+        if let index = dataLevels.firstIndex(where: { $0.level == level.value }) {
             dataLevels[index].completed = true
         } else {
             dataLevels.append(LevelData(level: level.value, completed: true))

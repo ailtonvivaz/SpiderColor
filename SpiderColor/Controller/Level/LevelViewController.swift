@@ -21,13 +21,11 @@ class LevelViewController: UIViewController {
     var pageViewController: UIPageViewController!
 
     private var indexPage = 0
-
-    private let gridCols: CGFloat = 3
-    private let gridRows: CGFloat = 3
-    private var itemsPerPage: CGFloat { gridCols * gridRows }
-    private var numberOfPages: Int { 10 }
+    private var numberOfPages: Int { GameManager.shared.pages }
 
     private var page: UIViewController { page(from: indexPage)! }
+
+    var swipingToPage: Int = 0
 
     //MARK: - Lifecycle
 
@@ -41,9 +39,6 @@ class LevelViewController: UIViewController {
         pageViewController.view.frame = containerPageView.bounds
         pageViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         pageViewController.didMove(toParent: self)
-        pageViewController.view.subviews
-            .compactMap { $0 as? UIScrollView }
-            .forEach { $0.isScrollEnabled = false }
 
         goTo(indexPage: 0)
     }
@@ -52,7 +47,9 @@ class LevelViewController: UIViewController {
 
     private func goTo(indexPage: Int) {
         if let page = page(from: indexPage) {
-            pageViewController.setViewControllers([page], direction: indexPage > self.indexPage ? .forward : .reverse, animated: true, completion: nil)
+            if (pageViewController.viewControllers?.first as? LevelPageCollectionViewController)?.page != indexPage {
+                pageViewController.setViewControllers([page], direction: indexPage > self.indexPage ? .forward : .reverse, animated: true, completion: nil)
+            }
             self.indexPage = indexPage
             pageLabel.text = String(format: NSLocalizedString("page %d", comment: ""), indexPage + 1)
 
@@ -65,8 +62,8 @@ class LevelViewController: UIViewController {
     }
 
     private func page(from index: Int) -> UIViewController? {
-        let levels = Array(Game.shared.levelsFor(page: index))
-        return LevelPageCollectionViewController(levels: levels, parent: self)
+        let levels = Array(GameManager.shared.levelsFor(page: index))
+        return LevelPageCollectionViewController(page: index, levels: levels, parent: self)
     }
 
     //MARK: - Actions
@@ -93,8 +90,16 @@ class LevelViewController: UIViewController {
 //MARK: - UIPageViewControllerDelegate
 
 extension LevelViewController: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        if let levelPage = pendingViewControllers.first as? LevelPageCollectionViewController {
+            swipingToPage = levelPage.page
+        }
+    }
+
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        print("completed")
+        if completed {
+            goTo(indexPage: swipingToPage)
+        }
     }
 }
 
@@ -102,10 +107,10 @@ extension LevelViewController: UIPageViewControllerDelegate {
 
 extension LevelViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        page(from: indexPage - 1)
+        indexPage == 0 ? nil : page(from: indexPage - 1)
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        page(from: indexPage + 1)
+        indexPage == numberOfPages - 1 ? nil : page(from: indexPage + 1)
     }
 }
