@@ -17,9 +17,9 @@ class Level: Codable {
 
     var colors: [UIColor] { codableColors.map { $0.color } }
 
-    internal init(value: Int, colors: [UIColor], completed: Bool = false, isAvailable: Bool = false) {
+    internal init(value: Int, colors: [UIColor], qtyCards: Int, completed: Bool = false, isAvailable: Bool = false) {
         self.value = value
-        self.qtyCards = 9
+        self.qtyCards = qtyCards
         self.codableColors = colors.map { CodableColor(color: $0) }
         self.completed = completed
         self.isAvailable = isAvailable

@@ -53,11 +53,13 @@ class LevelViewController: UIViewController {
             self.indexPage = indexPage
             pageLabel.text = String(format: NSLocalizedString("page %d", comment: ""), indexPage + 1)
 
-            previousPageButton.isHidden = self.indexPage == 0
+            UIView.animate(withDuration: 0.2) {
+//                self.previousPageButton.isHidden = self.indexPage == 0
 
-            let last = self.indexPage == numberOfPages - 1
-            nextPageButton.isUserInteractionEnabled = !last
-            nextPageButton.alpha = last ? 0.5 : 1.0
+                let last = self.indexPage == self.numberOfPages - 1
+                self.nextPageButton.isUserInteractionEnabled = !last
+                self.nextPageButton.alpha = last ? 0.5 : 1.0
+            }
         }
     }
 
@@ -73,9 +75,12 @@ class LevelViewController: UIViewController {
     }
 
     @IBAction func onTapPrevious(_ sender: Any) {
-        AnalyticsUtils.tapButton("previous_level")
         if indexPage > 0 {
+            AnalyticsUtils.tapButton("previous_level")
             goTo(indexPage: indexPage - 1)
+        } else {
+            AnalyticsUtils.tapButton("back_home")
+            dismiss(animated: true, completion: nil)
         }
     }
 

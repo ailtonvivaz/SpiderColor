@@ -10,11 +10,17 @@ import UIKit
 
 class GameManager: Codable {
     static let shared = load() ?? GameManager()
+    let levelManager = ClassicLevelManager()
 
     var dataLevels: [LevelData] = []
     var lastLevelCompleted: Int { dataLevels.last(where: \.completed)?.level ?? 0 }
     var lastPageCompleted: Int { lastLevelCompleted / 9 }
-    var pages: Int { lastPageCompleted + 2 }
+    var pages: Int { min(lastPageCompleted + 2, maxPages) }
+    private let maxPages = (255 / 9) + 1
+
+    enum CodingKeys: String, CodingKey {
+        case dataLevels
+    }
 
     private init() {}
 
@@ -33,22 +39,21 @@ class GameManager: Codable {
         return qty
     }
 
-//    private func getLevel(of level: Int) -> Level {
-//
-//    }
+    private func getLevel(of level: Int) -> Level { levelManager.getLevel(level) }
 
     func levelsFor(page: Int) -> [Level] {
         var levels = [Level]()
 
-        var valueLevel = 9 * page
-        for i in 0...2 {
-            for cor in [UIColor.red, UIColor.blue, UIColor.green] {
-                valueLevel += 1
-                let level = Level(value: valueLevel, color: cor, angle: 240 - i * 45, qtyCards: getQtyFor(level: valueLevel))
-                level.completed = dataLevels.map(\.level).contains(valueLevel)
-                level.isAvailable = lastLevelCompleted + 1 >= valueLevel
-                levels.append(level)
-            }
+        for i in 0..<9 {
+            let valueLevel = 9 * page + i + 1
+            if valueLevel > 255 { break }
+            let level = getLevel(of: valueLevel)
+            level.completed = dataLevels
+                .filter(\.completed)
+                .map(\.level)
+                .contains(valueLevel)
+            level.isAvailable = lastLevelCompleted + 1 >= valueLevel
+            levels.append(level)
         }
 
         return levels

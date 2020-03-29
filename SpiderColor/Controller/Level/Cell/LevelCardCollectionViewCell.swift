@@ -33,6 +33,11 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
         backCardView.isHidden = false
         gradientView.isHidden = true
+
+        layer.masksToBounds = false
+
+        gradientView.borderColor = .white
+        gradientView.borderWidth = 0.5
     }
 
     func complete() {
@@ -43,12 +48,20 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
     }
 
     func reveal(completion: @escaping () -> Void = {}) {
+
+
+        gradientView.layer.shadowColor = UIColor.white.cgColor
+        gradientView.layer.shadowOpacity = 0.5
+        gradientView.layer.shadowOffset = .zero
+        gradientView.layer.shadowRadius = 0
+        
         if !level.isAvailable {
             let transitionOptions = UIView.AnimationOptions.transitionFlipFromLeft
 
             UIView.transition(with: contentView, duration: 0.5, options: transitionOptions, animations: {
                 self.backCardView.isHidden = true
                 self.gradientView.isHidden = false
+                self.gradientView.layer.shadowRadius = 10
 
             }, completion: { _ in
                 self.level.isAvailable = true

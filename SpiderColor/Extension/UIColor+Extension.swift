@@ -9,15 +9,67 @@
 import UIKit
 
 extension UIColor {
-    func withHueOffset(offset: CGFloat) -> UIColor {
-        var h: CGFloat = 0
-        var s: CGFloat = 0
-        var b: CGFloat = 0
-        var a: CGFloat = 0
-        self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
-        return UIColor(hue: fmod(h + offset, 1), saturation: s, brightness: b, alpha: a)
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
 
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
+}
+
+extension UIColor {
+    struct HSBA {
+        let h: CGFloat
+        let s: CGFloat
+        let b: CGFloat
+        let a: CGFloat
+    }
+
+    struct RGBA {
+        let r: CGFloat
+        let g: CGFloat
+        let b: CGFloat
+        let a: CGFloat
+    }
+
+    var hsba: HSBA {
+        var (h, s, b, a) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
+        getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+        return HSBA(h: h, s: s, b: b, a: a)
+    }
+
+    var rgba: RGBA {
+        var (r, g, b, a) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        return RGBA(r: r, g: g, b: b, a: a)
+    }
+
+    func withHueOffset(offset: CGFloat) -> UIColor {
+        if offset == 0 { return self }
+        return UIColor(hue: fmod(hsba.h + offset, 1), saturation: hsba.s, brightness: hsba.b, alpha: hsba.a)
+    }
+
+    func withSaturationOffset(offset: CGFloat) -> UIColor {
+        if offset == 0 { return self }
+        return UIColor(hue: hsba.h, saturation: (hsba.s + offset).truncatingRemainder(dividingBy: 1), brightness: hsba.b, alpha: hsba.a)
+    }
+
+    func withBrightnessOffset(offset: CGFloat) -> UIColor {
+        if offset == 0 { return self }
+        return UIColor(hue: hsba.h, saturation: hsba.s, brightness: (min(hsba.b, 1.0) + offset).truncatingRemainder(dividingBy: 1), alpha: hsba.a)
+    }
+}
+
+extension UIColor {
     static func +(color1: UIColor, color2: UIColor) -> UIColor {
         var (r1, g1, b1, a1) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
         var (r2, g2, b2, a2) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
@@ -59,7 +111,7 @@ extension Array where Element == UIColor {
 
         let color = self[0]
         var colors: [UIColor] = []
-        for i in 1..<self.count {
+        for i in 1..<count {
             let nextColor = self[i]
 
             for i in 0..<quantity {

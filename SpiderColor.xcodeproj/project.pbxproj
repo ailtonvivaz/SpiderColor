@@ -37,6 +37,10 @@
 		5EB118E0241B35CA00112FCD /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118DF241B35CA00112FCD /* GradientNode.swift */; };
 		5EB118E2241B3D6800112FCD /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB118E1241B3D6800112FCD /* Movement.swift */; };
 		5EB118E5241B427700112FCD /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EB118E4241B427700112FCD /* background.wav */; };
+		5EBF39B8242EEEFC0074916E /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39B7242EEEFC0074916E /* MathUtils.swift */; };
+		5EBF39DC2430FCF90074916E /* BInaryInteger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */; };
+		5EBF39DE2430FFF30074916E /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39DD2430FFF30074916E /* LevelManager.swift */; };
+		5EBF39E0243100300074916E /* ClassicLevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39DF243100300074916E /* ClassicLevelManager.swift */; };
 		5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */; };
 		5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */; };
 		5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EF2420325B0097D550 /* UIView+Extension.swift */; };
@@ -86,6 +90,10 @@
 		5EB118DF241B35CA00112FCD /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
 		5EB118E1241B3D6800112FCD /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
 		5EB118E4241B427700112FCD /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
+		5EBF39B7242EEEFC0074916E /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
+		5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BInaryInteger+Extension.swift"; sourceTree = "<group>"; };
+		5EBF39DD2430FFF30074916E /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
+		5EBF39DF243100300074916E /* ClassicLevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicLevelManager.swift; sourceTree = "<group>"; };
 		5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		5EE913EF2420325B0097D550 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -180,6 +188,7 @@
 		5E44B12224102522001A7D82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5EBF39E1243100570074916E /* LevelManager */,
 				5E44B12524102549001A7D82 /* Card.swift */,
 				5E44B1272410256C001A7D82 /* Deck.swift */,
 				5EB118E1241B3D6800112FCD /* Movement.swift */,
@@ -202,6 +211,8 @@
 				5EE913FD2420544D0097D550 /* UICollectionView+Extension.swift */,
 				5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */,
 				5E66CED92423257000CA11E6 /* DispatchTime+Extension.swift */,
+				5EBF39B7242EEEFC0074916E /* MathUtils.swift */,
+				5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -213,6 +224,15 @@
 				5E25917C2421AC6600F5965C /* DIN Alternate Regular.otf */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		5EBF39E1243100570074916E /* LevelManager */ = {
+			isa = PBXGroup;
+			children = (
+				5EBF39DD2430FFF30074916E /* LevelManager.swift */,
+				5EBF39DF243100300074916E /* ClassicLevelManager.swift */,
+			);
+			path = LevelManager;
 			sourceTree = "<group>";
 		};
 		5EE913EA242031810097D550 /* Cell */ = {
@@ -423,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EBF39DE2430FFF30074916E /* LevelManager.swift in Sources */,
 				5E66CEDE24232CC700CA11E6 /* Ads.swift in Sources */,
 				5E2591812421ADE800F5965C /* GameManager.swift in Sources */,
 				5EA5D7C6242C70A3009755BB /* LevelData.swift in Sources */,
@@ -432,6 +453,8 @@
 				5E66CEC72423049800CA11E6 /* LevelPageCollectionViewController.swift in Sources */,
 				5EE913FC242053FC0097D550 /* LevelViewController.swift in Sources */,
 				5E44B10E24101867001A7D82 /* GameScene.swift in Sources */,
+				5EBF39DC2430FCF90074916E /* BInaryInteger+Extension.swift in Sources */,
+				5EBF39B8242EEEFC0074916E /* MathUtils.swift in Sources */,
 				5E44B12624102549001A7D82 /* Card.swift in Sources */,
 				5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */,
 				5E44B11024101867001A7D82 /* GameViewController.swift in Sources */,
@@ -441,6 +464,7 @@
 				5E66CECE2423125E00CA11E6 /* UIViewController+Extension.swift in Sources */,
 				5E66CEDA2423257000CA11E6 /* DispatchTime+Extension.swift in Sources */,
 				5EE913F72420534F0097D550 /* GradientView.swift in Sources */,
+				5EBF39E0243100300074916E /* ClassicLevelManager.swift in Sources */,
 				5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */,
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,
 				5E44B12124101DB3001A7D82 /* CardNode.swift in Sources */,
