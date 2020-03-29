@@ -9,11 +9,15 @@
 import GoogleMobileAds
 import UIKit
 
+protocol LevelPageDelegate {
+    func nextPage()
+}
+
 class LevelPageCollectionViewController: UICollectionViewController {
-    
     let page: Int
     private let levels: [Level]
     private let parentVC: UIViewController
+    var delegate: LevelPageDelegate?
 
     //MARK: - Collection View variables
 
@@ -103,9 +107,9 @@ extension LevelPageCollectionViewController: GameDelegate {
 
             if index < levels.count - 1 {
                 let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
-                nextCell.reveal {
-                    
-                }
+                nextCell.reveal {}
+            } else {
+                delegate?.nextPage()
             }
 
             GameManager.shared.complete(level: level)

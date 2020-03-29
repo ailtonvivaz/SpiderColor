@@ -41,6 +41,9 @@ class LevelViewController: UIViewController {
         pageViewController.didMove(toParent: self)
 
         goTo(indexPage: 0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.goTo(indexPage: GameManager.shared.lastPageCompleted)
+        }
     }
 
     override var prefersStatusBarHidden: Bool { true }
@@ -65,7 +68,9 @@ class LevelViewController: UIViewController {
 
     private func page(from index: Int) -> UIViewController? {
         let levels = Array(GameManager.shared.levelsFor(page: index))
-        return LevelPageCollectionViewController(page: index, levels: levels, parent: self)
+        let page = LevelPageCollectionViewController(page: index, levels: levels, parent: self)
+        page.delegate = self
+        return page
     }
 
     //MARK: - Actions
@@ -74,7 +79,7 @@ class LevelViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func onTapPrevious(_ sender: Any) {
+    @IBAction func onTapPrevious(_ sender: Any?) {
         if indexPage > 0 {
             AnalyticsUtils.tapButton("previous_level")
             goTo(indexPage: indexPage - 1)
@@ -84,7 +89,7 @@ class LevelViewController: UIViewController {
         }
     }
 
-    @IBAction func onTapNext(_ sender: Any) {
+    @IBAction func onTapNext(_ sender: Any?) {
         AnalyticsUtils.tapButton("next_level")
         if indexPage < numberOfPages - 1 {
             goTo(indexPage: indexPage + 1)
@@ -117,5 +122,15 @@ extension LevelViewController: UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         indexPage == numberOfPages - 1 ? nil : page(from: indexPage + 1)
+    }
+}
+
+//MARK: - LevelPageDelegate
+
+extension LevelViewController: LevelPageDelegate {
+    func nextPage() {
+        if indexPage < numberOfPages - 1 {
+            goTo(indexPage: indexPage + 1)
+        }
     }
 }
