@@ -13,7 +13,7 @@ class Ads {
         #if DEBUG
             return "ca-app-pub-3940256099942544/2934735716"
         #else
-            return "ca-app-pub-8446667675243761/2673418468"
+            return "ca-app-pub-6710438178084678/3383643130"
         #endif
     }
 
@@ -21,7 +21,7 @@ class Ads {
         #if DEBUG
             return "ca-app-pub-3940256099942544/4411468910"
         #else
-            return "ca-app-pub-8446667675243761/7941771606"
+            return "ca-app-pub-6710438178084678/4313581424"
         #endif
     }
 }
