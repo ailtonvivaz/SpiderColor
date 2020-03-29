@@ -44,12 +44,11 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
         level.completed = true
         UIView.animate(withDuration: 0.1) {
             self.levelCompletedImageView.isHidden = !self.level.completed
+            self.gradientView.layer.shadowRadius = 0
         }
     }
 
     func reveal(completion: @escaping () -> Void = {}) {
-
-
         gradientView.layer.shadowColor = UIColor.white.cgColor
         gradientView.layer.shadowOpacity = 0.5
         gradientView.layer.shadowOffset = .zero
