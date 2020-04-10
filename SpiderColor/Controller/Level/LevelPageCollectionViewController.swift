@@ -10,7 +10,7 @@ import GoogleMobileAds
 import UIKit
 
 protocol LevelPageDelegate {
-    func nextPage()
+    func nextPage(revealFirst: Bool)
 }
 
 class LevelPageCollectionViewController: UICollectionViewController {
@@ -18,6 +18,7 @@ class LevelPageCollectionViewController: UICollectionViewController {
     private let levels: [Level]
     private let parentVC: UIViewController
     var delegate: LevelPageDelegate?
+    var revealFirst: Bool = false
 
     //MARK: - Collection View variables
 
@@ -51,6 +52,14 @@ class LevelPageCollectionViewController: UICollectionViewController {
         collectionView!.backgroundColor = .clear
 
         collectionView!.registerFromNib(LevelCardCollectionViewCell.self)
+        collectionView.layoutIfNeeded()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if self.revealFirst, let firstCell = self.collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? LevelCardCollectionViewCell {
+                firstCell.reveal()
+                print("reveal")
+            }
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -109,7 +118,7 @@ extension LevelPageCollectionViewController: GameDelegate {
                 let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
                 nextCell.reveal {}
             } else {
-                delegate?.nextPage()
+                delegate?.nextPage(revealFirst: true)
             }
 
             GameManager.shared.complete(level: level)

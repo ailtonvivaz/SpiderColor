@@ -55,7 +55,7 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
         gradientView.layer.shadowRadius = 0
         
         if !level.isAvailable {
-            let transitionOptions = UIView.AnimationOptions.transitionFlipFromLeft
+            let transitionOptions = UIView.AnimationOptions.transitionFlipFromRight
 
             UIView.transition(with: contentView, duration: 0.5, options: transitionOptions, animations: {
                 self.backCardView.isHidden = true
