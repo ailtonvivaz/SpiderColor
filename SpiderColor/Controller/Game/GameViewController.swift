@@ -14,6 +14,7 @@ import UIKit
 class GameViewController: UIViewController {
     @IBOutlet var sceneView: SKView!
     @IBOutlet var topView: UIView!
+    @IBOutlet weak var spectrumGradientView: SpectrumGradientView!
     @IBOutlet var bannerView: GADBannerView!
 
     var interstitial: GADInterstitial!
@@ -27,6 +28,8 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        spectrumGradientView.set(level: level)
 
         scene = GameScene(level: level, size: view.frame.size, top: topView.frame.maxY, bottom: view.safeAreaInsets.bottom)
         scene.scaleMode = .resizeFill
@@ -83,11 +86,11 @@ class GameViewController: UIViewController {
     }
 
     func finish() {
-        if level.value >= 5, interstitial.isReady {
-            interstitial.present(fromRootViewController: self)
-        } else {
+//        if level.value >= 5, interstitial.isReady {
+//            interstitial.present(fromRootViewController: self)
+//        } else {
             dismiss()
-        }
+//        }
     }
 }
 

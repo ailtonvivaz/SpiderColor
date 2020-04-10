@@ -41,6 +41,7 @@
 		5EBF39DC2430FCF90074916E /* BInaryInteger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */; };
 		5EBF39DE2430FFF30074916E /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39DD2430FFF30074916E /* LevelManager.swift */; };
 		5EBF39E0243100300074916E /* ClassicLevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39DF243100300074916E /* ClassicLevelManager.swift */; };
+		5EC839452441375A00FCA222 /* SpectrumGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC839442441375A00FCA222 /* SpectrumGradientView.swift */; };
 		5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */; };
 		5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */; };
 		5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EF2420325B0097D550 /* UIView+Extension.swift */; };
@@ -95,6 +96,7 @@
 		5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BInaryInteger+Extension.swift"; sourceTree = "<group>"; };
 		5EBF39DD2430FFF30074916E /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		5EBF39DF243100300074916E /* ClassicLevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicLevelManager.swift; sourceTree = "<group>"; };
+		5EC839442441375A00FCA222 /* SpectrumGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumGradientView.swift; sourceTree = "<group>"; };
 		5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		5EE913EF2420325B0097D550 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			children = (
 				5EE913F2242034120097D550 /* DesignableViews.swift */,
 				5EE913F62420534F0097D550 /* GradientView.swift */,
+				5EC839442441375A00FCA222 /* SpectrumGradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC839452441375A00FCA222 /* SpectrumGradientView.swift in Sources */,
 				5EBF39DE2430FFF30074916E /* LevelManager.swift in Sources */,
 				5E66CEDE24232CC700CA11E6 /* Ads.swift in Sources */,
 				5E2591812421ADE800F5965C /* GameManager.swift in Sources */,

@@ -48,11 +48,6 @@ class GameScene: SKScene, SlotNodeDelegate {
         let width = size.width
 
         var topMargin = self.topMargin + 40
-        let gradientHeight: CGFloat = 40
-        gradientNode = GradientNode(colors: colors, size: CGSize(width: width - 40, height: gradientHeight))
-        addChild(gradientNode)
-        gradientNode.position = CGPoint(x: 20, y: -topMargin)
-        topMargin += gradientHeight + 10
 
         let shuffledCards = cards.shuffled()
 
