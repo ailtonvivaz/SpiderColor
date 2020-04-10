@@ -27,6 +27,9 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
     }
 
     var enabled: Bool = false
+    private var shadowed: Bool = false {
+        didSet { self.gradientView.layer.shadowOpacity = shadowed ? 0.5 : 0.0 }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,8 +39,11 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
         layer.masksToBounds = false
 
-//        gradientView.borderColor = .white
-//        gradientView.borderWidth = 0.5
+        gradientView.layer.shadowColor = UIColor.white.cgColor
+        gradientView.layer.shadowOffset = .zero
+        gradientView.layer.shadowRadius = 10
+
+        self.shadowed = false
     }
 
     func complete() {
@@ -49,22 +55,21 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
     }
 
     func reveal(completion: @escaping () -> Void = {}) {
-        gradientView.layer.shadowColor = UIColor.white.cgColor
-        gradientView.layer.shadowOpacity = 0.5
-        gradientView.layer.shadowOffset = .zero
-        gradientView.layer.shadowRadius = 0
-        
         if !level.isAvailable {
             let transitionOptions = UIView.AnimationOptions.transitionFlipFromLeft
 
             UIView.transition(with: contentView, duration: 0.5, options: transitionOptions, animations: {
                 self.backCardView.isHidden = true
                 self.gradientView.isHidden = false
-                self.gradientView.layer.shadowRadius = 10
 
             }, completion: { _ in
                 self.level.isAvailable = true
                 completion()
+
+                UIView.animate(withDuration: 0.25) {
+                    self.shadowed = true
+                }
+
             })
         }
     }

@@ -83,17 +83,21 @@ class LevelPageCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let level = levels[indexPath.row]
-
-        if level.isAvailable {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
-            vc.level = level
-            vc.gameDelegate = self
-
-            vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .flipHorizontal
-            parentVC.present(vc, animated: true, completion: nil)
+        if let cell = collectionView.cellForItem(at: indexPath) as? LevelCardCollectionViewCell {
+            cell.reveal()
         }
+        
+//        let level = levels[indexPath.row]
+//
+//        if level.isAvailable {
+//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
+//            vc.level = level
+//            vc.gameDelegate = self
+//
+//            vc.modalPresentationStyle = .fullScreen
+//            vc.modalTransitionStyle = .flipHorizontal
+//            parentVC.present(vc, animated: true, completion: nil)
+//        }
     }
 }
 
