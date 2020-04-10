@@ -50,6 +50,7 @@
 		5EE913FE2420544D0097D550 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913FD2420544D0097D550 /* UICollectionView+Extension.swift */; };
 		5EE91401242061B90097D550 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91400242061B90097D550 /* HomeViewController.swift */; };
 		5EF196E524195D32003CD4DB /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */; };
+		A5F358812437C9920056D8AB /* Kerning+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F358802437C9920056D8AB /* Kerning+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +82,7 @@
 		5E66CEC92423122800CA11E6 /* LevelSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoonViewController.swift; sourceTree = "<group>"; };
 		5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5E66CECF24231AAB00CA11E6 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
-		5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E66CED72423216100CA11E6 /* AnalyticsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsUtils.swift; sourceTree = "<group>"; };
 		5E66CED92423257000CA11E6 /* DispatchTime+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extension.swift"; sourceTree = "<group>"; };
 		5E66CEDD24232CC700CA11E6 /* Ads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ads.swift; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		5EE91400242061B90097D550 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		6E1DF8BBB53AE62A09C2FF8A /* Pods_SpiderColor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpiderColor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F358802437C9920056D8AB /* Kerning+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kerning+Extension.swift"; sourceTree = "<group>"; };
 		CC2B0217D957D9487A467D03 /* Pods-SpiderColor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpiderColor.debug.xcconfig"; path = "Target Support Files/Pods-SpiderColor/Pods-SpiderColor.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +215,7 @@
 				5E66CED92423257000CA11E6 /* DispatchTime+Extension.swift */,
 				5EBF39B7242EEEFC0074916E /* MathUtils.swift */,
 				5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */,
+				A5F358802437C9920056D8AB /* Kerning+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */,
 				5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */,
 				5EB118E2241B3D6800112FCD /* Movement.swift in Sources */,
+				A5F358812437C9920056D8AB /* Kerning+Extension.swift in Sources */,
 				5EF196E524195D32003CD4DB /* CGPoint+Extension.swift in Sources */,
 				5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */,
 				5E66CECB2423122800CA11E6 /* LevelSoonViewController.swift in Sources */,
@@ -646,7 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 6B563564C5;
+				DEVELOPMENT_TEAM = 7NGUQDD35C;
 				INFOPLIST_FILE = SpiderColor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -670,7 +674,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 6B563564C5;
+				DEVELOPMENT_TEAM = 7NGUQDD35C;
 				INFOPLIST_FILE = SpiderColor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

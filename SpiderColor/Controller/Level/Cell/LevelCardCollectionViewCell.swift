@@ -36,8 +36,8 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
         layer.masksToBounds = false
 
-        gradientView.borderColor = .white
-        gradientView.borderWidth = 0.5
+//        gradientView.borderColor = .white
+//        gradientView.borderWidth = 0.5
     }
 
     func complete() {
