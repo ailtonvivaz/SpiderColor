@@ -53,6 +53,7 @@ class GameManager: Codable {
                 .map(\.level)
                 .contains(valueLevel)
             level.isAvailable = lastLevelCompleted + 1 >= valueLevel
+            level.focused = valueLevel == lastLevelCompleted + 1
             levels.append(level)
         }
 

@@ -23,6 +23,8 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
             backCardView.isHidden = level.isAvailable
             gradientView.isHidden = !level.isAvailable
+
+            shadowed = level.focused
         }
     }
 
@@ -43,15 +45,20 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
         gradientView.layer.shadowOffset = .zero
         gradientView.layer.shadowRadius = 10
 
-        self.shadowed = false
+        shadowed = false
     }
 
-    func complete() {
+    func complete(completion: @escaping () -> Void = {}) {
         level.completed = true
         UIView.animate(withDuration: 0.1) {
             self.levelCompletedImageView.isHidden = !self.level.completed
-            self.gradientView.layer.shadowRadius = 0
         }
+
+        UIView.animate(withDuration: 0.25, animations: {
+            self.shadowed = false
+        }, completion: { _ in
+            completion()
+        })
     }
 
     func reveal(completion: @escaping () -> Void = {}) {

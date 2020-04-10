@@ -83,21 +83,21 @@ class LevelPageCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? LevelCardCollectionViewCell {
-            cell.reveal()
-        }
-        
-//        let level = levels[indexPath.row]
-//
-//        if level.isAvailable {
-//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
-//            vc.level = level
-//            vc.gameDelegate = self
-//
-//            vc.modalPresentationStyle = .fullScreen
-//            vc.modalTransitionStyle = .flipHorizontal
-//            parentVC.present(vc, animated: true, completion: nil)
+//        if let cell = collectionView.cellForItem(at: indexPath) as? LevelCardCollectionViewCell {
+//            cell.reveal()
 //        }
+
+        let level = levels[indexPath.row]
+
+        if level.isAvailable {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
+            vc.level = level
+            vc.gameDelegate = self
+
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .flipHorizontal
+            parentVC.present(vc, animated: true, completion: nil)
+        }
     }
 }
 
@@ -107,16 +107,16 @@ extension LevelPageCollectionViewController: GameDelegate {
     func complete(level: Level) {
         if let index = levels.firstIndex(where: { level.value == $0.value }) {
             let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! LevelCardCollectionViewCell
-            cell.complete()
+            cell.complete {
+                if index < self.levels.count - 1 {
+                    let nextCell = self.collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
+                    nextCell.reveal()
+                } else {
+                    self.delegate?.nextPage()
+                }
 
-            if index < levels.count - 1 {
-                let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
-                nextCell.reveal {}
-            } else {
-                delegate?.nextPage()
+                GameManager.shared.complete(level: level)
             }
-
-            GameManager.shared.complete(level: level)
         }
     }
 }

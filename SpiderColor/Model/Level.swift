@@ -14,6 +14,7 @@ class Level: Codable {
     let qtyCards: Int
     var completed: Bool = false
     var isAvailable: Bool = false
+    var focused: Bool = false
 
     var colors: [UIColor] { codableColors.map { $0.color } }
 
