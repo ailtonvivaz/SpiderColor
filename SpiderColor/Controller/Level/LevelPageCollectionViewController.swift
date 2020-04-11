@@ -122,7 +122,7 @@ extension LevelPageCollectionViewController: GameDelegate {
                     let nextCell = self.collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
                     nextCell.reveal()
                 } else {
-                    self.delegate?.nextPage(revealFirst: self.revealFirst)
+                    self.delegate?.nextPage(revealFirst: true)
                 }
 
                 GameManager.shared.complete(level: level)
