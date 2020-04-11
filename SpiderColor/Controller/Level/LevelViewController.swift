@@ -67,8 +67,18 @@ class LevelViewController: UIViewController {
             if let levelPage = page as? LevelPageCollectionViewController {
                 levelPage.revealFirst = revealFirst
             }
+            let direction: UIPageViewController.NavigationDirection
+
+            if UIView.userInterfaceLayoutDirection(
+              for: view.semanticContentAttribute) == .rightToLeft {
+                  direction = indexPage > self.indexPage ? .reverse : .forward
+            } else {
+                direction = indexPage > self.indexPage ? .forward : .reverse
+            }
+                
+            
             if (pageViewController.viewControllers?.first as? LevelPageCollectionViewController)?.page != indexPage {
-                pageViewController.setViewControllers([page], direction: indexPage > self.indexPage ? .forward : .reverse, animated: true, completion: nil)
+                pageViewController.setViewControllers([page], direction: direction, animated: true, completion: nil)
             }
             self.indexPage = indexPage
 //            pageLabel.text = String(format: NSLocalizedString("page %d", comment: ""), indexPage + 1)
@@ -175,7 +185,7 @@ extension LevelViewController: LevelViewDelegate {
         ])
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            UIView.animate(withDuration: 2.5, animations: {
+            UIView.animate(withDuration: 2.0, animations: {
                 self.bgGradientTopContraint.constant = -self.backgroundGradientView.frame.height
                 self.view.layoutIfNeeded()
             }) { _ in
