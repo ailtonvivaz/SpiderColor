@@ -58,7 +58,6 @@ class LevelPageCollectionViewController: UICollectionViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if self.revealFirst, let firstCell = self.collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? LevelCardCollectionViewCell {
                 firstCell.reveal()
-                print("reveal")
             }
         }
     }

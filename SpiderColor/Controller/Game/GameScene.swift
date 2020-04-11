@@ -102,7 +102,6 @@ class GameScene: SKScene, SlotNodeDelegate {
     func checkGame() {
         if let slotNode = slotNodes.first(where: { $0.deckSize == level.qtyCards }) {
             if slotNode.cards == cards {
-                print("finalizado")
                 gameDelegate?.complete(level: level)
             }
         }

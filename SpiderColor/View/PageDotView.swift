@@ -63,7 +63,6 @@ class PageDotView: UIView {
     
     func factor(of index: Int, offset: Int = 0) -> CGFloat {
         let index = index + adjustment
-        print("factor", index)
         if index < offset { return 0.01 }
         if index > numberOfPages + offset - 1 { return 0.01 }
         

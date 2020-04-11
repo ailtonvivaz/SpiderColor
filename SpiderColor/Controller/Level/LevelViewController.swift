@@ -122,7 +122,6 @@ extension LevelViewController: UIPageViewControllerDelegate {
 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
-            print("factor", "page", swipingToPage)
             if swipingToPage > indexPage {
                 pageControl.next()
             } else {

@@ -32,7 +32,6 @@ class GameManager: Codable {
         var i = 0
         while true {
             level -= 3 * (i + 1)
-            print(level)
             if level <= 0 || qty == 27 { break }
             i += 1
             qty += 2

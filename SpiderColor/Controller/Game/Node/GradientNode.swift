@@ -14,7 +14,6 @@ class GradientNode: SKShapeNode {
         super.init()
 
         let shape = SKShapeNode(rect: CGRect(origin: CGPoint(x: 0, y: -size.height / 2), size: size), cornerRadius: 10)
-        print("shape")
         shape.position = .zero
         shape.fillColor = .black
 

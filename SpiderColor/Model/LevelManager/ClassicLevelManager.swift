@@ -28,7 +28,6 @@ class ClassicLevelManager: LevelManager {
         var i = 0
         while true {
             level -= 3 * (i + 1)
-            print(level)
             if level <= 0 || qty == 27 { break }
             i += 1
             qty += 2
@@ -68,7 +67,6 @@ class ClassicLevelManager: LevelManager {
                 rgb = RGB(r: 0, g: 0, b: 0)
         }
 
-        print("level", level, rgb)
         return UIColor(red: rgb.r, green: rgb.g, blue: rgb.b)
     }
 }
