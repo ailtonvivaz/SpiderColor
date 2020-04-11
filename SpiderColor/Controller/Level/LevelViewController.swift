@@ -11,11 +11,12 @@ import UIKit
 class LevelViewController: UIViewController {
     //MARK: - Outlets
 
-    @IBOutlet weak var backgroundGradientView: GradientView!
+    @IBOutlet var backgroundGradientView: GradientView!
     @IBOutlet var pageLabel: UILabel!
     @IBOutlet var previousPageButton: UIImageView!
     @IBOutlet var nextPageButton: UIImageView!
     @IBOutlet var containerPageView: UIView!
+    @IBOutlet var bgGradientTopContraint: NSLayoutConstraint!
 
     //MARK: - Variables
 
@@ -45,9 +46,13 @@ class LevelViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.goTo(indexPage: GameManager.shared.lastPageCompleted)
         }
-        
-        backgroundGradientView.colors = GameManager.shared.lastLevelCompleted.colors
-        
+
+        let level = GameManager.shared.lastLevelCompleted
+        if level.value > 0 {
+            backgroundGradientView.colors = level.colors
+        } else {
+            backgroundGradientView.backgroundColor = .black
+        }
     }
 
     override var prefersStatusBarHidden: Bool { true }
@@ -74,6 +79,7 @@ class LevelViewController: UIViewController {
         let levels = Array(GameManager.shared.levelsFor(page: index))
         let page = LevelPageCollectionViewController(page: index, levels: levels, parent: self)
         page.delegate = self
+        page.gameDelegate = self
         return page
     }
 
@@ -135,6 +141,35 @@ extension LevelViewController: LevelPageDelegate {
     func nextPage() {
         if indexPage < numberOfPages - 1 {
             goTo(indexPage: indexPage + 1)
+        }
+    }
+}
+
+//MARK: - GameDelegate
+
+extension LevelViewController: GameDelegate {
+    func complete(level: Level) {
+        let auxBG = GradientView()
+        auxBG.colors = level.colors
+        auxBG.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(auxBG, aboveSubview: backgroundGradientView)
+
+        NSLayoutConstraint.activate([
+            auxBG.widthAnchor.constraint(equalTo: backgroundGradientView.widthAnchor),
+            auxBG.heightAnchor.constraint(equalTo: backgroundGradientView.heightAnchor),
+            auxBG.centerXAnchor.constraint(equalTo: backgroundGradientView.centerXAnchor),
+            auxBG.topAnchor.constraint(equalTo: backgroundGradientView.bottomAnchor)
+        ])
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            UIView.animate(withDuration: 1.5, animations: {
+                self.bgGradientTopContraint.constant = -self.backgroundGradientView.frame.height
+                self.view.layoutIfNeeded()
+            }) { _ in
+                self.bgGradientTopContraint.constant = 0
+                self.backgroundGradientView.colors = level.colors
+                auxBG.removeFromSuperview()
+            }
         }
     }
 }

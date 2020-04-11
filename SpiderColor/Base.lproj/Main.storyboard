@@ -131,7 +131,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8B5-7D-IBB" customClass="GradientView" customModule="hue_card" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KG6-HZ-Q2S">
                                 <rect key="frame" x="0.0" y="109" width="414" height="673"/>
@@ -139,7 +139,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGa-Vs-rlz">
                                 <rect key="frame" x="0.0" y="44" width="414" height="65"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVELS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfF-hG-X8C">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVELS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfF-hG-X8C" customClass="DesignableLabel" customModule="hue_card" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="30" width="414" height="35"/>
                                         <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,6 +147,18 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="letterSpace">
                                                 <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.40000000000000002"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
@@ -210,9 +222,9 @@
                         <constraints>
                             <constraint firstItem="8B5-7D-IBB" firstAttribute="trailing" secondItem="dkM-gy-dw8" secondAttribute="trailing" id="2RT-Dx-rge"/>
                             <constraint firstItem="4pw-Kq-1h0" firstAttribute="leading" secondItem="r0d-i6-npX" secondAttribute="leading" id="3FS-Uj-wTR"/>
-                            <constraint firstAttribute="bottom" secondItem="8B5-7D-IBB" secondAttribute="bottom" id="7Py-wF-1Wd"/>
                             <constraint firstItem="fPT-aC-MYc" firstAttribute="leading" secondItem="dkM-gy-dw8" secondAttribute="leading" id="9WK-6A-Pzb"/>
                             <constraint firstItem="r0d-i6-npX" firstAttribute="bottom" secondItem="4pw-Kq-1h0" secondAttribute="bottom" id="Hpu-P5-7vv"/>
+                            <constraint firstItem="8B5-7D-IBB" firstAttribute="height" secondItem="dkM-gy-dw8" secondAttribute="height" id="Hx3-Dg-wH5"/>
                             <constraint firstItem="8B5-7D-IBB" firstAttribute="top" secondItem="dkM-gy-dw8" secondAttribute="top" id="S0f-2t-G5f"/>
                             <constraint firstItem="KG6-HZ-Q2S" firstAttribute="top" secondItem="JGa-Vs-rlz" secondAttribute="bottom" id="Uzl-J8-15H"/>
                             <constraint firstItem="JGa-Vs-rlz" firstAttribute="leading" secondItem="dkM-gy-dw8" secondAttribute="leading" id="W6Y-in-JKa"/>
@@ -231,6 +243,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundGradientView" destination="8B5-7D-IBB" id="4Yc-zg-jMa"/>
+                        <outlet property="bgGradientTopContraint" destination="S0f-2t-G5f" id="juZ-Nl-k9A"/>
                         <outlet property="containerPageView" destination="KG6-HZ-Q2S" id="G0S-tR-RnH"/>
                         <outlet property="nextPageButton" destination="zdB-Pi-x7B" id="f6K-dQ-b0d"/>
                         <outlet property="pageLabel" destination="rgX-Hm-Nqe" id="lgG-FP-cGc"/>

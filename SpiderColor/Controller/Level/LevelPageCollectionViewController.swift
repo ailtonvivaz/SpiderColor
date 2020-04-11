@@ -18,6 +18,7 @@ class LevelPageCollectionViewController: UICollectionViewController {
     private let levels: [Level]
     private let parentVC: UIViewController
     var delegate: LevelPageDelegate?
+    var gameDelegate: GameDelegate?
 
     //MARK: - Collection View variables
 
@@ -116,6 +117,7 @@ extension LevelPageCollectionViewController: GameDelegate {
                 }
 
                 GameManager.shared.complete(level: level)
+                self.gameDelegate?.complete(level: level)
             }
         }
     }

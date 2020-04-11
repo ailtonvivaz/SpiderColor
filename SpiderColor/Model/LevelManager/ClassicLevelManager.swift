@@ -45,7 +45,7 @@ class ClassicLevelManager: LevelManager {
     private func powerBit(of value: Int) -> Int { value | 0x80 }
 
     private func getColor(of level: Int) -> UIColor {
-        if level == 1 { return .white }
+        if level == 1 { return .black }
 
         let level = level - 1
         let mod = level % 6

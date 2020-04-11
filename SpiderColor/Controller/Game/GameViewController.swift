@@ -38,12 +38,10 @@ class GameViewController: UIViewController {
         // Present the scene
         sceneView.presentScene(scene)
         sceneView.allowsTransparency = true
-//        sceneView.showsFPS = true
-//        sceneView.showsNodeCount = true
 
         AnalyticsUtils.startLevel(level.value)
 
-        // add notification observers
+        // Add notification observers
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
 
