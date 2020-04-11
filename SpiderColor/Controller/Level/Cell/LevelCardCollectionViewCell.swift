@@ -17,7 +17,7 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
     var level: Level! {
         didSet {
-            levelLabel.text = String(format: "%02d", level.value)
+            levelLabel.text = String(format: "%03d", level.value)
             gradientView.colors = level.colors
             levelCompletedImageView.isHidden = !level.completed
 

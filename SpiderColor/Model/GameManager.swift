@@ -17,7 +17,7 @@ class GameManager: Codable {
     var lastLevelCompleted: Level { levelManager.getLevel(lastValueLevelCompleted) }
     var lastPageCompleted: Int { lastValueLevelCompleted / 9 }
     var pages: Int { min(lastPageCompleted + 2, maxPages) }
-    private let maxPages = (255 / 9) + 1
+    private let maxPages = (256 / 9) + 1
 
     enum CodingKeys: String, CodingKey {
         case dataLevels
