@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        #if DEBUG
+            FirebaseConfiguration().setLoggerLevel(FirebaseLoggerLevel.min)
+        #endif
+        
         FirebaseApp.configure()
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         return true

@@ -60,8 +60,11 @@ class LevelViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool { true }
 
-    private func goTo(indexPage: Int) {
+    private func goTo(indexPage: Int, revealFirst: Bool = false) {
         if let page = page(from: indexPage) {
+            if let levelPage = page as? LevelPageCollectionViewController {
+                levelPage.revealFirst = revealFirst
+            }
             if (pageViewController.viewControllers?.first as? LevelPageCollectionViewController)?.page != indexPage {
                 pageViewController.setViewControllers([page], direction: indexPage > self.indexPage ? .forward : .reverse, animated: true, completion: nil)
             }
@@ -147,9 +150,9 @@ extension LevelViewController: UIPageViewControllerDataSource {
 //MARK: - LevelPageDelegate
 
 extension LevelViewController: LevelPageDelegate {
-    func nextPage() {
+    func nextPage(revealFirst: Bool) {
         if indexPage < numberOfPages - 1 {
-            goTo(indexPage: indexPage + 1)
+            goTo(indexPage: indexPage + 1, revealFirst: revealFirst)
         }
     }
 }
