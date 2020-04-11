@@ -13,7 +13,7 @@ class LevelViewController: UIViewController {
 
     @IBOutlet var backgroundGradientView: GradientView!
     @IBOutlet var pageLabel: UILabel!
-    @IBOutlet weak var pageControl: PageDotView!
+    @IBOutlet var pageControl: PageDotView!
     @IBOutlet var previousPageButton: UIImageView!
     @IBOutlet var nextPageButton: UIImageView!
     @IBOutlet var containerPageView: UIView!
@@ -43,10 +43,7 @@ class LevelViewController: UIViewController {
         pageViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         pageViewController.didMove(toParent: self)
 
-        goTo(indexPage: 0)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.goTo(indexPage: GameManager.shared.lastPageCompleted)
-        }
+        goTo(indexPage: GameManager.shared.lastPageCompleted)
 
         let level = GameManager.shared.lastLevelCompleted
         if level.value > 0 {
@@ -54,8 +51,9 @@ class LevelViewController: UIViewController {
         } else {
             backgroundGradientView.backgroundColor = .black
         }
-        
+
         pageControl.numberOfPages = GameManager.shared.pages
+        pageControl.setInitial(page: GameManager.shared.lastPageCompleted)
     }
 
     override var prefersStatusBarHidden: Bool { true }
@@ -125,10 +123,10 @@ extension LevelViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
             print("factor", "page", swipingToPage)
-            if swipingToPage > self.indexPage {
-                self.pageControl.next()
+            if swipingToPage > indexPage {
+                pageControl.next()
             } else {
-                self.pageControl.previous()
+                pageControl.previous()
             }
             goTo(indexPage: swipingToPage)
         }

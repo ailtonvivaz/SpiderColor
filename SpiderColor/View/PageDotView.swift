@@ -73,6 +73,11 @@ class PageDotView: UIView {
         return (CGFloat(1) - CGFloat(mod) / 4)
     }
     
+    func setInitial(page: Int) {
+        self.currentPage = page
+        collectionView.reloadData()
+    }
+    
     private func go(to page: Int) {
         UIView.animate(withDuration: 0.25, animations: {
             for i in 0..<self.numberOfDots {
