@@ -16,7 +16,6 @@ class LevelViewController: UIViewController {
     //MARK: - Outlets
 
     @IBOutlet var backgroundGradientView: GradientView!
-    @IBOutlet var pageLabel: UILabel!
     @IBOutlet var pageControl: PageDotView!
     @IBOutlet var previousPageButton: UIImageView!
     @IBOutlet var nextPageButton: UIImageView!
@@ -111,6 +110,7 @@ class LevelViewController: UIViewController {
         if indexPage > 0 {
             AnalyticsUtils.tapButton("previous_level")
             goTo(indexPage: indexPage - 1)
+            pageControl.previous()
         } else {
             AnalyticsUtils.tapButton("back_home")
             dismiss(animated: true, completion: nil)
@@ -121,6 +121,7 @@ class LevelViewController: UIViewController {
         AnalyticsUtils.tapButton("next_level")
         if indexPage < numberOfPages - 1 {
             goTo(indexPage: indexPage + 1)
+            pageControl.next()
         }
     }
 }
@@ -164,6 +165,7 @@ extension LevelViewController: LevelPageDelegate {
     func nextPage(revealFirst: Bool) {
         if indexPage < numberOfPages - 1 {
             goTo(indexPage: indexPage + 1, revealFirst: revealFirst)
+            pageControl.next()
         }
     }
 }
