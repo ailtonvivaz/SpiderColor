@@ -11,6 +11,7 @@ import UIKit
 class LevelViewController: UIViewController {
     //MARK: - Outlets
 
+    @IBOutlet weak var backgroundGradientView: GradientView!
     @IBOutlet var pageLabel: UILabel!
     @IBOutlet var previousPageButton: UIImageView!
     @IBOutlet var nextPageButton: UIImageView!
@@ -44,6 +45,9 @@ class LevelViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.goTo(indexPage: GameManager.shared.lastPageCompleted)
         }
+        
+        backgroundGradientView.colors = GameManager.shared.lastLevelCompleted.colors
+        
     }
 
     override var prefersStatusBarHidden: Bool { true }

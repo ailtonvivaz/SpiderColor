@@ -14,7 +14,7 @@ import UIKit
 class GameViewController: UIViewController {
     @IBOutlet var sceneView: SKView!
     @IBOutlet var topView: UIView!
-    @IBOutlet weak var spectrumGradientView: SpectrumGradientView!
+    @IBOutlet var spectrumGradientView: SpectrumGradientView!
     @IBOutlet var bannerView: GADBannerView!
 
     var interstitial: GADInterstitial!
@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         spectrumGradientView.set(level: level)
 
         scene = GameScene(level: level, size: view.frame.size, top: topView.frame.maxY, bottom: view.safeAreaInsets.bottom)
@@ -86,17 +86,21 @@ class GameViewController: UIViewController {
     }
 
     func finish() {
-//        if level.value >= 5, interstitial.isReady {
-//            interstitial.present(fromRootViewController: self)
-//        } else {
+        if level.value >= 5, interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
             dismiss()
-//        }
+        }
     }
 }
 
 //MARK: - GameDelegate
 
 extension GameViewController: GameDelegate {
+    func setResolved(cards: [Card]) {
+        spectrumGradientView.setCompleted(cards: cards)
+    }
+
     func complete(level: Level) {
         let time = elapsedTime + (DispatchTime.nowInSeconds - startTime)
         AnalyticsUtils.endLevel(level.value, time: time)

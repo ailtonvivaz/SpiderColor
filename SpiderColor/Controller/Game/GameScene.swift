@@ -10,7 +10,12 @@ import GameplayKit
 import SpriteKit
 
 protocol GameDelegate {
+    func setResolved(cards: [Card])
     func complete(level: Level)
+}
+
+extension GameDelegate {
+    func setResolved(cards: [Card]) {}
 }
 
 class GameScene: SKScene, SlotNodeDelegate {
@@ -47,7 +52,7 @@ class GameScene: SKScene, SlotNodeDelegate {
         backgroundColor = .clear
         let width = size.width
 
-        var topMargin = self.topMargin + 40
+        let topMargin = self.topMargin + 40
 
         let shuffledCards = cards.shuffled()
 
@@ -81,6 +86,7 @@ class GameScene: SKScene, SlotNodeDelegate {
     }
 
     override func didMove(to view: SKView) {
+        checkGame()
 //        let backgroundSound = SKAudioNode(fileNamed: "background.wav")
 //        addChild(backgroundSound)
 //        backgroundSound.run(.group([
@@ -94,12 +100,15 @@ class GameScene: SKScene, SlotNodeDelegate {
     }
 
     func checkGame() {
-        if let slot = slotNodes.first(where: { $0.deckSize == level.qtyCards }) {
-            if slot.cards == cards {
+        if let slotNode = slotNodes.first(where: { $0.deckSize == level.qtyCards }) {
+            if slotNode.cards == cards {
                 print("finalizado")
                 gameDelegate?.complete(level: level)
             }
         }
+
+        let cardsResolved = slotNodes.map { $0.cardsResolved }.reduce([], +)
+        gameDelegate?.setResolved(cards: cardsResolved)
     }
 
     func update(movement: Movement) {

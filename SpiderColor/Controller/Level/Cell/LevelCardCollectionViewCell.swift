@@ -30,17 +30,21 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
     var enabled: Bool = false
     private var shadowed: Bool = false {
-        didSet { self.gradientView.layer.shadowOpacity = shadowed ? 0.5 : 0.0 }
+        didSet { self.gradientView.layer.shadowOpacity = shadowed ? 0.5 : 0.1 }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         backCardView.isHidden = false
-        gradientView.isHidden = true
+        backCardView.layer.shadowColor = UIColor.white.cgColor
+        backCardView.layer.shadowOffset = .zero
+        backCardView.layer.shadowRadius = 10
+        backCardView.layer.shadowOpacity = 0.1
 
         layer.masksToBounds = false
-
+        
+        gradientView.isHidden = true
         gradientView.layer.shadowColor = UIColor.white.cgColor
         gradientView.layer.shadowOffset = .zero
         gradientView.layer.shadowRadius = 10

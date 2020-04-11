@@ -10,6 +10,8 @@ import UIKit
 
 class SpectrumGradientView: UIView {
     let stackView = UIStackView()
+    private var level: Level?
+    private var cardViews: [UIView] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +43,8 @@ class SpectrumGradientView: UIView {
     }
     
     func set(level: Level) {
+        self.level = level
+        self.cardViews = []
         stackView.arrangedSubviews.forEach { stackView.removeArrangedSubview($0) }
         
         for color in level.cards.map(\.color) {
@@ -48,8 +52,18 @@ class SpectrumGradientView: UIView {
             view.translatesAutoresizingMaskIntoConstraints = false
             view.backgroundColor = color
             stackView.addArrangedSubview(view)
+            view.alpha = 0.25
             
             view.heightAnchor.constraint(equalTo: stackView.heightAnchor).isActive = true
+            cardViews.append(view)
+        }
+    }
+    
+    func setCompleted(cards: [Card]) {
+        UIView.animate(withDuration: 0.25) {
+            for card in cards {
+                self.cardViews[card.value].alpha = 1.0
+            }
         }
     }
 }

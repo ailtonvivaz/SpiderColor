@@ -13,8 +13,9 @@ class GameManager: Codable {
     let levelManager = ClassicLevelManager()
 
     var dataLevels: [LevelData] = []
-    var lastLevelCompleted: Int { dataLevels.last(where: \.completed)?.level ?? 0 }
-    var lastPageCompleted: Int { lastLevelCompleted / 9 }
+    var lastValueLevelCompleted: Int { dataLevels.last(where: \.completed)?.level ?? 0 }
+    var lastLevelCompleted: Level { levelManager.getLevel(lastValueLevelCompleted) }
+    var lastPageCompleted: Int { lastValueLevelCompleted / 9 }
     var pages: Int { min(lastPageCompleted + 2, maxPages) }
     private let maxPages = (255 / 9) + 1
 
@@ -52,8 +53,8 @@ class GameManager: Codable {
                 .filter(\.completed)
                 .map(\.level)
                 .contains(valueLevel)
-            level.isAvailable = lastLevelCompleted + 1 >= valueLevel
-            level.focused = valueLevel == lastLevelCompleted + 1
+            level.isAvailable = lastValueLevelCompleted + 1 >= valueLevel
+            level.focused = valueLevel == lastValueLevelCompleted + 1
             levels.append(level)
         }
 

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct Card {
+struct Card: Hashable {
     var value: Int
     var color: UIColor
     

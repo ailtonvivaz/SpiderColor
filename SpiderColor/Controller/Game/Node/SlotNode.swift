@@ -20,6 +20,21 @@ class SlotNode: SKSpriteNode {
     var cards: [Card] { deckNode?.deck.cards ?? [] }
     var deckSize: Int { deckNode?.deck.size ?? 0 }
     
+    var cardsResolved: Set<Card> {
+        var cardsResolved = Set<Card>()
+        var previousCard: Card?
+        for card in cards {
+            if let previousCard = previousCard {
+                if previousCard.isNext(of: card) {
+                    cardsResolved.insert(previousCard)
+                    cardsResolved.insert(card)
+                }
+            }
+            previousCard = card
+        }
+        return cardsResolved
+    }
+    
     private var deckDragging: DeckNode?
     
     init(size: CGSize, deck: Deck) {
@@ -29,7 +44,7 @@ class SlotNode: SKSpriteNode {
         isUserInteractionEnabled = true
         anchorPoint = CGPoint(x: 0, y: 1)
         
-        let emptyNode = CardNode(card: Card(value: 0, color: UIColor.black.withAlphaComponent(0.25)), width: size.width)
+        let emptyNode = CardNode(card: Card(value: 0, color: UIColor.black.withAlphaComponent(0.1)), width: size.width)
         addChild(emptyNode)
         
         name = "Name\(Int.random(in: 0...1000))"
