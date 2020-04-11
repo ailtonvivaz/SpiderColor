@@ -174,7 +174,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pw-Kq-1h0">
                                 <rect key="frame" x="0.0" y="782" width="414" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageLeft" translatesAutoresizingMaskIntoConstraints="NO" id="SJc-gn-TBW">
+                                    <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageLeft" translatesAutoresizingMaskIntoConstraints="NO" id="SJc-gn-TBW">
                                         <rect key="frame" x="20" y="0.0" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -186,7 +186,7 @@
                                             <outletCollection property="gestureRecognizers" destination="bGQ-Yo-A3L" appends="YES" id="xxX-Ot-VmI"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageRight" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-Pi-x7B">
+                                    <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageRight" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-Pi-x7B">
                                         <rect key="frame" x="334" y="0.0" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -198,21 +198,21 @@
                                             <outletCollection property="gestureRecognizers" destination="Hdg-uz-xgo" appends="YES" id="t0q-Fk-7da"/>
                                         </connections>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="page 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgX-Hm-Nqe">
-                                        <rect key="frame" x="174" y="16" width="66.5" height="28"/>
-                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njq-Gu-CMd" customClass="PageDotView" customModule="hue_card" customModuleProvider="target">
+                                        <rect key="frame" x="100" y="28" width="214" height="24"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="rgX-Hm-Nqe" firstAttribute="centerY" secondItem="SJc-gn-TBW" secondAttribute="centerY" id="1sD-Tm-12v"/>
                                     <constraint firstItem="zdB-Pi-x7B" firstAttribute="top" secondItem="4pw-Kq-1h0" secondAttribute="top" id="9ce-Lg-He8"/>
                                     <constraint firstAttribute="trailing" secondItem="zdB-Pi-x7B" secondAttribute="trailing" constant="20" id="SdI-MW-CsE"/>
                                     <constraint firstAttribute="bottom" secondItem="SJc-gn-TBW" secondAttribute="bottom" constant="20" id="Xqm-B4-H6o"/>
+                                    <constraint firstItem="njq-Gu-CMd" firstAttribute="leading" secondItem="SJc-gn-TBW" secondAttribute="trailing" constant="20" id="ZUm-OP-VBn"/>
+                                    <constraint firstItem="zdB-Pi-x7B" firstAttribute="leading" secondItem="njq-Gu-CMd" secondAttribute="trailing" constant="20" id="e7t-et-vhc"/>
+                                    <constraint firstItem="njq-Gu-CMd" firstAttribute="height" secondItem="4pw-Kq-1h0" secondAttribute="height" multiplier="0.3" id="oRO-wu-4yg"/>
                                     <constraint firstAttribute="bottom" secondItem="zdB-Pi-x7B" secondAttribute="bottom" constant="20" id="pAy-jL-sCi"/>
-                                    <constraint firstItem="rgX-Hm-Nqe" firstAttribute="centerX" secondItem="4pw-Kq-1h0" secondAttribute="centerX" id="s28-vm-fOk"/>
+                                    <constraint firstItem="njq-Gu-CMd" firstAttribute="centerY" secondItem="4pw-Kq-1h0" secondAttribute="centerY" id="qQR-b0-hBg"/>
                                     <constraint firstItem="SJc-gn-TBW" firstAttribute="leading" secondItem="4pw-Kq-1h0" secondAttribute="leading" constant="20" id="u80-6P-c54"/>
                                     <constraint firstItem="SJc-gn-TBW" firstAttribute="top" secondItem="4pw-Kq-1h0" secondAttribute="top" id="wIs-jk-bSP"/>
                                 </constraints>
@@ -246,7 +246,7 @@
                         <outlet property="bgGradientTopContraint" destination="S0f-2t-G5f" id="juZ-Nl-k9A"/>
                         <outlet property="containerPageView" destination="KG6-HZ-Q2S" id="G0S-tR-RnH"/>
                         <outlet property="nextPageButton" destination="zdB-Pi-x7B" id="f6K-dQ-b0d"/>
-                        <outlet property="pageLabel" destination="rgX-Hm-Nqe" id="lgG-FP-cGc"/>
+                        <outlet property="pageControl" destination="njq-Gu-CMd" id="YmI-XG-gW6"/>
                         <outlet property="previousPageButton" destination="SJc-gn-TBW" id="6Xj-Hx-tLP"/>
                     </connections>
                 </viewController>

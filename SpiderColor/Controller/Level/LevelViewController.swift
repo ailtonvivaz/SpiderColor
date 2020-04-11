@@ -13,6 +13,7 @@ class LevelViewController: UIViewController {
 
     @IBOutlet var backgroundGradientView: GradientView!
     @IBOutlet var pageLabel: UILabel!
+    @IBOutlet weak var pageControl: PageDotView!
     @IBOutlet var previousPageButton: UIImageView!
     @IBOutlet var nextPageButton: UIImageView!
     @IBOutlet var containerPageView: UIView!
@@ -53,6 +54,8 @@ class LevelViewController: UIViewController {
         } else {
             backgroundGradientView.backgroundColor = .black
         }
+        
+        pageControl.numberOfPages = GameManager.shared.pages
     }
 
     override var prefersStatusBarHidden: Bool { true }
@@ -63,7 +66,7 @@ class LevelViewController: UIViewController {
                 pageViewController.setViewControllers([page], direction: indexPage > self.indexPage ? .forward : .reverse, animated: true, completion: nil)
             }
             self.indexPage = indexPage
-            pageLabel.text = String(format: NSLocalizedString("page %d", comment: ""), indexPage + 1)
+//            pageLabel.text = String(format: NSLocalizedString("page %d", comment: ""), indexPage + 1)
 
             UIView.animate(withDuration: 0.2) {
 //                self.previousPageButton.isHidden = self.indexPage == 0
@@ -118,6 +121,12 @@ extension LevelViewController: UIPageViewControllerDelegate {
 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
+            print("factor", "page", swipingToPage)
+            if swipingToPage > self.indexPage {
+                self.pageControl.next()
+            } else {
+                self.pageControl.previous()
+            }
             goTo(indexPage: swipingToPage)
         }
     }
