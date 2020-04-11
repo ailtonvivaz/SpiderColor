@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LevelViewDelegate {
+    func complete(level: Level, completion: @escaping () -> Void)
+}
+
 class LevelViewController: UIViewController {
     //MARK: - Outlets
 
@@ -83,7 +87,7 @@ class LevelViewController: UIViewController {
         let levels = Array(GameManager.shared.levelsFor(page: index))
         let page = LevelPageCollectionViewController(page: index, levels: levels, parent: self)
         page.delegate = self
-        page.gameDelegate = self
+        page.levelViewDelegate = self
         return page
     }
 
@@ -156,8 +160,8 @@ extension LevelViewController: LevelPageDelegate {
 
 //MARK: - GameDelegate
 
-extension LevelViewController: GameDelegate {
-    func complete(level: Level) {
+extension LevelViewController: LevelViewDelegate {
+    func complete(level: Level, completion: @escaping () -> Void) {
         let auxBG = GradientView()
         auxBG.colors = level.colors
         auxBG.translatesAutoresizingMaskIntoConstraints = false
@@ -171,13 +175,14 @@ extension LevelViewController: GameDelegate {
         ])
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            UIView.animate(withDuration: 1.5, animations: {
+            UIView.animate(withDuration: 2.5, animations: {
                 self.bgGradientTopContraint.constant = -self.backgroundGradientView.frame.height
                 self.view.layoutIfNeeded()
             }) { _ in
                 self.bgGradientTopContraint.constant = 0
                 self.backgroundGradientView.colors = level.colors
                 auxBG.removeFromSuperview()
+                completion()
             }
         }
     }

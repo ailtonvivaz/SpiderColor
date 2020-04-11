@@ -20,6 +20,7 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
             levelLabel.text = String(format: "%03d", level.value)
             gradientView.colors = level.colors
             levelCompletedImageView.isHidden = !level.completed
+            levelCompletedImageView.alpha = level.completed ? 1.0 : 0.0
 
             backCardView.isHidden = level.isAvailable
             gradientView.isHidden = !level.isAvailable
@@ -43,7 +44,7 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
         backCardView.layer.shadowOpacity = 0.1
 
         layer.masksToBounds = false
-        
+
         gradientView.isHidden = true
         gradientView.layer.shadowColor = UIColor.white.cgColor
         gradientView.layer.shadowOffset = .zero
@@ -54,8 +55,9 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
     func complete(completion: @escaping () -> Void = {}) {
         level.completed = true
-        UIView.animate(withDuration: 0.1) {
-            self.levelCompletedImageView.isHidden = !self.level.completed
+        levelCompletedImageView.isHidden = false
+        UIView.animate(withDuration: 2.0) {
+            self.levelCompletedImageView.alpha = 1.0
         }
 
         UIView.animate(withDuration: 0.25, animations: {

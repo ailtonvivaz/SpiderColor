@@ -18,7 +18,7 @@ class LevelPageCollectionViewController: UICollectionViewController {
     private let levels: [Level]
     private let parentVC: UIViewController
     var delegate: LevelPageDelegate?
-    var gameDelegate: GameDelegate?
+    var levelViewDelegate: LevelViewDelegate?
     var revealFirst: Bool = false
 
     //MARK: - Collection View variables
@@ -116,7 +116,10 @@ extension LevelPageCollectionViewController: GameDelegate {
     func complete(level: Level) {
         if let index = levels.firstIndex(where: { level.value == $0.value }) {
             let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! LevelCardCollectionViewCell
-            cell.complete {
+
+            cell.complete()
+            
+            let reveal = {
                 if index < self.levels.count - 1 {
                     let nextCell = self.collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
                     nextCell.reveal()
@@ -125,7 +128,12 @@ extension LevelPageCollectionViewController: GameDelegate {
                 }
 
                 GameManager.shared.complete(level: level)
-                self.gameDelegate?.complete(level: level)
+            }
+            
+            if let levelViewDelegate = levelViewDelegate {
+                levelViewDelegate.complete(level: level, completion: reveal)
+            } else {
+                reveal()
             }
         }
     }
