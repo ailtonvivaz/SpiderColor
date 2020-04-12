@@ -66,10 +66,9 @@ class LevelViewController: UIViewController {
             if let levelPage = page as? LevelPageCollectionViewController {
                 levelPage.revealFirst = revealFirst
             }
+            
             let direction: UIPageViewController.NavigationDirection
-
-            if UIView.userInterfaceLayoutDirection(
-              for: view.semanticContentAttribute) == .rightToLeft {
+            if view.isRTL {
                   direction = indexPage > self.indexPage ? .reverse : .forward
             } else {
                 direction = indexPage > self.indexPage ? .forward : .reverse

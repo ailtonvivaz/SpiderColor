@@ -17,7 +17,7 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
     var level: Level! {
         didSet {
-            levelLabel.text = String(/*format: "%03d",*/ level.value)
+            levelLabel.text = String(level.value)
             gradientView.colors = level.colors
             levelCompletedImageView.isHidden = !level.completed
             levelCompletedImageView.alpha = level.completed ? 1.0 : 0.0
@@ -69,7 +69,7 @@ class LevelCardCollectionViewCell: UICollectionViewCell {
 
     func reveal(completion: @escaping () -> Void = {}) {
         if !level.isAvailable {
-            let transitionOptions = UIView.AnimationOptions.transitionFlipFromRight
+            let transitionOptions: UIView.AnimationOptions = isRTL ? .transitionFlipFromLeft : .transitionFlipFromRight
 
             UIView.transition(with: contentView, duration: 0.5, options: transitionOptions, animations: {
                 self.backCardView.isHidden = true

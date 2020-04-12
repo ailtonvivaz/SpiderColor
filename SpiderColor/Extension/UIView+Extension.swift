@@ -83,3 +83,10 @@ extension UIView {
         }
     }
 }
+
+extension UIView {
+    var isRTL: Bool {
+        UIView.userInterfaceLayoutDirection(
+            for: self.semanticContentAttribute) == .rightToLeft
+    }
+}
