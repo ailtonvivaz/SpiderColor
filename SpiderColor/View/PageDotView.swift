@@ -26,6 +26,9 @@ class PageDotView: UIView {
     private var cellSize: CGFloat {
         min((frame.width - (CGFloat(numberOfDots - 1) * spacing)) / CGFloat(numberOfDots), frame.height)
     }
+    private var margin: CGFloat {
+        (frame.width - (CGFloat(numberOfDots - 1) * spacing) - (CGFloat(numberOfDots) * cellSize)) / 2
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,6 +62,7 @@ class PageDotView: UIView {
         
         flowLayout.minimumInteritemSpacing = spacing
         flowLayout.itemSize = CGSize(width: cellSize, height: cellSize)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
     }
     
     func factor(of index: Int, offset: Int = 0) -> CGFloat {

@@ -17,8 +17,6 @@ class LevelViewController: UIViewController {
 
     @IBOutlet var backgroundGradientView: GradientView!
     @IBOutlet var pageControl: PageDotView!
-    @IBOutlet var previousPageButton: UIImageView!
-    @IBOutlet var nextPageButton: UIImageView!
     @IBOutlet var containerPageView: UIView!
     @IBOutlet var bgGradientTopContraint: NSLayoutConstraint!
 
@@ -78,12 +76,6 @@ class LevelViewController: UIViewController {
                 pageViewController.setViewControllers([page], direction: direction, animated: true, completion: nil)
             }
             self.indexPage = indexPage
-
-            UIView.animate(withDuration: 0.2) {
-                let last = self.indexPage == self.numberOfPages - 1
-                self.nextPageButton.isUserInteractionEnabled = !last
-                self.nextPageButton.alpha = last ? 0.5 : 1.0
-            }
         }
     }
 

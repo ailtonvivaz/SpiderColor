@@ -13,9 +13,7 @@
                 <outlet property="backgroundGradientView" destination="d7o-9J-NHA" id="a70-6L-VJd"/>
                 <outlet property="bgGradientTopContraint" destination="nZC-qc-jeV" id="Whq-Ai-vjd"/>
                 <outlet property="containerPageView" destination="80T-uh-6UG" id="Vu7-P6-zZU"/>
-                <outlet property="nextPageButton" destination="3bu-ex-rVq" id="YBe-k6-VkL"/>
                 <outlet property="pageControl" destination="SOU-a3-jKc" id="INx-CE-QJy"/>
-                <outlet property="previousPageButton" destination="jBM-GC-kYA" id="jEf-KX-f9A"/>
                 <outlet property="view" destination="RRc-RR-uiE" id="dZh-5A-UkD"/>
             </connections>
         </placeholder>
@@ -69,41 +67,44 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ewj-YB-yx2">
                     <rect key="frame" x="0.0" y="782" width="414" height="80"/>
                     <subviews>
-                        <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageLeft" translatesAutoresizingMaskIntoConstraints="NO" id="jBM-GC-kYA">
-                            <rect key="frame" x="20" y="0.0" width="60" height="60"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="83b-kN-Zx7"/>
-                                <constraint firstAttribute="width" secondItem="jBM-GC-kYA" secondAttribute="height" multiplier="1:1" id="WQn-aa-CEh"/>
-                                <constraint firstAttribute="width" constant="60" id="fyy-70-hXW"/>
-                            </constraints>
-                        </imageView>
-                        <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageRight" translatesAutoresizingMaskIntoConstraints="NO" id="3bu-ex-rVq">
-                            <rect key="frame" x="334" y="0.0" width="60" height="60"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="3bu-ex-rVq" secondAttribute="height" multiplier="1:1" id="2kt-dZ-vqc"/>
-                                <constraint firstAttribute="width" constant="60" id="LC5-2G-Yrd"/>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="sdh-nb-yfr"/>
-                            </constraints>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOU-a3-jKc" customClass="PageDotView" customModule="hue_card" customModuleProvider="target">
-                            <rect key="frame" x="100" y="28" width="214" height="24"/>
+                            <rect key="frame" x="40" y="28" width="334" height="24"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="bDg-fJ-SbR"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dO-ce-lzD">
+                            <rect key="frame" x="0.0" y="0.0" width="187" height="80"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="9if-L4-ZhH" appends="YES" id="Haa-Sh-YVA"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5a-uk-tnQ">
+                            <rect key="frame" x="207" y="0.0" width="207" height="80"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="7H4-Gu-Ttt" appends="YES" id="MYv-rg-wQ9"/>
+                            </connections>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="jBM-GC-kYA" firstAttribute="leading" secondItem="Ewj-YB-yx2" secondAttribute="leading" constant="20" id="9FK-dP-NS0"/>
-                        <constraint firstItem="3bu-ex-rVq" firstAttribute="top" secondItem="Ewj-YB-yx2" secondAttribute="top" id="ETy-YU-QzQ"/>
-                        <constraint firstItem="jBM-GC-kYA" firstAttribute="top" secondItem="Ewj-YB-yx2" secondAttribute="top" id="FD1-bW-7Kd"/>
-                        <constraint firstItem="SOU-a3-jKc" firstAttribute="leading" secondItem="jBM-GC-kYA" secondAttribute="trailing" constant="20" id="KHX-yf-f8C"/>
+                        <constraint firstItem="8dO-ce-lzD" firstAttribute="leading" secondItem="Ewj-YB-yx2" secondAttribute="leading" id="3uZ-ga-DCn"/>
+                        <constraint firstAttribute="bottom" secondItem="8dO-ce-lzD" secondAttribute="bottom" id="5ZA-nz-T7H"/>
+                        <constraint firstItem="k5a-uk-tnQ" firstAttribute="leading" secondItem="8dO-ce-lzD" secondAttribute="trailing" constant="20" id="6Bz-Th-xH2"/>
+                        <constraint firstAttribute="trailing" secondItem="SOU-a3-jKc" secondAttribute="trailing" constant="40" id="988-3Y-VL7"/>
                         <constraint firstItem="SOU-a3-jKc" firstAttribute="centerY" secondItem="Ewj-YB-yx2" secondAttribute="centerY" id="PeE-iO-da9"/>
-                        <constraint firstAttribute="bottom" secondItem="jBM-GC-kYA" secondAttribute="bottom" constant="20" id="UQQ-9i-hoJ"/>
-                        <constraint firstAttribute="trailing" secondItem="3bu-ex-rVq" secondAttribute="trailing" constant="20" id="gy6-CM-d60"/>
-                        <constraint firstAttribute="bottom" secondItem="3bu-ex-rVq" secondAttribute="bottom" constant="20" id="knW-KI-jQg"/>
+                        <constraint firstItem="SOU-a3-jKc" firstAttribute="leading" secondItem="Ewj-YB-yx2" secondAttribute="leading" constant="40" id="cMQ-F6-Vnw"/>
+                        <constraint firstItem="k5a-uk-tnQ" firstAttribute="width" secondItem="8dO-ce-lzD" secondAttribute="width" multiplier="1.10695" id="eKI-9c-YyW"/>
+                        <constraint firstItem="8dO-ce-lzD" firstAttribute="top" secondItem="Ewj-YB-yx2" secondAttribute="top" id="lPF-au-WzK"/>
+                        <constraint firstAttribute="trailing" secondItem="k5a-uk-tnQ" secondAttribute="trailing" id="n02-bS-ej4"/>
+                        <constraint firstAttribute="bottom" secondItem="k5a-uk-tnQ" secondAttribute="bottom" id="r02-0G-4pk"/>
                         <constraint firstItem="SOU-a3-jKc" firstAttribute="height" secondItem="Ewj-YB-yx2" secondAttribute="height" multiplier="0.3" id="r3j-uq-SfQ"/>
-                        <constraint firstItem="3bu-ex-rVq" firstAttribute="leading" secondItem="SOU-a3-jKc" secondAttribute="trailing" constant="20" id="ttC-cl-oc2"/>
+                        <constraint firstItem="k5a-uk-tnQ" firstAttribute="top" secondItem="Ewj-YB-yx2" secondAttribute="top" id="u9p-91-vkU"/>
                     </constraints>
                 </view>
             </subviews>
@@ -127,9 +128,15 @@
             <viewLayoutGuide key="safeArea" id="Sjv-uA-4Rc"/>
             <point key="canvasLocation" x="-86" y="269"/>
         </view>
+        <tapGestureRecognizer id="9if-L4-ZhH">
+            <connections>
+                <action selector="onTapPrevious:" destination="-1" id="3sA-08-dwB"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="7H4-Gu-Ttt">
+            <connections>
+                <action selector="onTapNext:" destination="-1" id="etZ-5L-tvt"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
-    <resources>
-        <image name="pageLeft" width="44" height="44"/>
-        <image name="pageRight" width="44" height="44"/>
-    </resources>
 </document>
