@@ -53,7 +53,7 @@ class GameScene: SKScene, SlotNodeDelegate {
         let width = size.width
 
         let topMargin = self.topMargin + 40
-
+        
         let shuffledCards = cards.shuffled()
 
         let qtyBySlot = shuffledCards.count / 3
@@ -102,6 +102,8 @@ class GameScene: SKScene, SlotNodeDelegate {
     func checkGame() {
         if let slotNode = slotNodes.first(where: { $0.deckSize == level.qtyCards }) {
             if slotNode.cards == cards {
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
                 gameDelegate?.complete(level: level)
             }
         }

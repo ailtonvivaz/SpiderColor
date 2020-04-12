@@ -102,7 +102,7 @@ extension GameViewController: GameDelegate {
     func complete(level: Level) {
         let time = elapsedTime + (DispatchTime.nowInSeconds - startTime)
         AnalyticsUtils.endLevel(level.value, time: time)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.finish()
         }
     }

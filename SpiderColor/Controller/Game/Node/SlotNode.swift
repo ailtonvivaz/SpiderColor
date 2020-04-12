@@ -25,7 +25,7 @@ class SlotNode: SKSpriteNode {
         var previousCard: Card?
         for card in cards {
             if let previousCard = previousCard {
-                if previousCard.isNext(of: card) {
+                if card.isNext(of: previousCard) {
                     cardsResolved.insert(previousCard)
                     cardsResolved.insert(card)
                 }
@@ -76,8 +76,11 @@ class SlotNode: SKSpriteNode {
             if let slotDragged = delegate?.getSlot(for: pos),
                 slotDragged != self,
                 move(deckDragged, to: slotDragged) {
-                let generator = UIImpactFeedbackGenerator(style: .heavy)
-                generator.impactOccurred()
+//                let generator = UIImpactFeedbackGenerator(style: .heavy)
+//                generator.impactOccurred()
+                
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
             } else {
                 deckDragged.drop()
                 let generator = UISelectionFeedbackGenerator()
@@ -90,8 +93,13 @@ class SlotNode: SKSpriteNode {
         if deckNode == self.deckNode {
             self.deckNode = nil
         }
+        
+        let deckFit: Bool
+        
         if let node = slotNode.deckNode {
+            deckFit = deckNode.deck.card.isNext(of: node.deck.lastCard)
             deckNode.move(to: node)
+            
         } else {
             deckNode.parentNode?.childNode = nil
             deckNode.parentNode = nil
@@ -102,9 +110,11 @@ class SlotNode: SKSpriteNode {
             deckNode.move(toParent: slotNode)
             slotNode.deckNode = deckNode
             deckNode.drop()
+            deckFit = true
         }
         delegate?.update(movement: Movement(slotSource: self, slotDestination: slotNode, deckNode: deckNode))
-        return true
+        return deckFit
+//        return deckNode.deck.card.value == slotNode.deckNode.
     }
     
     private func add(deckNode: DeckNode) {

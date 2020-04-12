@@ -50,6 +50,7 @@
 		5EC839592442B6F300FCA222 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */; };
 		5EC8395B2442BEB600FCA222 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8395A2442BEB600FCA222 /* GameViewController.xib */; };
 		5EC8395E2442C50900FCA222 /* FlipTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8395D2442C50900FCA222 /* FlipTransition.swift */; };
+		5EC839602442D9AD00FCA222 /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8395F2442D9AD00FCA222 /* SeededGenerator.swift */; };
 		5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */; };
 		5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */; };
 		5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EF2420325B0097D550 /* UIView+Extension.swift */; };
@@ -113,6 +114,7 @@
 		5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		5EC8395A2442BEB600FCA222 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		5EC8395D2442C50900FCA222 /* FlipTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTransition.swift; sourceTree = "<group>"; };
+		5EC8395F2442D9AD00FCA222 /* SeededGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededGenerator.swift; sourceTree = "<group>"; };
 		5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		5EE913EF2420325B0097D550 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				5E66CED72423216100CA11E6 /* AnalyticsUtils.swift */,
 				5E66CEDD24232CC700CA11E6 /* Ads.swift */,
 				5EA5D7C5242C70A3009755BB /* LevelData.swift */,
+				5EC8395F2442D9AD00FCA222 /* SeededGenerator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				5E66CECE2423125E00CA11E6 /* UIViewController+Extension.swift in Sources */,
 				5E66CEDA2423257000CA11E6 /* DispatchTime+Extension.swift in Sources */,
 				5EE913F72420534F0097D550 /* GradientView.swift in Sources */,
+				5EC839602442D9AD00FCA222 /* SeededGenerator.swift in Sources */,
 				5EBF39E0243100300074916E /* ClassicLevelManager.swift in Sources */,
 				5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */,
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,

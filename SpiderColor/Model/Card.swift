@@ -14,7 +14,7 @@ struct Card: Hashable {
     var color: UIColor
     
     func isNext(of other: Card) -> Bool {
-        value + 1 == other.value
+        other.value + 1 == value
     }
 }
 
