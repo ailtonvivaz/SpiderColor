@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ujb-5f-7kw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S61-PU-c0m">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -106,7 +106,6 @@
                         <outlet property="logoBottomView" destination="cii-2o-Tpy" id="fuV-In-yoA"/>
                         <outlet property="logoTopView" destination="6eg-xS-RWV" id="iuQ-z5-eTH"/>
                         <outlet property="logoView" destination="Etp-L8-jRi" id="BKo-w4-Ut6"/>
-                        <segue destination="ujb-5f-7kw" kind="presentation" identifier="showLevel" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="0eo-sR-hF2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yr5-sN-AAl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -117,157 +116,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-859" y="72"/>
-        </scene>
-        <!--Level View Controller-->
-        <scene sceneID="y6e-oj-QpZ">
-            <objects>
-                <viewController id="ujb-5f-7kw" customClass="LevelViewController" customModule="hue_card" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dkM-gy-dw8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="fPT-aC-MYc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8B5-7D-IBB" customClass="GradientView" customModule="hue_card" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KG6-HZ-Q2S">
-                                <rect key="frame" x="0.0" y="109" width="414" height="673"/>
-                            </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGa-Vs-rlz">
-                                <rect key="frame" x="0.0" y="44" width="414" height="65"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVELS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfF-hG-X8C" customClass="DesignableLabel" customModule="hue_card" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30" width="414" height="35"/>
-                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpace">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.40000000000000002"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="RfF-hG-X8C" secondAttribute="bottom" id="HtY-xd-hDJ"/>
-                                    <constraint firstItem="RfF-hG-X8C" firstAttribute="top" secondItem="JGa-Vs-rlz" secondAttribute="top" constant="30" id="gXb-bX-CP4"/>
-                                    <constraint firstAttribute="trailing" secondItem="RfF-hG-X8C" secondAttribute="trailing" id="xBS-Na-NZZ"/>
-                                    <constraint firstItem="RfF-hG-X8C" firstAttribute="leading" secondItem="JGa-Vs-rlz" secondAttribute="leading" id="zIC-Uj-2XW"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pw-Kq-1h0">
-                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
-                                <subviews>
-                                    <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageLeft" translatesAutoresizingMaskIntoConstraints="NO" id="SJc-gn-TBW">
-                                        <rect key="frame" x="20" y="0.0" width="60" height="60"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="7Id-L6-y1Y"/>
-                                            <constraint firstAttribute="width" secondItem="SJc-gn-TBW" secondAttribute="height" multiplier="1:1" id="KGt-yP-opB"/>
-                                            <constraint firstAttribute="width" constant="60" id="dcb-Og-bBl"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="bGQ-Yo-A3L" appends="YES" id="xxX-Ot-VmI"/>
-                                        </connections>
-                                    </imageView>
-                                    <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageRight" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-Pi-x7B">
-                                        <rect key="frame" x="334" y="0.0" width="60" height="60"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="COW-xI-Q4f"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="HQU-U5-sJ6"/>
-                                            <constraint firstAttribute="width" secondItem="zdB-Pi-x7B" secondAttribute="height" multiplier="1:1" id="I7k-Kz-AQZ"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Hdg-uz-xgo" appends="YES" id="t0q-Fk-7da"/>
-                                        </connections>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njq-Gu-CMd" customClass="PageDotView" customModule="hue_card" customModuleProvider="target">
-                                        <rect key="frame" x="100" y="28" width="214" height="24"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="zdB-Pi-x7B" firstAttribute="top" secondItem="4pw-Kq-1h0" secondAttribute="top" id="9ce-Lg-He8"/>
-                                    <constraint firstAttribute="trailing" secondItem="zdB-Pi-x7B" secondAttribute="trailing" constant="20" id="SdI-MW-CsE"/>
-                                    <constraint firstAttribute="bottom" secondItem="SJc-gn-TBW" secondAttribute="bottom" constant="20" id="Xqm-B4-H6o"/>
-                                    <constraint firstItem="njq-Gu-CMd" firstAttribute="leading" secondItem="SJc-gn-TBW" secondAttribute="trailing" constant="20" id="ZUm-OP-VBn"/>
-                                    <constraint firstItem="zdB-Pi-x7B" firstAttribute="leading" secondItem="njq-Gu-CMd" secondAttribute="trailing" constant="20" id="e7t-et-vhc"/>
-                                    <constraint firstItem="njq-Gu-CMd" firstAttribute="height" secondItem="4pw-Kq-1h0" secondAttribute="height" multiplier="0.3" id="oRO-wu-4yg"/>
-                                    <constraint firstAttribute="bottom" secondItem="zdB-Pi-x7B" secondAttribute="bottom" constant="20" id="pAy-jL-sCi"/>
-                                    <constraint firstItem="njq-Gu-CMd" firstAttribute="centerY" secondItem="4pw-Kq-1h0" secondAttribute="centerY" id="qQR-b0-hBg"/>
-                                    <constraint firstItem="SJc-gn-TBW" firstAttribute="leading" secondItem="4pw-Kq-1h0" secondAttribute="leading" constant="20" id="u80-6P-c54"/>
-                                    <constraint firstItem="SJc-gn-TBW" firstAttribute="top" secondItem="4pw-Kq-1h0" secondAttribute="top" id="wIs-jk-bSP"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="8B5-7D-IBB" firstAttribute="trailing" secondItem="dkM-gy-dw8" secondAttribute="trailing" id="2RT-Dx-rge"/>
-                            <constraint firstItem="4pw-Kq-1h0" firstAttribute="leading" secondItem="r0d-i6-npX" secondAttribute="leading" id="3FS-Uj-wTR"/>
-                            <constraint firstItem="fPT-aC-MYc" firstAttribute="leading" secondItem="dkM-gy-dw8" secondAttribute="leading" id="9WK-6A-Pzb"/>
-                            <constraint firstItem="r0d-i6-npX" firstAttribute="bottom" secondItem="4pw-Kq-1h0" secondAttribute="bottom" id="Hpu-P5-7vv"/>
-                            <constraint firstItem="8B5-7D-IBB" firstAttribute="height" secondItem="dkM-gy-dw8" secondAttribute="height" id="Hx3-Dg-wH5"/>
-                            <constraint firstItem="8B5-7D-IBB" firstAttribute="top" secondItem="dkM-gy-dw8" secondAttribute="top" id="S0f-2t-G5f"/>
-                            <constraint firstItem="KG6-HZ-Q2S" firstAttribute="top" secondItem="JGa-Vs-rlz" secondAttribute="bottom" id="Uzl-J8-15H"/>
-                            <constraint firstItem="JGa-Vs-rlz" firstAttribute="leading" secondItem="dkM-gy-dw8" secondAttribute="leading" id="W6Y-in-JKa"/>
-                            <constraint firstItem="r0d-i6-npX" firstAttribute="trailing" secondItem="KG6-HZ-Q2S" secondAttribute="trailing" id="WHM-3c-Nvf"/>
-                            <constraint firstItem="4pw-Kq-1h0" firstAttribute="top" secondItem="KG6-HZ-Q2S" secondAttribute="bottom" id="Yeg-Tt-EJg"/>
-                            <constraint firstItem="JGa-Vs-rlz" firstAttribute="top" secondItem="r0d-i6-npX" secondAttribute="top" id="c8k-5C-Axi"/>
-                            <constraint firstItem="4pw-Kq-1h0" firstAttribute="trailing" secondItem="r0d-i6-npX" secondAttribute="trailing" id="fIu-0T-00b"/>
-                            <constraint firstItem="fPT-aC-MYc" firstAttribute="top" secondItem="dkM-gy-dw8" secondAttribute="top" id="fVJ-xV-e4H"/>
-                            <constraint firstItem="KG6-HZ-Q2S" firstAttribute="leading" secondItem="r0d-i6-npX" secondAttribute="leading" id="iuz-sV-aVS"/>
-                            <constraint firstItem="8B5-7D-IBB" firstAttribute="leading" secondItem="dkM-gy-dw8" secondAttribute="leading" id="j3h-zh-FvD"/>
-                            <constraint firstAttribute="bottom" secondItem="fPT-aC-MYc" secondAttribute="bottom" id="lcb-0C-vdY"/>
-                            <constraint firstAttribute="trailing" secondItem="fPT-aC-MYc" secondAttribute="trailing" id="mfY-BQ-4CZ"/>
-                            <constraint firstItem="r0d-i6-npX" firstAttribute="trailing" secondItem="JGa-Vs-rlz" secondAttribute="trailing" id="rYf-rp-AvH"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="r0d-i6-npX"/>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundGradientView" destination="8B5-7D-IBB" id="4Yc-zg-jMa"/>
-                        <outlet property="bgGradientTopContraint" destination="S0f-2t-G5f" id="juZ-Nl-k9A"/>
-                        <outlet property="containerPageView" destination="KG6-HZ-Q2S" id="G0S-tR-RnH"/>
-                        <outlet property="nextPageButton" destination="zdB-Pi-x7B" id="f6K-dQ-b0d"/>
-                        <outlet property="pageControl" destination="njq-Gu-CMd" id="YmI-XG-gW6"/>
-                        <outlet property="previousPageButton" destination="SJc-gn-TBW" id="6Xj-Hx-tLP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HJq-21-s51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Hdg-uz-xgo">
-                    <connections>
-                        <action selector="onTapNext:" destination="ujb-5f-7kw" id="W7h-2W-TZk"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="bGQ-Yo-A3L">
-                    <connections>
-                        <action selector="onTapPrevious:" destination="ujb-5f-7kw" id="YPf-7K-X8D"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="hgc-lS-nfb">
-                    <connections>
-                        <action selector="onTapHome:" destination="ujb-5f-7kw" id="Qxp-9e-lCu"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="100.00000000000001" y="71.651785714285708"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -366,8 +214,6 @@
         <image name="back" width="44" height="44"/>
         <image name="background" width="1024" height="1366"/>
         <image name="bottom" width="190" height="190"/>
-        <image name="pageLeft" width="44" height="44"/>
-        <image name="pageRight" width="44" height="44"/>
         <image name="top" width="253" height="253"/>
     </resources>
 </document>
