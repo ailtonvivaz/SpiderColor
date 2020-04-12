@@ -8,27 +8,24 @@
 
 import UIKit
 
-class Level: Codable {
+class Level {
     let value: Int
-    private let codableColors: [CodableColor]
     let qtyCards: Int
     var completed: Bool = false
     var isAvailable: Bool = false
+    var focused: Bool = false
+    var colors: [UIColor]
 
-    var colors: [UIColor] { codableColors.map { $0.color } }
+    var cards: [Card] {
+        let colors: [UIColor] = self.colors.generateGradient(of: qtyCards)
+        return colors.enumerated().map { Card(value: $0, color: $1) }
+    }
 
     internal init(value: Int, colors: [UIColor], qtyCards: Int, completed: Bool = false, isAvailable: Bool = false) {
         self.value = value
         self.qtyCards = qtyCards
-        self.codableColors = colors.map { CodableColor(color: $0) }
+        self.colors = colors
         self.completed = completed
         self.isAvailable = isAvailable
-    }
-
-    init(value: Int, color: UIColor, angle: Int, qtyCards: Int) {
-        self.value = value
-        self.qtyCards = qtyCards
-        self.codableColors = [color, color.withHueOffset(offset: CGFloat(angle) / 360)].map { CodableColor(color: $0) }
-        self.isAvailable = true
     }
 }

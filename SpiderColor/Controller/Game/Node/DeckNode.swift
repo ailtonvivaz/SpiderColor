@@ -47,7 +47,6 @@ class DeckNode: SKNode {
     }
     
     func drag(to point: CGPoint) {
-        print("drag", self.isDragging)
         if self.isDragging { return }
         self.isDragging = true
         self.originalZPosition = zPosition
@@ -60,14 +59,12 @@ class DeckNode: SKNode {
     }
     
     func drop() {
-        print("drop", self.parentNode != nil, self.offsettedPosition)
         run(.group([
             .scale(to: 1, duration: 0.1),
             .move(to: self.parentNode != nil ? self.offsettedPosition : .zero, duration: 0.1),
         ])) {
             self.zPosition = self.originalZPosition
             self.isDragging = false
-            print(self.position)
         }
     }
     

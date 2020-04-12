@@ -10,7 +10,12 @@ import GameplayKit
 import SpriteKit
 
 protocol GameDelegate {
+    func setResolved(cards: [Card])
     func complete(level: Level)
+}
+
+extension GameDelegate {
+    func setResolved(cards: [Card]) {}
 }
 
 class GameScene: SKScene, SlotNodeDelegate {
@@ -47,13 +52,8 @@ class GameScene: SKScene, SlotNodeDelegate {
         backgroundColor = .clear
         let width = size.width
 
-        var topMargin = self.topMargin + 40
-        let gradientHeight: CGFloat = 40
-        gradientNode = GradientNode(colors: colors, size: CGSize(width: width - 40, height: gradientHeight))
-        addChild(gradientNode)
-        gradientNode.position = CGPoint(x: 20, y: -topMargin)
-        topMargin += gradientHeight + 10
-
+        let topMargin = self.topMargin + 40
+        
         let shuffledCards = cards.shuffled()
 
         let qtyBySlot = shuffledCards.count / 3
@@ -86,6 +86,7 @@ class GameScene: SKScene, SlotNodeDelegate {
     }
 
     override func didMove(to view: SKView) {
+        checkGame()
 //        let backgroundSound = SKAudioNode(fileNamed: "background.wav")
 //        addChild(backgroundSound)
 //        backgroundSound.run(.group([
@@ -99,12 +100,16 @@ class GameScene: SKScene, SlotNodeDelegate {
     }
 
     func checkGame() {
-        if let slot = slotNodes.first(where: { $0.deckSize == level.qtyCards }) {
-            if slot.cards == cards {
-                print("finalizado")
+        if let slotNode = slotNodes.first(where: { $0.deckSize == level.qtyCards }) {
+            if slotNode.cards == cards {
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
                 gameDelegate?.complete(level: level)
             }
         }
+
+        let cardsResolved = slotNodes.map { $0.cardsResolved }.reduce([], +)
+        gameDelegate?.setResolved(cards: cardsResolved)
     }
 
     func update(movement: Movement) {

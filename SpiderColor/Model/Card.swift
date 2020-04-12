@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-struct Card {
+struct Card: Hashable {
     var value: Int
     var color: UIColor
     
     func isNext(of other: Card) -> Bool {
-        value + 1 == other.value
+        other.value + 1 == value
     }
 }
 

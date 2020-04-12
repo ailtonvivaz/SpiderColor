@@ -8,13 +8,17 @@
 
 import UIKit
 
+protocol LevelViewDelegate {
+    func complete(level: Level, completion: @escaping () -> Void)
+}
+
 class LevelViewController: UIViewController {
     //MARK: - Outlets
 
-    @IBOutlet var pageLabel: UILabel!
-    @IBOutlet var previousPageButton: UIImageView!
-    @IBOutlet var nextPageButton: UIImageView!
+    @IBOutlet var backgroundGradientView: GradientView!
+    @IBOutlet var pageControl: PageDotView!
     @IBOutlet var containerPageView: UIView!
+    @IBOutlet var bgGradientTopContraint: NSLayoutConstraint!
 
     //MARK: - Variables
 
@@ -40,10 +44,17 @@ class LevelViewController: UIViewController {
         pageViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         pageViewController.didMove(toParent: self)
 
-        goTo(indexPage: 0)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.goTo(indexPage: GameManager.shared.lastPageCompleted)
+        goTo(indexPage: GameManager.shared.lastPageCompleted)
+
+        let level = GameManager.shared.lastLevelCompleted
+        if level.value > 0 {
+            backgroundGradientView.colors = level.colors
+        } else {
+            backgroundGradientView.backgroundColor = .black
         }
+
+        pageControl.numberOfPages = GameManager.shared.pages
+        pageControl.setInitial(page: GameManager.shared.lastPageCompleted)
     }
 
     override var prefersStatusBarHidden: Bool { true }
@@ -53,19 +64,18 @@ class LevelViewController: UIViewController {
             if let levelPage = page as? LevelPageCollectionViewController {
                 levelPage.revealFirst = revealFirst
             }
+
+            let direction: UIPageViewController.NavigationDirection
+            if view.isRTL {
+                direction = indexPage > self.indexPage ? .reverse : .forward
+            } else {
+                direction = indexPage > self.indexPage ? .forward : .reverse
+            }
+
             if (pageViewController.viewControllers?.first as? LevelPageCollectionViewController)?.page != indexPage {
-                pageViewController.setViewControllers([page], direction: indexPage > self.indexPage ? .forward : .reverse, animated: true, completion: nil)
+                pageViewController.setViewControllers([page], direction: direction, animated: true, completion: nil)
             }
             self.indexPage = indexPage
-            pageLabel.text = String(format: NSLocalizedString("page %d", comment: ""), indexPage + 1)
-
-            UIView.animate(withDuration: 0.2) {
-//                self.previousPageButton.isHidden = self.indexPage == 0
-
-                let last = self.indexPage == self.numberOfPages - 1
-                self.nextPageButton.isUserInteractionEnabled = !last
-                self.nextPageButton.alpha = last ? 0.5 : 1.0
-            }
         }
     }
 
@@ -73,6 +83,7 @@ class LevelViewController: UIViewController {
         let levels = Array(GameManager.shared.levelsFor(page: index))
         let page = LevelPageCollectionViewController(page: index, levels: levels, parent: self)
         page.delegate = self
+        page.levelViewDelegate = self
         return page
     }
 
@@ -86,6 +97,7 @@ class LevelViewController: UIViewController {
         if indexPage > 0 {
             AnalyticsUtils.tapButton("previous_level")
             goTo(indexPage: indexPage - 1)
+            pageControl.previous()
         } else {
             AnalyticsUtils.tapButton("back_home")
             dismiss(animated: true, completion: nil)
@@ -96,6 +108,7 @@ class LevelViewController: UIViewController {
         AnalyticsUtils.tapButton("next_level")
         if indexPage < numberOfPages - 1 {
             goTo(indexPage: indexPage + 1)
+            pageControl.next()
         }
     }
 }
@@ -111,6 +124,11 @@ extension LevelViewController: UIPageViewControllerDelegate {
 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
+            if swipingToPage > indexPage {
+                pageControl.next()
+            } else {
+                pageControl.previous()
+            }
             goTo(indexPage: swipingToPage)
         }
     }
@@ -134,6 +152,41 @@ extension LevelViewController: LevelPageDelegate {
     func nextPage(revealFirst: Bool) {
         if indexPage < numberOfPages - 1 {
             goTo(indexPage: indexPage + 1, revealFirst: revealFirst)
+            pageControl.next()
+        }
+    }
+}
+
+//MARK: - GameDelegate
+
+extension LevelViewController: LevelViewDelegate {
+    func complete(level: Level, completion: @escaping () -> Void) {
+        if level.value - 1 == GameManager.shared.lastValueLevelCompleted {
+            let auxBG = GradientView()
+            auxBG.colors = level.colors
+            auxBG.translatesAutoresizingMaskIntoConstraints = false
+            view.insertSubview(auxBG, aboveSubview: backgroundGradientView)
+
+            NSLayoutConstraint.activate([
+                auxBG.widthAnchor.constraint(equalTo: backgroundGradientView.widthAnchor),
+                auxBG.heightAnchor.constraint(equalTo: backgroundGradientView.heightAnchor),
+                auxBG.centerXAnchor.constraint(equalTo: backgroundGradientView.centerXAnchor),
+                auxBG.topAnchor.constraint(equalTo: backgroundGradientView.bottomAnchor)
+            ])
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                UIView.animate(withDuration: 2.0, animations: {
+                    self.bgGradientTopContraint.constant = -self.backgroundGradientView.frame.height
+                    self.view.layoutIfNeeded()
+                }) { _ in
+                    self.bgGradientTopContraint.constant = 0
+                    self.backgroundGradientView.colors = level.colors
+                    auxBG.removeFromSuperview()
+                    completion()
+                }
+            }
+        } else {
+            completion()
         }
     }
 }
