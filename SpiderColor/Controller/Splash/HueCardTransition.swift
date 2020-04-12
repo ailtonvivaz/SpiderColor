@@ -15,9 +15,7 @@ class HueCardTransition: NSObject {
 //MARK: - UIViewControllerAnimatedTransitioning
 
 extension HueCardTransition: UIViewControllerAnimatedTransitioning {
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        2
-    }
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval { 0 }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
@@ -36,16 +34,15 @@ extension HueCardTransition: UIViewControllerAnimatedTransitioning {
 
         containerView.addSubview(presentedView)
 
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 1.0) {
             maskImageView.alpha = 1
-        }) { _ in
-            UIView.animate(withDuration: 1.5, animations: {
-                self.logoImageView.transform = CGAffineTransform(scaleX: 20, y: 20)
-                maskImageView.transform = CGAffineTransform(scaleX: 20, y: 20)
-            }) { success in
+        }
 
-                transitionContext.completeTransition(success)
-            }
+        UIView.animate(withDuration: 1.5, animations: {
+            self.logoImageView.transform = CGAffineTransform(scaleX: 20, y: 20)
+            maskImageView.transform = CGAffineTransform(scaleX: 20, y: 20)
+        }) { success in
+            transitionContext.completeTransition(success)
         }
     }
 }
