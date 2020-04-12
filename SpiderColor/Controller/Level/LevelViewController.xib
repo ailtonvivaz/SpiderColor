@@ -24,12 +24,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="wFt-D4-V53">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7o-9J-NHA" customClass="GradientView" customModule="hue_card" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80T-uh-6UG">
                     <rect key="frame" x="0.0" y="109" width="414" height="673"/>
@@ -117,16 +114,12 @@
                 <constraint firstItem="Ewj-YB-yx2" firstAttribute="trailing" secondItem="Sjv-uA-4Rc" secondAttribute="trailing" id="Gbf-D9-mXQ"/>
                 <constraint firstItem="toB-6H-MXZ" firstAttribute="leading" secondItem="RRc-RR-uiE" secondAttribute="leading" id="OJe-l1-7CQ"/>
                 <constraint firstItem="toB-6H-MXZ" firstAttribute="top" secondItem="Sjv-uA-4Rc" secondAttribute="top" id="PSv-rP-2ae"/>
-                <constraint firstAttribute="trailing" secondItem="wFt-D4-V53" secondAttribute="trailing" id="ZiG-Gy-VXD"/>
                 <constraint firstItem="80T-uh-6UG" firstAttribute="top" secondItem="toB-6H-MXZ" secondAttribute="bottom" id="ag6-Gy-9yi"/>
                 <constraint firstItem="Sjv-uA-4Rc" firstAttribute="trailing" secondItem="toB-6H-MXZ" secondAttribute="trailing" id="bis-3p-pfO"/>
                 <constraint firstItem="Sjv-uA-4Rc" firstAttribute="trailing" secondItem="80T-uh-6UG" secondAttribute="trailing" id="bjI-sG-70E"/>
-                <constraint firstAttribute="bottom" secondItem="wFt-D4-V53" secondAttribute="bottom" id="cOn-Wi-eZY"/>
-                <constraint firstItem="wFt-D4-V53" firstAttribute="top" secondItem="RRc-RR-uiE" secondAttribute="top" id="dHP-Qc-mkw"/>
                 <constraint firstItem="d7o-9J-NHA" firstAttribute="leading" secondItem="RRc-RR-uiE" secondAttribute="leading" id="eSK-k3-K19"/>
                 <constraint firstItem="Ewj-YB-yx2" firstAttribute="top" secondItem="80T-uh-6UG" secondAttribute="bottom" id="hvr-NS-FuF"/>
                 <constraint firstItem="d7o-9J-NHA" firstAttribute="top" secondItem="RRc-RR-uiE" secondAttribute="top" id="nZC-qc-jeV"/>
-                <constraint firstItem="wFt-D4-V53" firstAttribute="leading" secondItem="RRc-RR-uiE" secondAttribute="leading" id="p2h-Vs-Vzy"/>
                 <constraint firstItem="d7o-9J-NHA" firstAttribute="trailing" secondItem="RRc-RR-uiE" secondAttribute="trailing" id="tdi-io-aKr"/>
                 <constraint firstItem="Ewj-YB-yx2" firstAttribute="leading" secondItem="Sjv-uA-4Rc" secondAttribute="leading" id="uco-7x-D9S"/>
                 <constraint firstItem="d7o-9J-NHA" firstAttribute="height" secondItem="RRc-RR-uiE" secondAttribute="height" id="yne-Qe-vPJ"/>
@@ -136,7 +129,6 @@
         </view>
     </objects>
     <resources>
-        <image name="background" width="1024" height="1366"/>
         <image name="pageLeft" width="44" height="44"/>
         <image name="pageRight" width="44" height="44"/>
     </resources>

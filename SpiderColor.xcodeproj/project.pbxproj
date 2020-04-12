@@ -49,6 +49,7 @@
 		5EC839572442A84300FCA222 /* HueCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC839562442A84300FCA222 /* HueCardTransition.swift */; };
 		5EC839592442B6F300FCA222 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */; };
 		5EC8395B2442BEB600FCA222 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8395A2442BEB600FCA222 /* GameViewController.xib */; };
+		5EC8395E2442C50900FCA222 /* FlipTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8395D2442C50900FCA222 /* FlipTransition.swift */; };
 		5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */; };
 		5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */; };
 		5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EF2420325B0097D550 /* UIView+Extension.swift */; };
@@ -111,6 +112,7 @@
 		5EC839562442A84300FCA222 /* HueCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueCardTransition.swift; sourceTree = "<group>"; };
 		5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		5EC8395A2442BEB600FCA222 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		5EC8395D2442C50900FCA222 /* FlipTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTransition.swift; sourceTree = "<group>"; };
 		5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		5EE913EF2420325B0097D550 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				5E44B11924101868001A7D82 /* Info.plist */,
 				5E2962E32423C66F0066D374 /* GoogleService-Info.plist */,
 				5E2962E82423D3690066D374 /* Localizable.strings */,
+				5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -187,7 +190,7 @@
 				5EE913F1242034000097D550 /* View */,
 				5EB118E3241B410100112FCD /* Assets */,
 				5E44B12924102F75001A7D82 /* Extension */,
-				5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */,
+				5EC8395C2442C4EE00FCA222 /* Transition */,
 			);
 			path = SpiderColor;
 			sourceTree = "<group>";
@@ -260,9 +263,17 @@
 			children = (
 				5EC8394E2442A46200FCA222 /* SplashViewController.swift */,
 				5EC8394F2442A46200FCA222 /* SplashViewController.xib */,
-				5EC839562442A84300FCA222 /* HueCardTransition.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		5EC8395C2442C4EE00FCA222 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				5EC839562442A84300FCA222 /* HueCardTransition.swift */,
+				5EC8395D2442C50900FCA222 /* FlipTransition.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		5EE913EA242031810097D550 /* Cell */ = {
@@ -510,6 +521,7 @@
 				5EBF39E0243100300074916E /* ClassicLevelManager.swift in Sources */,
 				5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */,
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,
+				5EC8395E2442C50900FCA222 /* FlipTransition.swift in Sources */,
 				5E44B12124101DB3001A7D82 /* CardNode.swift in Sources */,
 				5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */,
 				5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */,

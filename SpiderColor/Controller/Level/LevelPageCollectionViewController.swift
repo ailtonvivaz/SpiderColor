@@ -98,9 +98,10 @@ class LevelPageCollectionViewController: UICollectionViewController {
             let vc = GameViewController.loadFromNib()
             vc.level = level
             vc.gameDelegate = self
+//            vc.transitioningDelegate = self
 
             vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .flipHorizontal
+            vc.modalTransitionStyle = .crossDissolve
             parentVC.present(vc, animated: true, completion: nil)
         }
     }
@@ -114,7 +115,7 @@ extension LevelPageCollectionViewController: GameDelegate {
             let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! LevelCardCollectionViewCell
 
             cell.complete()
-            
+
             let reveal = {
                 if index < self.levels.count - 1 {
                     let nextCell = self.collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
@@ -125,7 +126,7 @@ extension LevelPageCollectionViewController: GameDelegate {
 
                 GameManager.shared.complete(level: level)
             }
-            
+
             if let levelViewDelegate = levelViewDelegate {
                 levelViewDelegate.complete(level: level, completion: reveal)
             } else {
@@ -134,3 +135,23 @@ extension LevelPageCollectionViewController: GameDelegate {
         }
     }
 }
+
+//extension LevelPageCollectionViewController: UIViewControllerTransitioningDelegate {
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return FlipTransition(transitionType: .presenting)
+//    }
+//
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return FlipTransition(transitionType: .dismissing)
+//    }
+//
+//    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+//        return PresentationController(presentedViewController: presented, presenting: presenting)
+//    }
+//
+//
+//}
+//
+//class PresentationController: UIPresentationController {
+//    override var shouldRemovePresentersView: Bool { return true }
+//}

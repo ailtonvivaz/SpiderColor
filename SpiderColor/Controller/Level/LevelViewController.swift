@@ -66,24 +66,20 @@ class LevelViewController: UIViewController {
             if let levelPage = page as? LevelPageCollectionViewController {
                 levelPage.revealFirst = revealFirst
             }
-            
+
             let direction: UIPageViewController.NavigationDirection
             if view.isRTL {
-                  direction = indexPage > self.indexPage ? .reverse : .forward
+                direction = indexPage > self.indexPage ? .reverse : .forward
             } else {
                 direction = indexPage > self.indexPage ? .forward : .reverse
             }
-                
-            
+
             if (pageViewController.viewControllers?.first as? LevelPageCollectionViewController)?.page != indexPage {
                 pageViewController.setViewControllers([page], direction: direction, animated: true, completion: nil)
             }
             self.indexPage = indexPage
-//            pageLabel.text = String(format: NSLocalizedString("page %d", comment: ""), indexPage + 1)
 
             UIView.animate(withDuration: 0.2) {
-//                self.previousPageButton.isHidden = self.indexPage == 0
-
                 let last = self.indexPage == self.numberOfPages - 1
                 self.nextPageButton.isUserInteractionEnabled = !last
                 self.nextPageButton.alpha = last ? 0.5 : 1.0
