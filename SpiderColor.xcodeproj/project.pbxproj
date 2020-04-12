@@ -41,6 +41,16 @@
 		5EBF39DC2430FCF90074916E /* BInaryInteger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */; };
 		5EBF39DE2430FFF30074916E /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39DD2430FFF30074916E /* LevelManager.swift */; };
 		5EBF39E0243100300074916E /* ClassicLevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF39DF243100300074916E /* ClassicLevelManager.swift */; };
+		5EC839452441375A00FCA222 /* SpectrumGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC839442441375A00FCA222 /* SpectrumGradientView.swift */; };
+		5EC8394C2442258100FCA222 /* PageDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8394B2442258100FCA222 /* PageDotView.swift */; };
+		5EC839502442A46200FCA222 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8394E2442A46200FCA222 /* SplashViewController.swift */; };
+		5EC839512442A46200FCA222 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8394F2442A46200FCA222 /* SplashViewController.xib */; };
+		5EC839552442A5B700FCA222 /* LevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC839542442A5B700FCA222 /* LevelViewController.xib */; };
+		5EC839572442A84300FCA222 /* HueCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC839562442A84300FCA222 /* HueCardTransition.swift */; };
+		5EC839592442B6F300FCA222 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */; };
+		5EC8395B2442BEB600FCA222 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8395A2442BEB600FCA222 /* GameViewController.xib */; };
+		5EC8395E2442C50900FCA222 /* FlipTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8395D2442C50900FCA222 /* FlipTransition.swift */; };
+		5EC839602442D9AD00FCA222 /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8395F2442D9AD00FCA222 /* SeededGenerator.swift */; };
 		5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */; };
 		5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */; };
 		5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EF2420325B0097D550 /* UIView+Extension.swift */; };
@@ -50,6 +60,7 @@
 		5EE913FE2420544D0097D550 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913FD2420544D0097D550 /* UICollectionView+Extension.swift */; };
 		5EE91401242061B90097D550 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91400242061B90097D550 /* HomeViewController.swift */; };
 		5EF196E524195D32003CD4DB /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */; };
+		A5F358812437C9920056D8AB /* Kerning+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F358802437C9920056D8AB /* Kerning+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +92,7 @@
 		5E66CEC92423122800CA11E6 /* LevelSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoonViewController.swift; sourceTree = "<group>"; };
 		5E66CECD2423125E00CA11E6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5E66CECF24231AAB00CA11E6 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
-		5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E66CED72423216100CA11E6 /* AnalyticsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsUtils.swift; sourceTree = "<group>"; };
 		5E66CED92423257000CA11E6 /* DispatchTime+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extension.swift"; sourceTree = "<group>"; };
 		5E66CEDD24232CC700CA11E6 /* Ads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ads.swift; sourceTree = "<group>"; };
@@ -94,6 +105,16 @@
 		5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BInaryInteger+Extension.swift"; sourceTree = "<group>"; };
 		5EBF39DD2430FFF30074916E /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		5EBF39DF243100300074916E /* ClassicLevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicLevelManager.swift; sourceTree = "<group>"; };
+		5EC839442441375A00FCA222 /* SpectrumGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumGradientView.swift; sourceTree = "<group>"; };
+		5EC8394B2442258100FCA222 /* PageDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDotView.swift; sourceTree = "<group>"; };
+		5EC8394E2442A46200FCA222 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		5EC8394F2442A46200FCA222 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		5EC839542442A5B700FCA222 /* LevelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelViewController.xib; sourceTree = "<group>"; };
+		5EC839562442A84300FCA222 /* HueCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueCardTransition.swift; sourceTree = "<group>"; };
+		5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		5EC8395A2442BEB600FCA222 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		5EC8395D2442C50900FCA222 /* FlipTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTransition.swift; sourceTree = "<group>"; };
+		5EC8395F2442D9AD00FCA222 /* SeededGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededGenerator.swift; sourceTree = "<group>"; };
 		5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		5EE913EF2420325B0097D550 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -104,6 +125,7 @@
 		5EE91400242061B90097D550 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5EF196E424195D32003CD4DB /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		6E1DF8BBB53AE62A09C2FF8A /* Pods_SpiderColor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpiderColor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F358802437C9920056D8AB /* Kerning+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kerning+Extension.swift"; sourceTree = "<group>"; };
 		CC2B0217D957D9487A467D03 /* Pods-SpiderColor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpiderColor.debug.xcconfig"; path = "Target Support Files/Pods-SpiderColor/Pods-SpiderColor.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +160,7 @@
 				5E44B11924101868001A7D82 /* Info.plist */,
 				5E2962E32423C66F0066D374 /* GoogleService-Info.plist */,
 				5E2962E82423D3690066D374 /* Localizable.strings */,
+				5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -169,7 +192,7 @@
 				5EE913F1242034000097D550 /* View */,
 				5EB118E3241B410100112FCD /* Assets */,
 				5E44B12924102F75001A7D82 /* Extension */,
-				5E66CED5242320F200CA11E6 /* GoogleService-Info.plist */,
+				5EC8395C2442C4EE00FCA222 /* Transition */,
 			);
 			path = SpiderColor;
 			sourceTree = "<group>";
@@ -198,6 +221,7 @@
 				5E66CED72423216100CA11E6 /* AnalyticsUtils.swift */,
 				5E66CEDD24232CC700CA11E6 /* Ads.swift */,
 				5EA5D7C5242C70A3009755BB /* LevelData.swift */,
+				5EC8395F2442D9AD00FCA222 /* SeededGenerator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,6 +237,8 @@
 				5E66CED92423257000CA11E6 /* DispatchTime+Extension.swift */,
 				5EBF39B7242EEEFC0074916E /* MathUtils.swift */,
 				5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */,
+				A5F358802437C9920056D8AB /* Kerning+Extension.swift */,
+				5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -235,6 +261,24 @@
 			path = LevelManager;
 			sourceTree = "<group>";
 		};
+		5EC8394D2442A44B00FCA222 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				5EC8394E2442A46200FCA222 /* SplashViewController.swift */,
+				5EC8394F2442A46200FCA222 /* SplashViewController.xib */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		5EC8395C2442C4EE00FCA222 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				5EC839562442A84300FCA222 /* HueCardTransition.swift */,
+				5EC8395D2442C50900FCA222 /* FlipTransition.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
 		5EE913EA242031810097D550 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +293,8 @@
 			children = (
 				5EE913F2242034120097D550 /* DesignableViews.swift */,
 				5EE913F62420534F0097D550 /* GradientView.swift */,
+				5EC839442441375A00FCA222 /* SpectrumGradientView.swift */,
+				5EC8394B2442258100FCA222 /* PageDotView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +302,7 @@
 		5EE913F8242053DE0097D550 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5EC8394D2442A44B00FCA222 /* Splash */,
 				5EE913FF242055DB0097D550 /* Game */,
 				5EE913FA242053ED0097D550 /* Level */,
 				5EE913F9242053E60097D550 /* Home */,
@@ -276,6 +323,7 @@
 			children = (
 				5EE913EA242031810097D550 /* Cell */,
 				5EE913FB242053FC0097D550 /* LevelViewController.swift */,
+				5EC839542442A5B700FCA222 /* LevelViewController.xib */,
 				5E66CEC52423049800CA11E6 /* LevelPageCollectionViewController.swift */,
 				5E66CEC92423122800CA11E6 /* LevelSoonViewController.swift */,
 				5E2962EC2423D4C30066D374 /* LevelSoonViewController.xib */,
@@ -289,6 +337,7 @@
 				5E44B11F24101D64001A7D82 /* Node */,
 				5E44B10D24101867001A7D82 /* GameScene.swift */,
 				5E44B10F24101867001A7D82 /* GameViewController.swift */,
+				5EC8395A2442BEB600FCA222 /* GameViewController.xib */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -363,9 +412,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC839552442A5B700FCA222 /* LevelViewController.xib in Resources */,
+				5EC8395B2442BEB600FCA222 /* GameViewController.xib in Resources */,
 				5E44B11324101867001A7D82 /* Main.storyboard in Resources */,
 				5E66CED6242320F200CA11E6 /* GoogleService-Info.plist in Resources */,
 				5E2962EA2423D4C30066D374 /* LevelSoonViewController.xib in Resources */,
+				5EC839512442A46200FCA222 /* SplashViewController.xib in Resources */,
 				5E25917D2421AC6600F5965C /* DIN Alternate Regular.otf in Resources */,
 				5E2962E62423D3690066D374 /* Localizable.strings in Resources */,
 				5E44B11524101868001A7D82 /* Assets.xcassets in Resources */,
@@ -443,17 +495,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC839452441375A00FCA222 /* SpectrumGradientView.swift in Sources */,
 				5EBF39DE2430FFF30074916E /* LevelManager.swift in Sources */,
 				5E66CEDE24232CC700CA11E6 /* Ads.swift in Sources */,
 				5E2591812421ADE800F5965C /* GameManager.swift in Sources */,
+				5EC839502442A46200FCA222 /* SplashViewController.swift in Sources */,
 				5EA5D7C6242C70A3009755BB /* LevelData.swift in Sources */,
 				5EE913FE2420544D0097D550 /* UICollectionView+Extension.swift in Sources */,
 				5E44B1282410256C001A7D82 /* Deck.swift in Sources */,
 				5EE91401242061B90097D550 /* HomeViewController.swift in Sources */,
+				5EC8394C2442258100FCA222 /* PageDotView.swift in Sources */,
 				5E66CEC72423049800CA11E6 /* LevelPageCollectionViewController.swift in Sources */,
 				5EE913FC242053FC0097D550 /* LevelViewController.swift in Sources */,
 				5E44B10E24101867001A7D82 /* GameScene.swift in Sources */,
+				5EC839572442A84300FCA222 /* HueCardTransition.swift in Sources */,
 				5EBF39DC2430FCF90074916E /* BInaryInteger+Extension.swift in Sources */,
+				5EC839592442B6F300FCA222 /* UIImageView+Extension.swift in Sources */,
 				5EBF39B8242EEEFC0074916E /* MathUtils.swift in Sources */,
 				5E44B12624102549001A7D82 /* Card.swift in Sources */,
 				5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */,
@@ -464,13 +521,16 @@
 				5E66CECE2423125E00CA11E6 /* UIViewController+Extension.swift in Sources */,
 				5E66CEDA2423257000CA11E6 /* DispatchTime+Extension.swift in Sources */,
 				5EE913F72420534F0097D550 /* GradientView.swift in Sources */,
+				5EC839602442D9AD00FCA222 /* SeededGenerator.swift in Sources */,
 				5EBF39E0243100300074916E /* ClassicLevelManager.swift in Sources */,
 				5E44B10824101867001A7D82 /* AppDelegate.swift in Sources */,
 				5E44B12424102533001A7D82 /* DeckNode.swift in Sources */,
+				5EC8395E2442C50900FCA222 /* FlipTransition.swift in Sources */,
 				5E44B12124101DB3001A7D82 /* CardNode.swift in Sources */,
 				5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */,
 				5E171E2624116BE600BA5289 /* UIColor+Extension.swift in Sources */,
 				5EB118E2241B3D6800112FCD /* Movement.swift in Sources */,
+				A5F358812437C9920056D8AB /* Kerning+Extension.swift in Sources */,
 				5EF196E524195D32003CD4DB /* CGPoint+Extension.swift in Sources */,
 				5E6B960F24181F0E008F2D57 /* SlotNode.swift in Sources */,
 				5E66CECB2423122800CA11E6 /* LevelSoonViewController.swift in Sources */,

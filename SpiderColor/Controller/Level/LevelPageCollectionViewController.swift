@@ -18,6 +18,7 @@ class LevelPageCollectionViewController: UICollectionViewController {
     private let levels: [Level]
     private let parentVC: UIViewController
     var delegate: LevelPageDelegate?
+    var levelViewDelegate: LevelViewDelegate?
     var revealFirst: Bool = false
 
     //MARK: - Collection View variables
@@ -57,7 +58,6 @@ class LevelPageCollectionViewController: UICollectionViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if self.revealFirst, let firstCell = self.collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? LevelCardCollectionViewCell {
                 firstCell.reveal()
-                print("reveal")
             }
         }
     }
@@ -95,12 +95,13 @@ class LevelPageCollectionViewController: UICollectionViewController {
         let level = levels[indexPath.row]
 
         if level.isAvailable {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
+            let vc = GameViewController.loadFromNib()
             vc.level = level
             vc.gameDelegate = self
+//            vc.transitioningDelegate = self
 
             vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .flipHorizontal
+            vc.modalTransitionStyle = .crossDissolve
             parentVC.present(vc, animated: true, completion: nil)
         }
     }
@@ -112,16 +113,45 @@ extension LevelPageCollectionViewController: GameDelegate {
     func complete(level: Level) {
         if let index = levels.firstIndex(where: { level.value == $0.value }) {
             let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! LevelCardCollectionViewCell
+
             cell.complete()
 
-            if index < levels.count - 1 {
-                let nextCell = collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
-                nextCell.reveal {}
-            } else {
-                delegate?.nextPage(revealFirst: true)
+            let reveal = {
+                if index < self.levels.count - 1 {
+                    let nextCell = self.collectionView.cellForItem(at: IndexPath(item: index + 1, section: 0)) as! LevelCardCollectionViewCell
+                    nextCell.reveal()
+                } else {
+                    self.delegate?.nextPage(revealFirst: true)
+                }
+
+                GameManager.shared.complete(level: level)
             }
 
-            GameManager.shared.complete(level: level)
+            if let levelViewDelegate = levelViewDelegate {
+                levelViewDelegate.complete(level: level, completion: reveal)
+            } else {
+                reveal()
+            }
         }
     }
 }
+
+//extension LevelPageCollectionViewController: UIViewControllerTransitioningDelegate {
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return FlipTransition(transitionType: .presenting)
+//    }
+//
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return FlipTransition(transitionType: .dismissing)
+//    }
+//
+//    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+//        return PresentationController(presentedViewController: presented, presenting: presenting)
+//    }
+//
+//
+//}
+//
+//class PresentationController: UIPresentationController {
+//    override var shouldRemovePresentersView: Bool { return true }
+//}

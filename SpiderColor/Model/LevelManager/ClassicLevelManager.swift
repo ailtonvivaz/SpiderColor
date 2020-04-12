@@ -9,19 +9,18 @@
 import UIKit
 
 class ClassicLevelManager: LevelManager {
-    
     private struct RGB {
         var r: Int
         var g: Int
         var b: Int
     }
-    
+
     func getLevel(_ level: Int) -> Level {
         let colors = [getColor(of: level), getColor(of: level + 1)]
 
         return Level(value: level, colors: colors, qtyCards: getQtyFor(level: level))
     }
-    
+
     private func getQtyFor(level: Int) -> Int {
         var level = level
         var qty = 5
@@ -29,7 +28,6 @@ class ClassicLevelManager: LevelManager {
         var i = 0
         while true {
             level -= 3 * (i + 1)
-            print(level)
             if level <= 0 || qty == 27 { break }
             i += 1
             qty += 2
@@ -46,11 +44,9 @@ class ClassicLevelManager: LevelManager {
     private func powerBit(of value: Int) -> Int { value | 0x80 }
 
     private func getColor(of level: Int) -> UIColor {
-        if level == 1 {
-            return .black
-        }
-        
-        let level = level - 1        
+        if level == 1 { return .black }
+
+        let level = level - 1
         let mod = level % 6
         let rgb: RGB
 
@@ -71,7 +67,6 @@ class ClassicLevelManager: LevelManager {
                 rgb = RGB(r: 0, g: 0, b: 0)
         }
 
-        print("level", level, rgb)
         return UIColor(red: rgb.r, green: rgb.g, blue: rgb.b)
     }
 }

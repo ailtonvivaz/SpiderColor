@@ -14,6 +14,7 @@ import UIKit
 class GameViewController: UIViewController {
     @IBOutlet var sceneView: SKView!
     @IBOutlet var topView: UIView!
+    @IBOutlet var spectrumGradientView: SpectrumGradientView!
     @IBOutlet var bannerView: GADBannerView!
 
     var interstitial: GADInterstitial!
@@ -28,6 +29,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        spectrumGradientView.set(level: level)
+
         scene = GameScene(level: level, size: view.frame.size, top: topView.frame.maxY, bottom: view.safeAreaInsets.bottom)
         scene.scaleMode = .resizeFill
         scene.gameDelegate = self
@@ -35,12 +38,10 @@ class GameViewController: UIViewController {
         // Present the scene
         sceneView.presentScene(scene)
         sceneView.allowsTransparency = true
-//        sceneView.showsFPS = true
-//        sceneView.showsNodeCount = true
 
         AnalyticsUtils.startLevel(level.value)
 
-        // add notification observers
+        // Add notification observers
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
 
@@ -94,10 +95,14 @@ class GameViewController: UIViewController {
 //MARK: - GameDelegate
 
 extension GameViewController: GameDelegate {
+    func setResolved(cards: [Card]) {
+        spectrumGradientView.setCompleted(cards: cards)
+    }
+
     func complete(level: Level) {
         let time = elapsedTime + (DispatchTime.nowInSeconds - startTime)
         AnalyticsUtils.endLevel(level.value, time: time)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.finish()
         }
     }

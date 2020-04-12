@@ -18,9 +18,16 @@ class GradientView: UIView {
     open override class var layerClass: AnyClass {
         return CAGradientLayer.classForCoder()
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func layoutSubviews() {
         update()
     }
 
