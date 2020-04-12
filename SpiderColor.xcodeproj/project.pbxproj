@@ -46,6 +46,8 @@
 		5EC839502442A46200FCA222 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8394E2442A46200FCA222 /* SplashViewController.swift */; };
 		5EC839512442A46200FCA222 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8394F2442A46200FCA222 /* SplashViewController.xib */; };
 		5EC839552442A5B700FCA222 /* LevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC839542442A5B700FCA222 /* LevelViewController.xib */; };
+		5EC839572442A84300FCA222 /* HueCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC839562442A84300FCA222 /* HueCardTransition.swift */; };
+		5EC839592442B6F300FCA222 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */; };
 		5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */; };
 		5EE913EE242031C10097D550 /* LevelCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */; };
 		5EE913F02420325B0097D550 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE913EF2420325B0097D550 /* UIView+Extension.swift */; };
@@ -105,6 +107,8 @@
 		5EC8394E2442A46200FCA222 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		5EC8394F2442A46200FCA222 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		5EC839542442A5B700FCA222 /* LevelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelViewController.xib; sourceTree = "<group>"; };
+		5EC839562442A84300FCA222 /* HueCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueCardTransition.swift; sourceTree = "<group>"; };
+		5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		5EE913EB242031C10097D550 /* LevelCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EE913EC242031C10097D550 /* LevelCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		5EE913EF2420325B0097D550 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				5EBF39B7242EEEFC0074916E /* MathUtils.swift */,
 				5EBF39DB2430FCF80074916E /* BInaryInteger+Extension.swift */,
 				A5F358802437C9920056D8AB /* Kerning+Extension.swift */,
+				5EC839582442B6F300FCA222 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 			children = (
 				5EC8394E2442A46200FCA222 /* SplashViewController.swift */,
 				5EC8394F2442A46200FCA222 /* SplashViewController.xib */,
+				5EC839562442A84300FCA222 /* HueCardTransition.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -484,7 +490,9 @@
 				5E66CEC72423049800CA11E6 /* LevelPageCollectionViewController.swift in Sources */,
 				5EE913FC242053FC0097D550 /* LevelViewController.swift in Sources */,
 				5E44B10E24101867001A7D82 /* GameScene.swift in Sources */,
+				5EC839572442A84300FCA222 /* HueCardTransition.swift in Sources */,
 				5EBF39DC2430FCF90074916E /* BInaryInteger+Extension.swift in Sources */,
+				5EC839592442B6F300FCA222 /* UIImageView+Extension.swift in Sources */,
 				5EBF39B8242EEEFC0074916E /* MathUtils.swift in Sources */,
 				5E44B12624102549001A7D82 /* Card.swift in Sources */,
 				5EE913ED242031C10097D550 /* LevelCardCollectionViewCell.swift in Sources */,

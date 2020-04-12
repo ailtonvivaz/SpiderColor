@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashViewController" customModule="hue_card" customModuleProvider="target">
             <connections>
+                <outlet property="logoImageView" destination="N4K-lk-wDA" id="eoW-d9-eCB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
